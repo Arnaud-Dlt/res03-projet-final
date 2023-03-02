@@ -2,4 +2,6 @@
 
 Projet Final RES03 3WA
 
-Site Officiel Club de foot US Sainte-Marie.
+Official website of football club US Sainte-Marie.
+
+Site permettant de voir toutes les informations du club (actualités, équipes, championnats, événements, boutique, convocations(pour les joueurs/coach)).
