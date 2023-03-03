@@ -7,6 +7,7 @@ ROUTES VISITEURS
 /le-club/histoire
 /le-club/organigramme
 /le-club/infrastructure
+/le-club/partenaires
 
 /News
 
@@ -22,7 +23,7 @@ ROUTES VISITEURS
 /galerie/album
 
 /events
-/events/couscous
+/events/repas
 /events/fete-du-pont
 
 (/boutique)
