@@ -7,6 +7,6 @@
 
 -ArticleController (pour news?)
 
--ImageController
+-MediaController
 
 -AdminController

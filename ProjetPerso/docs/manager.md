@@ -1,9 +1,10 @@
 
 -PlayersManager
     -getall
-    -getbyname
-    -getbyposte
-    -getbypiedfort
+    -getbyfirstname
+    -getbylastname
+    -getbyposition
+    -getbyfoot
 
 -StaffManager
     -getall
@@ -13,10 +14,10 @@
 -TeamManager
     -getall
     -getbyname
-    -getbydivision
+    -getbychampionship
 
 -ArticleManager (pour news?)
 
--ImageManager
+-MediaManager
 
 -AdminManager

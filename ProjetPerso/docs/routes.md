@@ -38,6 +38,14 @@ admin/joueurs/ajouter
 admin/joueurs/supprimer
 admin/joueurs/modifier
 
+admin/category/ajouter
+admin/category/supprimer
+admin/category/modifier
+
+admin/equipe/ajouter
+admin/equipe/supprimer
+admin/equipe/modifier
+
 admin/staff/ajouter
 admin/staff/supprimer
 admin/staff/modifier
