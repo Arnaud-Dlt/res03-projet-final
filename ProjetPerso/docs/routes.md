@@ -12,12 +12,12 @@ ROUTES VISITEURS
 /News
 
 /equipes
-/equipes/equipeA
-/equipes/equipe../effectif
-/equipes/equipe../effectif/fiche/joueurId           //TeamController ? ... PlayersController ? 
-/equipes/equipe../classement
-/equipes/equipe../resultats
-/equipes/equipe../agenda
+/equipes/category/equipeA
+/equipes/category/equipe../effectif
+/equipes/category/equipe../effectif/fiche/joueurId           //TeamController ? ... PlayersController ? 
+/equipes/category/equipe../classement
+/equipes/category/equipe../resultats
+/equipes/category/equipe../agenda
 
 /galerie                            // ImageController
 /galerie/album
@@ -41,6 +41,10 @@ admin/joueurs/modifier
 admin/staff/ajouter
 admin/staff/supprimer
 admin/staff/modifier
+
+admin/posts/ajouter
+admin/posts/supprimer
+admin/posts/modifier
 
 admin/equipes
 admin/equipes/equipeA.B/convocations
