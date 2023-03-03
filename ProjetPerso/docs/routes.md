@@ -1,4 +1,5 @@
 ROUTES VISITEURS
+
 /accueil
 
 /le-club
@@ -7,22 +8,39 @@ ROUTES VISITEURS
 /le-club/organigramme
 /le-club/infrastructure
 
+/News
+
 /equipes
 /equipes/equipeA
-/equipes/equipeA/effectif
-/equipes/equipeA/effectif/fiche/joueurId
-/equipes/equipeA/classement
-/equipes/equipeA/resultats
-/equipes/equipeA/agenda
+/equipes/equipe../effectif
+/equipes/equipe../effectif/fiche/joueurId           //TeamController ? ... PlayersController ? 
+/equipes/equipe../classement
+/equipes/equipe../resultats
+/equipes/equipe../agenda
 
-/galerie
+/galerie                            // ImageController
+/galerie/album
 
 /events
-/event/couscous
-/event/fete-du-pont
+/events/couscous
+/events/fete-du-pont
+
+(/boutique)
 
 /contact
 
+/login
 
-ROUTES ADMIN
+ROUTES ADMIN            // AdminController
+
+admin/joueurs/ajouter
+admin/joueurs/supprimer
+admin/joueurs/modifier
+
+admin/staff/ajouter
+admin/staff/supprimer
+admin/staff/modifier
+
+admin/equipes
+admin/equipes/equipeA.B/convocations
 
