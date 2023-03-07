@@ -5,7 +5,7 @@
 
 -TeamController
 
--ArticleController (pour news?)
+-ArticleController
 
 -MediaController
 

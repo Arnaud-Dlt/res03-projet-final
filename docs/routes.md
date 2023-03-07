@@ -11,10 +11,9 @@ ROUTES VISITEURS
 /news/newId
 
 /equipes
-/equipes/:category/:equipe
-/equipes/:category/:equipe../effectif
-/equipes/:category/:equipe../effectif/fiche/:joueur
-/equipes/:category/:equipe../saison/classement
+/equipes/:equipe../effectif
+/equipes/:equipe../effectif/fiche/:joueur
+/equipes/:equipe../résumé-saison
 
 /galerie                            
 /galerie/:album
