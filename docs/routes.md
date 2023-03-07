@@ -3,25 +3,21 @@ ROUTES VISITEURS
 /accueil
 
 /le-club
-/le-club/palmares
 /le-club/histoire
 /le-club/organigramme
 /le-club/infrastructure
-/le-club/partenaires
 
 /news
 /news/newId
 
 /equipes
-/equipes/category/equipeA
-/equipes/category/equipe../effectif
-/equipes/category/equipe../effectif/fiche/joueurId            
-/equipes/category/equipe../classement
-/equipes/category/equipe../resultats
-/equipes/category/equipe../agenda
+/equipes/:category/:equipe
+/equipes/:category/:equipe../effectif
+/equipes/:category/:equipe../effectif/fiche/:joueur
+/equipes/:category/:equipe../saison/classement
 
 /galerie                            
-/galerie/album
+/galerie/:album
 
 /events
 /events/repas
