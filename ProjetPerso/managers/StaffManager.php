@@ -1,8 +1,5 @@
 <?php
 
-// require 'managers/AbstractManager.php';
-require 'models/Staff.php';
-
 class StaffManager extends AbstractManager{
     
     public function getAllStaff() : array
@@ -18,6 +15,7 @@ class StaffManager extends AbstractManager{
         }
         return $tabStaff;
     }
+    
     public function getStaffById(int $id) : Staff
     {
         $query=$this->db->prepare("SELECT * FROM staff WHERE id= :id");
@@ -28,6 +26,7 @@ class StaffManager extends AbstractManager{
     
         return $newStaff;
     }
+    
     public function getStaffByRole(string $role) : Staff
     {
         $query=$this->db->prepare("SELECT * FROM staff WHERE role= :role");
@@ -38,6 +37,7 @@ class StaffManager extends AbstractManager{
     
         return $newStaff;
     }
+    
     public function getStaffByFullname(string $name) : Staff
     {
         $query=$this->db->prepare("SELECT * FROM staff WHERE firstname= :firstname, lastname=:lastname");
@@ -48,6 +48,7 @@ class StaffManager extends AbstractManager{
     
         return $newStaff;
     }
+    
     public function insertStaff(Staff $staff) : Staff
     {
         $query=$this->db->prepare("INSERT INTO staff VALUES (null, :firstname, :lastname, :phone, :role)");
@@ -63,6 +64,7 @@ class StaffManager extends AbstractManager{
     
         return $Staff;
     }
+    
     public function editStaff(Staff $staff) : void
     {
         $query=$this->db->prepare("UPDATE staff SET firstname = :firstname, lastname=:lastname, phone=:phone, role=:role");

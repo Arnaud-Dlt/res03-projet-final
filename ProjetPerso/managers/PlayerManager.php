@@ -1,8 +1,5 @@
 <?php
 
-// require 'managers/AbstractManager.php';
-require 'models/Player.php';
-
 class PlayerManager extends AbstractManager{
     
     public function getAllPlayers() : array
@@ -18,6 +15,7 @@ class PlayerManager extends AbstractManager{
         }
         return $tabPlayers;
     }
+    
     public function getPlayerById(int $id) : Player
     {
         $query=$this->db->prepare("SELECT * FROM players WHERE id= :id");
@@ -28,6 +26,7 @@ class PlayerManager extends AbstractManager{
     
         return $newPlayer;
     }
+    
     public function getPlayerByPosition(string $position) : Player
     {
         $query=$this->db->prepare("SELECT * FROM players WHERE position= :position");
@@ -38,6 +37,7 @@ class PlayerManager extends AbstractManager{
     
         return $newPlayer;
     }
+    
     public function getPlayerByFoot(string $foot) : Player
     {
         $query=$this->db->prepare("SELECT * FROM players WHERE foot= :foot");
@@ -48,6 +48,7 @@ class PlayerManager extends AbstractManager{
     
         return $newPlayer;
     }
+    
     public function insertPlayer(Player $player) : Player
     {
         $query=$this->db->prepare("INSERT INTO players VALUES (null, :firstname, :lastname, :phone, :birthdate,:position,:foot,:bio,:profilImg)");
@@ -67,6 +68,7 @@ class PlayerManager extends AbstractManager{
     
         return $player;
     }
+    
     public function editPlayer(Player $player) : void
     {
         $query=$this->db->prepare("UPDATE players SET firstname = :firstname, lastname=:lastname, phone=:phone, birthdate=:birthdate, position=:position, foot=:foot, bio=:bio, profilImg=:profilImg WHERE players.id=:id");
