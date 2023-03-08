@@ -2,11 +2,17 @@
 
 abstract class AbstractController{
     
-    public function render(string $view, array $values) : void
+    public function publicRender(string $view, array $values) : void
     {
         $template = $view;
         $data = $values;
-        require 'views/layout.phtml';
+        require 'views/public_layout.phtml';
+    }
+    public function privateRender(string $view, array $values) : void
+    {
+        $template = $view;
+        $data = $values;
+        require 'views/admin_layout.phtml';
     }
     
 }

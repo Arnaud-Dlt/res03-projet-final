@@ -1,17 +1,10 @@
 <?php
 
-require "services/Router.php";
+require "autoload.php";
 
-$newRouter = new Router();
+$router = new Router();
 
-if (isset ($_GET["route"])){
-    
-    $newRouter->checkRoute($_GET["route"]);
-}
-
-else{
-    $newRouter->checkRoute("");
-}
+$router->checkRoute();
 
 
 ?>
