@@ -1,6 +1,6 @@
 # res03-projet-final
 
-# Projet Final RES03 3WA: Site officile club football US Sainte-Marie.
+# Projet Final RES03 3WA: Site officiel club football US Sainte-Marie.
 
  Site permettant de voir toutes les informations du club (actualités, équipes, championnats, événements, boutique).
  
