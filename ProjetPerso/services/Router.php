@@ -3,146 +3,143 @@
 class Router {
 
     // private attribute
-
-    private  ;
+    private PageController $pm;
+    
 
     // public constructor
     public function __construct()
     {
-        $this-> = new ();
+        $this->pageController = new PageController();
     }
 
-    public function checkRoute(){
-
-        if(isset($_GET["path"])){ 
-
-            $route = explode("/",$_GET["path"]);
-
-            if($route[0]=== "accueil"){
+    public function checkRoute($request){
+        var_dump($request);
+        $route = explode("/",$request);
+        var_dump($route);
+        
+            if($route[1]=== ""){
                 $this->pageController->accueil();
-                
             }
             
-            else if($route[0]=== "le-club"){
+            else if($route[1]=== "le-club"){
                 $this->pageController->club();
                 
-                if($route[1]=== "histoire"){
+                if($route[2]=== "histoire"){
                     $this->pageController->histoire();
                 }
                 
-                else if($route[1]=== "organigramme"){
+                else if($route[2]=== "organigramme"){
                     $this->pageController->organigramme();
                 }
                 
-                else if($route[1]=== "infrastructure"){
+                else if($route[2]=== "infrastructure"){
                     $this->pageController->infrastructure();
                 }
             }
             
-            else if($route[0]=== "articles"){
-                $this->pageController->news();
+            else if($route[1]=== "articles"){
+                $this->pageController->articles();
                 
-                if($route[1]=== "articleid"){
+                if($route[2]=== "articleid"){
                     $this->pageController->articleid();
                 }
             }
             
-            else if($route[0]=== "equipes"){
+            else if($route[1]=== "equipes"){
                 $this->pageController->teams();
                 
-                if($route[1]=== "senior1"){
-                    $this->pageController->senior1();
+                // if($route[2]=== "senior1"){
+                //     $this->pageController->senior1();
                     
-                    if($route[2]=== "résumé-saison"){
-                        $this->pageController->résumé-saison();
-                    }
+                //     if($route[3]=== "resume-saison"){
+                //         $this->pageController->résumé-saison();
+                //     }
                     
-                    else if($route[2]=== "effectif"){
-                        $this->pageController->effectif();
+                //     else if($route[3]=== "effectif"){
+                //         $this->pageController->effectif();
                         
-                        if($route[3]=== "joueurid"){
-                            $this->pageController->joueurid();
-                        }
-                    }
-                }
+                //         if($route[4]=== "joueurid"){
+                //             $this->pageController->joueurid();
+                //         }
+                //     }
+                // }
                 
-                if($route[1]=== "senior2"){
-                    $this->pageController->senior2();
+                // if($route[2]=== "senior2"){
+                //     $this->pageController->senior2();
                     
-                    if($route[2]=== "résumé-saison"){
-                        $this->pageController->résumé-saison();
-                    }
+                //     if($route[3]=== "résumé-saison"){
+                //         $this->pageController->résumé-saison();
+                //     }
                     
-                    if($route[2]=== "effectif"){
-                        $this->pageController->effectif();
+                //     if($route[3]=== "effectif"){
+                //         $this->pageController->effectif();
                         
-                        if($route[3]=== "joueurid"){
-                            $this->pageController->joueurid();
-                        }
-                    }
-                }
+                //         if($route[4]=== "joueurid"){
+                //             $this->pageController->joueurid();
+                //         }
+                //     }
+                // }
                 
-                if($route[1]=== "veterans"){
-                    $this->pageController->veterans();
+                // if($route[2]=== "veterans"){
+                //     $this->pageController->veterans();
                     
-                    if($route[2]=== "résumé-saison"){
-                        $this->pageController->résumé-saison();
-                    }
-                    if($route[2]=== "effectif"){
-                        $this->pageController->effectif();
+                //     if($route[3]=== "résumé-saison"){
+                //         $this->pageController->résumé-saison();
+                //     }
+                //     if($route[3]=== "effectif"){
+                //         $this->pageController->effectif();
                         
-                        if($route[3]=== "joueurid"){
-                            $this->pageController->joueurid();
-                        }
-                    }
-                }
+                //         if($route[4]=== "joueurid"){
+                //             $this->pageController->joueurid();
+                //         }
+                //     }
+                // }
                 
-                if($route[1]=== "jeunes"){
-                    $this->pageController->jeunes();
+                // if($route[2]=== "jeunes"){
+                //     $this->pageController->jeunes();
                     
-                    if($route[2]=== "résumé-saison"){
-                        $this->pageController->résumé-saison();
-                    }
-                    if($route[2]=== "effectif"){
-                        $this->pageController->effectif();
+                //     if($route[3]=== "résumé-saison"){
+                //         $this->pageController->résumé-saison();
+                //     }
+                //     if($route[3]=== "effectif"){
+                //         $this->pageController->effectif();
                         
-                        if($route[3]=== "joueurid"){
-                            $this->pageController->joueurid();
-                        }
-                    }
-                }
+                //         if($route[4]=== "joueurid"){
+                //             $this->pageController->joueurid();
+                //         }
+                //     }
+                // }
             }
             
-            else if($route[0]=== "galerie"){
+            else if($route[1]=== "galerie"){
                 $this->pageController->galerie();
                 
-                if($route[1]=== "albumid"){
-                    $this->pageController->albumid();
-                }
+                // if($route[2]=== "albumid"){
+                //     $this->pageController->albumid();
+                // }
                 
             }
             
-            else if($route[0]=== "events"){
+            else if($route[1]=== "events"){
                 $this->pageController->events();
                 
-                if($route[1]=== "repas"){
-                    $this->pageController->couscous();
-                }
-                else if($route[1]=== "fete-du-pont"){
-                    $this->pageController->paillote();
-                }
+                // if($route[2]=== "repas"){
+                //     $this->pageController->couscous();
+                // }
+                // else if($route[2]=== "fete-du-pont"){
+                //     $this->pageController->paillote();
+                // }
                 
             }
             
-            else if($route[0]=== "contact"){
+            else if($route[1]=== "contact"){
                 $this->pageController->contact();
-                
             }
             
             else {
-                $this->pageController->error();
+                echo "erreur 404";
             }
-        }
+        
     }
 }
 

@@ -1,0 +1,61 @@
+<main>
+    <h1>Joueurs</h1>
+    
+    <table>
+        <thead>
+            <th></th>
+        </thead>
+        <tbody>
+            <?php foreach(players as player){ ?>
+                <tr>
+                    <td>getFirstname()</td>
+                    <td>getLastname()</td>
+                    <td>getPhone()</td>
+                    <td>getBirthdate()</td>
+                    <td>getPosition()</td>
+                    <td>getFoot()</td>
+                    <td>getBio()</td>
+                </tr>
+            
+            <?php } ?>
+        </tbody>
+    </table>
+    <h2>Ajouter un joueur</h2>
+    <form method="POST">
+    
+    <label>Image de profil</label>
+    <input type="file">
+    
+    <label>Prénom</label>
+    <input type="text">
+    
+    <label>Nom</label>
+    <input type="text">
+    
+    <label>Phone</label>
+    <input type="text">
+    
+    <label>Date de naissance</label>
+    <input type="date">
+    
+    <label>Poste</label>
+    <select>
+        <option>--Poste--</option>
+        <option>Gardiens</option>
+        <option>Défenseur</option>
+        <option>Milieu</option>
+        <option>Attaquant</option>
+    </select>
+    
+    <label>Pied Fort</label>
+    <select>
+        <option>--Pied Fort--</option>
+        <option>Droit</option>
+        <option>Gauche</option>
+    </select>
+    
+    <label>Bio</label>
+    <textarea></textarea>
+    <input type="submit" value="Ajouter">
+</form>
+</main>
