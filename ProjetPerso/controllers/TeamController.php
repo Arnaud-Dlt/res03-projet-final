@@ -10,6 +10,26 @@ class TeamController extends AbstractController{
         $this->tm = new TeamManager();
     }
     
+    
+    public function teams(){
+        $this->publicRender("teams", []);
+    }
+    
+    public function effectif(){
+        $this->publicRender("effectif", []);
+    }
+    
+    public function playerProfil(){
+        $this->publicRender("player_profil", []);
+    }
+    
+    public function teamResume(){
+        $this->publicRender("team_resume", []);
+    }
+
+    public function convocations(){
+        $this->publicRender("convocations", []);
+    }
 }
 
 

@@ -4,10 +4,12 @@ require "./services/Router.php";
 
 require "./controllers/AbstractController.php";
 
+require "./controllers/AdminController.php";
 require "./controllers/PageController.php";
 require "./controllers/StaffController.php";
 require "./controllers/ArticleController.php";
 require "./controllers/MediaController.php";
+require "./controllers/TeamController.php";
 
 require "./managers/AbstractManager.php";
 

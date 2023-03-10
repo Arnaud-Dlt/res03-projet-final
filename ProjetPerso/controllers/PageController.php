@@ -40,26 +40,6 @@ class PageController extends AbstractController {
     public function contact(){
         $this->publicRender("contact", []);
     }
-    
-    public function teams(){
-        $this->publicRender("teams", []);
-    }
-    
-        public function effectif(){
-            $this->publicRender("effectif", []);
-        }
-        
-        public function playerProfil(){
-            $this->publicRender("player_profil", []);
-        }
-        
-        public function teamResume(){
-            $this->publicRender("team_resume", []);
-        }
-    
-        public function convocations(){
-            $this->publicRender("convocations", []);
-        }
         
     public function galerie(){
         $this->publicRender("galerie", []);
@@ -67,5 +47,9 @@ class PageController extends AbstractController {
     
     public function events(){
         $this->publicRender("events", []);
+    }
+    
+    public function error(){
+        $this->publicRender("404", []);
     }
 }
