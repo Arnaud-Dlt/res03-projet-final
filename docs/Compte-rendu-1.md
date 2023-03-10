@@ -8,7 +8,7 @@ Période de l'itération : du 06/03/2023 au 10/03/2023.
 
 =========================================================
 
-Au cours de cette itération, j'ai accompli les tâches suivantes : 
+### Au cours de cette itération, j'ai accompli les tâches suivantes : 
 
 Schéma de base de données conception (#1)
 
