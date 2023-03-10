@@ -9,10 +9,8 @@ class Player {
     private string $foot;
     private string $bio;
     private string $profilImg;
-    private int $picturesId;
-    private int $categoryId;
     
-    public function __construct(string $firstname, string $lastname, string $phone,string $birthdate,string $position,string $foot,string $bio,string $profilImg, int $picturesId, int $categoryId)
+    public function __construct(?int $id,string $firstname, string $lastname, string $phone,string $birthdate,string $position,string $foot,string $bio,string $profilImg)
     {
         $this->id = null;
         $this->firstname = $firstname;
@@ -23,8 +21,6 @@ class Player {
         $this->foot = $foot;
         $this->bio = $bio;
         $this->profilImg = $profilImg;
-        $this->picturesId = $picturesId;
-        $this->categoryId = $categoryId;
     }
     
     /// GETTER
@@ -68,11 +64,11 @@ class Player {
     {
         return $this->profilImg;
     }
-    public function getPicturesId() : string
+    public function getPicturesId() : int
     {
         return $this->picturesId;
     }
-    public function getCategoryId() : string
+    public function getCategoryId() : int
     {
         return $this->categoryId;
     }

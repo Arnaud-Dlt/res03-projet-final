@@ -10,9 +10,10 @@ class PlayerManager extends AbstractManager{
     
         $tabPlayers=[];
         foreach($getAllPlayers as $player){
-            $object=new Player($player['id'], $player['firstname'],$player['lastname'],$player['phone'],$player['birthdate'],$player['position'],$player['foot'],$player['bio'],$player['profilImg']);
+            $object=new Player($player['id'], $player['first_name'],$player['last_name'],$player['phone'],$player['birthdate'],$player['position'],$player['foot'],$player['bio'],$player['profil_img']);
             array_push($tabPlayers, $object);
         }
+        var_dump($tabPlayers);
         return $tabPlayers;
     }
     

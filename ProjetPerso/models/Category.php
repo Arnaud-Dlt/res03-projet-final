@@ -1,5 +1,5 @@
 <?php 
-class Team {
+class Category {
     private ? int $id;
     private string $name;
     
@@ -21,8 +21,6 @@ class Team {
         return $this->name;
     }
     
-    
-    
     /// SETTER
     
     public function setId(int $id) : void
@@ -34,6 +32,7 @@ class Team {
     {
         $this->name = $name;
     }
+    
     
 }
 

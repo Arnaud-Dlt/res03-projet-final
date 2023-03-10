@@ -2,145 +2,124 @@
 
 class Router {
 
-    // private attribute
-    private PageController $pm;
-    
+    private ArticleController $articleController;
+    private CategoryController $categoryController;
+    private TeamController $teamController;
+    private MediaController $mediaController;
+    private StaffController $staffController;
+    private PageController $pageController;
 
-    // public constructor
     public function __construct()
     {
+        // $this->articleController = new ArticleController();
+        // $this->categoryController = new CategoryController();
+        // $this->teamController = new TeamController();
+        // $this->mediaController = new MediaController();
+        // $this->staffController = new StaffController();
         $this->pageController = new PageController();
     }
 
-    public function checkRoute($request){
-        var_dump($request);
-        $route = explode("/",$request);
-        var_dump($route);
-        
-            if($route[1]=== ""){
-                $this->pageController->accueil();
-            }
-            
-            else if($route[1]=== "le-club"){
-                $this->pageController->club();
+    function checkRoute() : void
+    {
+
+        if (!isset($_GET['path'])) {
+            $this->pageController->accueil(); // Si pas de route , je redirige sur la homepage
+        }
+
+        else {
+
+            $route = explode("/", $_GET['path']); // Je sépare tout ce qui se trouve entre les "/" pour les différentes routes
+
+            //Pages publiques
+
+            if ($route[0] === "le-club") {
                 
-                if($route[2]=== "histoire"){
-                    $this->pageController->histoire();
+                if(!isset($route[1])){
+                    $this->pageController->club(); // Qui affichera la page club
                 }
-                
-                else if($route[2]=== "organigramme"){
-                    $this->pageController->organigramme();
+                else if($route[1]=== "histoire"){
+                    $this->pageController->history(); // Qui affichera la page histoire du club
                 }
-                
-                else if($route[2]=== "infrastructure"){
-                    $this->pageController->infrastructure();
+                else if($route[1]=== "organigramme"){
+                    $this->pageController->organigramme(); // Qui affichera la page organigramme du club
                 }
-            }
-            
-            else if($route[1]=== "articles"){
-                $this->pageController->articles();
-                
-                if($route[2]=== "articleid"){
-                    $this->pageController->articleid();
+                else if($route[1]=== "infrastructure"){
+                    $this->pageController->infrastructure(); // Qui affichera la page infrastructure du club
                 }
             }
-            
-            else if($route[1]=== "equipes"){
-                $this->pageController->teams();
+
+            else if($route[0]=== "equipes"){
                 
-                // if($route[2]=== "senior1"){
-                //     $this->pageController->senior1();
-                    
-                //     if($route[3]=== "resume-saison"){
-                //         $this->pageController->résumé-saison();
-                //     }
-                    
-                //     else if($route[3]=== "effectif"){
-                //         $this->pageController->effectif();
-                        
-                //         if($route[4]=== "joueurid"){
-                //             $this->pageController->joueurid();
-                //         }
-                //     }
-                // }
+                if(!isset($route[1])){
+                    $this->pageController->teams(); // Qui affichera la page des équipes du club
+                }
                 
-                // if($route[2]=== "senior2"){
-                //     $this->pageController->senior2();
+                else if($route[1]=== "effectif"){
                     
-                //     if($route[3]=== "résumé-saison"){
-                //         $this->pageController->résumé-saison();
-                //     }
-                    
-                //     if($route[3]=== "effectif"){
-                //         $this->pageController->effectif();
-                        
-                //         if($route[4]=== "joueurid"){
-                //             $this->pageController->joueurid();
-                //         }
-                //     }
-                // }
+                    if(!isset($route[2])){
+                        $this->pageController->effectif(); // Qui affichera la page effectif du club
+                    }
+                    else if($route[2]=== "joueur"){
+                        $this->pageController->playerProfil(); // Qui affichera la page fiche joueur
+                    }
+                }
                 
-                // if($route[2]=== "veterans"){
-                //     $this->pageController->veterans();
-                    
-                //     if($route[3]=== "résumé-saison"){
-                //         $this->pageController->résumé-saison();
-                //     }
-                //     if($route[3]=== "effectif"){
-                //         $this->pageController->effectif();
-                        
-                //         if($route[4]=== "joueurid"){
-                //             $this->pageController->joueurid();
-                //         }
-                //     }
-                // }
-                
-                // if($route[2]=== "jeunes"){
-                //     $this->pageController->jeunes();
-                    
-                //     if($route[3]=== "résumé-saison"){
-                //         $this->pageController->résumé-saison();
-                //     }
-                //     if($route[3]=== "effectif"){
-                //         $this->pageController->effectif();
-                        
-                //         if($route[4]=== "joueurid"){
-                //             $this->pageController->joueurid();
-                //         }
-                //     }
-                // }
+                else if($route[1]=== "equipe"){
+                    $this->pageController->teamResume(); // Qui affichera la page résumé d'une équipe sélectionnée
+                }
             }
             
-            else if($route[1]=== "galerie"){
-                $this->pageController->galerie();
+            else if($route[0]=== "convocations"){
                 
-                // if($route[2]=== "albumid"){
-                //     $this->pageController->albumid();
-                // }
-                
+                if(!isset($route[1])){
+                    $this->pageController->convocations(); // Qui affichera la page des équipes du club
+                }
             }
             
-            else if($route[1]=== "events"){
-                $this->pageController->events();
+            else if($route[0]=== "articles"){
                 
-                // if($route[2]=== "repas"){
-                //     $this->pageController->couscous();
-                // }
-                // else if($route[2]=== "fete-du-pont"){
-                //     $this->pageController->paillote();
-                // }
+                if(!isset($route[1])){
+                    $this->pageController->articles(); // Qui affichera la page des articles du club
+                }
                 
+                else if($route[1]=== "articleId"){
+                    
+                }
             }
             
-            else if($route[1]=== "contact"){
-                $this->pageController->contact();
+            else if($route[0]=== "galerie"){
+                
+                if(!isset($route[1])){
+                    $this->pageController->galerie(); // Qui affichera la page galerie du club
+                }
+                
+                else if($route[1]=== "albumId"){
+                    
+                }
             }
             
+            else if($route[0]=== "events"){
+                
+                if(!isset($route[1])){
+                    $this->pageController->events(); // Qui affichera la page des événements du club
+                }
+                
+                else if($route[1]=== "repas"){
+                    $this->pageController->events();
+                }
+                else if($route[1]=== "fete-du-pont"){
+                    $this->pageController->events();
+                }
+            }
+
+            // Si rien ne rentre dans les conditions
+
             else {
-                echo "erreur 404";
+                $this->pageController->error(); // J'affiche une page 404
             }
-        
+
+
+        }
+
     }
 }
-
-?>

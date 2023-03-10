@@ -11,9 +11,11 @@ require "./controllers/MediaController.php";
 
 require "./managers/AbstractManager.php";
 
+require "./managers/CategoryManager.php";
 require "./managers/PlayerManager.php";
 require "./managers/StaffManager.php";
 require "./managers/MediaManager.php";
+require "./managers/TeamManager.php";
 
 require "./models/Player.php";
 require "./models/Media.php";
