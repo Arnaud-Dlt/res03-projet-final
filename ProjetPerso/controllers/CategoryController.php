@@ -7,8 +7,5 @@ class CategoryController extends AbstractController{
     {
         $this->cm = new CategoryManager();
     }
-    
-    )
-    
 }
 ?>

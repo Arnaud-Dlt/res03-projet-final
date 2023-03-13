@@ -51,20 +51,19 @@ class AdminController extends AbstractController{
     
     public function adminRegister(array $post): void
     {   
-        if(empty($post)){
-            $this->privateRender("admin-register",[]);
-        }
-        
-        else{
-            if(isset($post["registerEmail"]) && !empty($post["registerEmail"])
+        if(isset($post["registerEmail"]) && !empty($post["registerEmail"])
             && isset($post["registerPassword"]) && !empty($post["registerPassword"])
             && isset($post["confirmPassword"]) && !empty($post["confirmPassword"]))
             {
                 if($post["registerPassword"] === $post["confirmPassword"]){
+                    
                     $hashPwd=password_hash($post["registerPassword"], PASSWORD_DEFAULT);
+                    
                     $newAdmin=new Admin($post['registerEmail'], $hashPwd);
+                    
                     $this->adminManager->insertAdmin($newAdmin);
-                    $this->publicRender("login", []);
+                    
+                    $this->privateRender("admin", []);
                 }
                 else{
                     echo "Les mots de passe sont différents !";
@@ -80,31 +79,42 @@ class AdminController extends AbstractController{
             echo "Veuillez confirmer votre mot de passe";
         }
     }
-}
-            
-    
+
     public function login(array $post)
     {
-        if(empty($post)){
-            $this->publicRender("login", []);
-        }
-        else{
-            if(isset($post['loginEmail'])&& !empty($post["loginEmail"]) 
-            && isset($post['loginPassword']) && !empty($post["loginPassword"])){
-                $logEmail=$post["loginEmail"];
-                $pwd=$post["loginPassword"];
-                $adminToConnect=$this->adminManager->getAdminByEmail($logEmail);
+        
+        if(isset($post['loginEmail'])&& !empty($post["loginEmail"]) 
+        && isset($post['loginPassword']) && !empty($post["loginPassword"])){
+            
+            $logEmail=$post["loginEmail"];
+            
+            $pwd=$post["loginPassword"];
+            
+            $adminToConnect=$this->adminManager->getAdminByEmail($logEmail);
+            
+            $hashpwd=$adminToConnect->getPassword();
+            
+            if($adminToConnect !== null){
                 
-                if(password_verify($pwd, $adminToConnect->getPassword())){
+                if(password_verify($pwd, $hashpwd)){
+                    $_SESSION["isConnected"] = true;
+                    $_SESSION["email"]= $adminToConnect->getEmail();
                     $this->privateRender("admin-home", []);
                 }
+            
                 else{
+                    $this->publicRender("login", []);
                     echo "Identifiants inconnus";
                 }
+                
             }
             else{
-                echo "Merci de compléter tous les champs";
+                $this->publicRender("login", []);
             }
+        }
+        else{
+            $this->publicRender("login", []);
+            echo "Merci de compléter tous les champs";
         }
     }
 }

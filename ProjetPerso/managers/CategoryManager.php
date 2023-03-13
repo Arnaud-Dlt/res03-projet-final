@@ -1,6 +1,6 @@
 <?php
 
-class CategoryManager extends AbstractController{
+class CategoryManager extends AbstractManager{
     
     public function getAllCategories()
     {

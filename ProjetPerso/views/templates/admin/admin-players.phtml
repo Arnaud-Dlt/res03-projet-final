@@ -20,41 +20,41 @@
         </tbody>
     </table>
     <h2>Ajouter un joueur</h2>
-    <form method="POST">
+    <form method="POST" action="admin-players">
 
         <label>Image de profil</label>
-        <input type="file">
+        <input type="file" name="playerPics">
 
         <label>Prénom</label>
-        <input type="text">
+        <input type="text" name="playerFirstname">
 
         <label>Nom</label>
-        <input type="text">
+        <input type="text" name="playerLastname">
 
         <label>Phone</label>
-        <input type="text">
+        <input type="text" name="playerPhone">
 
         <label>Date de naissance</label>
-        <input type="date">
+        <input type="date" name="playerBirthdate">
 
         <label>Poste</label>
-        <select>
-        <option>--Poste--</option>
-        <option>Gardiens</option>
-        <option>Défenseur</option>
-        <option>Milieu</option>
-        <option>Attaquant</option>
-    </select>
+        <select name="playerPosition">
+            <option>--Poste--</option>
+            <option>Gardiens</option>
+            <option>Défenseur</option>
+            <option>Milieu</option>
+            <option>Attaquant</option>
+        </select>
 
         <label>Pied Fort</label>
-        <select>
-        <option>--Pied Fort--</option>
-        <option>Droit</option>
-        <option>Gauche</option>
-    </select>
+        <select name="playerFoot">
+            <option>--Pied Fort--</option>
+            <option>Droit</option>
+            <option>Gauche</option>
+        </select>
 
         <label>Bio</label>
-        <textarea></textarea>
+        <textarea name="playerBio"></textarea>
         <input type="submit" value="Ajouter">
     </form>
 </main>

@@ -131,45 +131,59 @@ class Router {
             // PAGE ADMIN
             
             else if($route[0]==="admin"){
-                if(!isset($route[1])){
-                    $this->adminController->adminHome(); // Qui affichera la page admin home
-                }
-                else if($route[1]==="register"){
-                    $this->adminController->adminRegister($post);
-                }
-                
-                else if($route[1]==="admin-players"){
+                if(isset($_SESSION["isConnected"]) && $_SESSION["isConnected"]===true){
                     
-                    if(!isset($route[2])){
-                        $this->adminController->adminPlayers(); // Qui affichera la page admin players
+                    if(!isset($route[1])){
+                        $this->adminController->adminHome(); // Qui affichera la page admin home
+                    }
+                    else if($route[1]==="register"){
+                        $this->adminController->adminRegister($post);
                     }
                     
-                    else if($route[2]=== "admin-player-edit"){
-                        $this->adminController->adminPlayersEdit(); // Qui affichera la page admin modif players
-                    }
-                }
-                else if($route[1]==="admin-teams"){
                     
-                    if(!isset($route[2])){
-                        $this->adminController->adminTeams(); // Qui affichera la page admin teams
+                    else if($route[1]==="admin-players"){
+                        
+                        if(!isset($route[2])){
+                            $this->adminController->adminPlayers(); // Qui affichera la page admin players
+                        }
+                        
+                        else if($route[2]=== "admin-player-edit"){
+                            $this->adminController->adminPlayersEdit(); // Qui affichera la page admin modif players
+                        }
+                    }
+                    else if($route[1]==="admin-teams"){
+                        
+                        if(!isset($route[2])){
+                            $this->adminController->adminTeams(); // Qui affichera la page admin teams
+                        }
+                        
+                        else if($route[2]=== "admin-team-edit"){
+                            $this->adminController->adminTeamsEdit(); // Qui affichera la page admin modif teams
+                        }
                     }
                     
-                    else if($route[2]=== "admin-team-edit"){
-                        $this->adminController->adminTeamsEdit(); // Qui affichera la page admin modif teams
+                    else if($route[1]=== "admin-convocation"){
+                            $this->adminController->adminConvoc(); // Qui affichera la page admin modif teams
+                        }
+                        
+                    else if($route[1]==="admin-posts"){
+                        
+                        if(!isset($route[2])){
+                            $this->adminController->adminPosts(); // Qui affichera la page admin posts
+                        }
+                        
+                        else if($route[2]=== "admin-post-edit"){
+                            $this->adminController->adminPostEdit(); // Qui affichera la page admin modif post
+                        }
                     }
-                }
-                else if($route[1]==="admin-posts"){
-                    
-                    if(!isset($route[2])){
-                        $this->adminController->adminPosts(); // Qui affichera la page admin posts
+                    else if($route[1]==="admin-staff"){
+                        if(!isset($route[2])){
+                            $this->adminController->adminStaff(); // Qui affichera la page admin staff
+                        }
+                        else if($route[2]==="admin-staff-edit"){
+                            $this->adminController->adminStaffEdit(); // J'affiche une page 404
+                        }
                     }
-                    
-                    else if($route[2]=== "admin-post-edit"){
-                        $this->adminController->adminPostEdit(); // Qui affichera la page admin modif post
-                    }
-                }
-                else if($route[1]==="admin-staff"){
-                    $this->adminController->adminPlayers();
                 }
             }
             
