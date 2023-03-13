@@ -17,7 +17,6 @@ class PageController extends AbstractController {
         $this->publicRender("home", []);
     }
     
-    
     public function club(){
         $this->publicRender("club-presentation", []);
     }
@@ -36,17 +35,21 @@ class PageController extends AbstractController {
     public function articles(){
         $this->publicRender("articles", []);
     }
-    
-    public function contact(){
-        $this->publicRender("contact", []);
-    }
-        
+     
     public function galerie(){
         $this->publicRender("galerie", []);
     }
     
     public function events(){
         $this->publicRender("events", []);
+    }
+    
+    public function contact(){
+        $this->publicRender("contact", []);
+    }
+    
+    public function login(){
+        $this->publicRender("login", []);
     }
     
     public function error(){

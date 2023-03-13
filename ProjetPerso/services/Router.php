@@ -23,7 +23,8 @@ class Router {
 
     function checkRoute() : void
     {
-
+        $post=$_POST;
+        
         if (!isset($_GET['path'])) {
             $this->pageController->accueil(); // Si pas de route , je redirige sur la homepage
         }
@@ -120,12 +121,55 @@ class Router {
                     $this->pageController->contact(); // Qui affichera la page contact du club
                 }
             }
+            else if($route[0]=== "login"){
+                
+                if(!isset($route[1])){
+                    $this->pageController->login(); // Qui affichera la page contact du club
+                }
+            }
             
             // PAGE ADMIN
             
             else if($route[0]==="admin"){
                 if(!isset($route[1])){
-                    $this->adminController->adminHome(); // Qui affichera la page admin
+                    $this->adminController->adminHome(); // Qui affichera la page admin home
+                }
+                else if($route[1]==="register"){
+                    $this->adminController->adminRegister($post);
+                }
+                
+                else if($route[1]==="admin-players"){
+                    
+                    if(!isset($route[2])){
+                        $this->adminController->adminPlayers(); // Qui affichera la page admin players
+                    }
+                    
+                    else if($route[2]=== "admin-player-edit"){
+                        $this->adminController->adminPlayersEdit(); // Qui affichera la page admin modif players
+                    }
+                }
+                else if($route[1]==="admin-teams"){
+                    
+                    if(!isset($route[2])){
+                        $this->adminController->adminTeams(); // Qui affichera la page admin teams
+                    }
+                    
+                    else if($route[2]=== "admin-team-edit"){
+                        $this->adminController->adminTeamsEdit(); // Qui affichera la page admin modif teams
+                    }
+                }
+                else if($route[1]==="admin-posts"){
+                    
+                    if(!isset($route[2])){
+                        $this->adminController->adminPosts(); // Qui affichera la page admin posts
+                    }
+                    
+                    else if($route[2]=== "admin-post-edit"){
+                        $this->adminController->adminPostEdit(); // Qui affichera la page admin modif post
+                    }
+                }
+                else if($route[1]==="admin-staff"){
+                    $this->adminController->adminPlayers();
                 }
             }
             
