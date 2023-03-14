@@ -33,12 +33,16 @@ class AdminController extends AbstractController{
         }
     
     public function adminArticles(){
-        $this->privateRender("admin-post", []);
+        $this->privateRender("admin-posts", []);
     }
         public function adminArticleEdit(){
             $this->privateRender("admin-post-edit", []);
         }
 
+    public function adminPhoto(){
+        $this->privateRender("admin-pics", []);
+    }
+    
     public function adminStaff(){
         $this->privateRender("admin-staff", []);
     }
@@ -46,11 +50,9 @@ class AdminController extends AbstractController{
             $this->privateRender("admin-staff-edit", []);
         }
     
-    
-    
-    
     public function adminRegister(array $post): void
     {   
+        
         if(isset($post["registerEmail"]) && !empty($post["registerEmail"])
             && isset($post["registerPassword"]) && !empty($post["registerPassword"])
             && isset($post["confirmPassword"]) && !empty($post["confirmPassword"]))
@@ -63,7 +65,7 @@ class AdminController extends AbstractController{
                     
                     $this->adminManager->insertAdmin($newAdmin);
                     
-                    $this->privateRender("admin", []);
+                    $this->privateRender("admin-home", []);
                 }
                 else{
                     echo "Les mots de passe sont différents !";
@@ -80,7 +82,7 @@ class AdminController extends AbstractController{
         }
     }
 
-    public function login(array $post)
+    public function login(array $post): void
     {
         
         if(isset($post['loginEmail'])&& !empty($post["loginEmail"]) 
@@ -91,15 +93,15 @@ class AdminController extends AbstractController{
             $pwd=$post["loginPassword"];
             
             $adminToConnect=$this->adminManager->getAdminByEmail($logEmail);
-            
+            var_dump($adminToConnect);
             $hashpwd=$adminToConnect->getPassword();
             
             if($adminToConnect !== null){
-                
+                var_dump("adminToConnect existe");
                 if(password_verify($pwd, $hashpwd)){
                     $_SESSION["isConnected"] = true;
-                    $_SESSION["email"]= $adminToConnect->getEmail();
-                    $this->privateRender("admin-home", []);
+                    
+                    header('Location: /res03-projet-final/ProjetPerso/admin');
                 }
             
                 else{
@@ -116,6 +118,11 @@ class AdminController extends AbstractController{
             $this->publicRender("login", []);
             echo "Merci de compléter tous les champs";
         }
+    }
+    
+    public function adminLogout(){
+        session_destroy();
+        header('Location: /res03-projet-final/ProjetPerso/');
     }
 }
 

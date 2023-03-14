@@ -23,6 +23,7 @@ class Router {
 
     function checkRoute() : void
     {
+        
         $post=$_POST;
         
         if (!isset($_GET['path'])) {
@@ -32,7 +33,6 @@ class Router {
         else {
 
             $route = explode("/", $_GET['path']); // Je sépare tout ce qui se trouve entre les "/" pour les différentes routes
-
             // PAGES PUBLIQUES
 
             if ($route[0] === "le-club") {
@@ -121,16 +121,21 @@ class Router {
                     $this->pageController->contact(); // Qui affichera la page contact du club
                 }
             }
-            else if($route[0]=== "login"){
+            // else if($route[0]=== "login"){
                 
-                if(!isset($route[1])){
-                    $this->pageController->login(); // Qui affichera la page contact du club
-                }
+            //     if(!isset($route[1])){
+            //         $this->adminController->login($post); // 
+            //     }
+            // }
+            
+            else if($route[0]==="logout"){
+                        $this->adminController->adminLogout();
             }
             
             // PAGE ADMIN
             
             else if($route[0]==="admin"){
+                
                 if(isset($_SESSION["isConnected"]) && $_SESSION["isConnected"]===true){
                     
                     if(!isset($route[1])){
@@ -139,7 +144,6 @@ class Router {
                     else if($route[1]==="register"){
                         $this->adminController->adminRegister($post);
                     }
-                    
                     
                     else if($route[1]==="admin-players"){
                         
@@ -166,16 +170,21 @@ class Router {
                             $this->adminController->adminConvoc(); // Qui affichera la page admin modif teams
                         }
                         
-                    else if($route[1]==="admin-posts"){
+                    else if($route[1]==="admin-articles"){
                         
                         if(!isset($route[2])){
-                            $this->adminController->adminPosts(); // Qui affichera la page admin posts
+                            $this->adminController->adminArticles(); // Qui affichera la page admin posts
                         }
                         
                         else if($route[2]=== "admin-post-edit"){
                             $this->adminController->adminPostEdit(); // Qui affichera la page admin modif post
                         }
                     }
+                    
+                    else if($route[1]=== "admin-photo"){
+                        $this->adminController->adminPhoto();
+                    }
+                    
                     else if($route[1]==="admin-staff"){
                         if(!isset($route[2])){
                             $this->adminController->adminStaff(); // Qui affichera la page admin staff
@@ -185,6 +194,9 @@ class Router {
                         }
                     }
                 }
+                else {
+                    $this->adminController->login($post);
+                }
             }
             
             // SI RIEN NE RENTRE DANS LES CONDITIONS
@@ -192,9 +204,7 @@ class Router {
             else {
                 $this->pageController->error(); // J'affiche une page 404
             }
-
-
         }
-
     }
 }
+

@@ -33,8 +33,9 @@ class AdminManager extends AbstractManager{
         $parameters= ['email' => $email];
         $query->execute($parameters);
         $getAdminByEmail=$query->fetch(PDO::FETCH_ASSOC);
-        $newAdmin=new Admin($getAdminByEmail['id'], $getAdminByEmail['email'],$getAdminByEmail['password']);
-    
+        $newAdmin=new Admin($getAdminByEmail['email'],$getAdminByEmail['password']);
+        
+        $newAdmin->setId($getAdminByEmail["id"]);
         return $newAdmin;
     }
     

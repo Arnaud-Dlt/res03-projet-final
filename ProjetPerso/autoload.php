@@ -11,6 +11,7 @@ require "./models/Team.php";
 
 require "./managers/AbstractManager.php";
 require "./managers/AdminManager.php";
+require "./managers/ArticleManager.php";
 require "./managers/CategoryManager.php";
 require "./managers/PlayerManager.php";
 require "./managers/StaffManager.php";
