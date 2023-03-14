@@ -141,6 +141,7 @@ class Router {
                     if(!isset($route[1])){
                         $this->adminController->adminHome(); // Qui affichera la page admin home
                     }
+                    
                     else if($route[1]==="register"){
                         $this->adminController->adminRegister($post);
                     }
@@ -155,6 +156,7 @@ class Router {
                             $this->adminController->adminPlayersEdit(); // Qui affichera la page admin modif players
                         }
                     }
+                    
                     else if($route[1]==="admin-teams"){
                         
                         if(!isset($route[2])){

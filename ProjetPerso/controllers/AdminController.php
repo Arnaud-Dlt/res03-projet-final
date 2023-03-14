@@ -3,10 +3,20 @@
 class AdminController extends AbstractController{
     
     private AdminManager $adminManager;
+    private PlayerManager $playerManager;
+    private StaffManager $staffManager;
+    private CategoryManager $categoryManager;
+    private TeamManager $teamManager;
+    private ArticleManager $articleManager;
     
     public function __construct()
     {
         $this->adminManager = new AdminManager();
+        $this->playerManager = new PlayerManager();
+        $this->staffManager = new StaffManager();
+        $this->categoryManager = new CategoryManager();
+        $this->teamManager = new TeamManager();
+        $this->articleManager = new ArticleManager();
     }
     
     
@@ -17,25 +27,25 @@ class AdminController extends AbstractController{
     public function adminPlayers(){
         $this->privateRender("admin-players", []);
     }
-        public function adminPlayersEdit(){
+    public function adminPlayersEdit(){
             $this->privateRender("admin-player-edit", []);
         }
     
     public function adminTeams(){
         $this->privateRender("admin-teams", []);
     }
-        public function adminTeamsEdit(){
+    public function adminTeamsEdit(){
             $this->privateRender("admin-team-edit", []);
         }
         
-        public function adminConvoc(){
+    public function adminConvoc(){
             $this->privateRender("admin-convocation", []);
         }
     
     public function adminArticles(){
         $this->privateRender("admin-posts", []);
     }
-        public function adminArticleEdit(){
+    public function adminArticleEdit(){
             $this->privateRender("admin-post-edit", []);
         }
 
@@ -46,39 +56,40 @@ class AdminController extends AbstractController{
     public function adminStaff(){
         $this->privateRender("admin-staff", []);
     }
-        public function adminStaffEdit(){
+    public function adminStaffEdit(){
             $this->privateRender("admin-staff-edit", []);
         }
     
     public function adminRegister(array $post): void
     {   
+        $this->privateRender("admin-register", []);
         
         if(isset($post["registerEmail"]) && !empty($post["registerEmail"])
             && isset($post["registerPassword"]) && !empty($post["registerPassword"])
-            && isset($post["confirmPassword"]) && !empty($post["confirmPassword"]))
-            {
-                if($post["registerPassword"] === $post["confirmPassword"]){
-                    
-                    $hashPwd=password_hash($post["registerPassword"], PASSWORD_DEFAULT);
-                    
-                    $newAdmin=new Admin($post['registerEmail'], $hashPwd);
-                    
-                    $this->adminManager->insertAdmin($newAdmin);
-                    
-                    $this->privateRender("admin-home", []);
-                }
-                else{
-                    echo "Les mots de passe sont différents !";
-                }
+            && isset($post["confirmPassword"]) && !empty($post["confirmPassword"])){
+                
+            if($post["registerPassword"] === $post["confirmPassword"]){
+                
+                $hashPwd=password_hash($post["registerPassword"], PASSWORD_DEFAULT);
+                
+                $newAdmin=new Admin($post['registerEmail'], $hashPwd);
+                
+                $this->adminManager->insertAdmin($newAdmin);
+                
+                header("Location: /res03-projet-final/ProjetPerso/admin");
             }
-            else if(isset($post['registerEmail']) && empty($post['registerEmail'])){
-                echo "Veuillez saisir un Email";
+            else{
+                echo "Les mots de passe sont différents !";
             }
-            else if(isset($post['registerPassword']) && empty($post['registerPassword'])){
-                echo "Veuillez saisir un mot de passe";
-            }
-            else if(isset($post['confirmPassword']) && empty($post['confirmPassword'])){
-            echo "Veuillez confirmer votre mot de passe";
+        }
+        else if(isset($post['registerEmail']) && empty($post['registerEmail'])){
+            echo "Veuillez saisir un Email";
+        }
+        else if(isset($post['registerPassword']) && empty($post['registerPassword'])){
+            echo "Veuillez saisir un mot de passe";
+        }
+        else if(isset($post['confirmPassword']) && empty($post['confirmPassword'])){
+        echo "Veuillez confirmer votre mot de passe";
         }
     }
 
@@ -124,6 +135,7 @@ class AdminController extends AbstractController{
         session_destroy();
         header('Location: /res03-projet-final/ProjetPerso/');
     }
+    
 }
 
 
