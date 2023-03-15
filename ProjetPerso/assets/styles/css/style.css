@@ -60,12 +60,6 @@ table {
   #public #publicNav {
     grid-column: 1/2;
   }
-  #public #publicNav figure {
-    text-align: center;
-  }
-  #public #publicNav figure img {
-    width: 60%;
-  }
   #public #publicNav nav {
     background-color: #15608E;
     height: 100vh;
@@ -73,8 +67,14 @@ table {
     position: fixed;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    padding: 6vh 0 2vh 0;
+  }
+  #public #publicNav nav figure {
+    text-align: center;
+  }
+  #public #publicNav nav figure img {
+    width: 60%;
   }
   #public #publicNav nav ul {
     text-align: center;
@@ -123,6 +123,57 @@ table {
   }
   #public #home > section:nth-of-type(3) button {
     grid-column: 1/3;
+  }
+  #public #le-club {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vw;
+  }
+  #public #le-club-history {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vw;
+  }
+  #public #le-club-infrastructure {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vw;
+  }
+  #public #le-club-organigramme {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vw;
+  }
+  #public #teams {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vw;
+  }
+  #public #team-resume {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vw;
+  }
+  #public #contact h1 {
+    text-align: center;
+  }
+  #public #contact form {
+    box-shadow: 1px 1px 5px #000;
+    padding: 2vh;
+    margin: 10vh 15vw 10vh 15vw;
+    text-align: center;
+  }
+  #public #contact form label {
+    margin: 2VH;
+  }
+  #public #contact form input {
+    margin: 2VH;
   }
   #public #footer {
     grid-column: 2/3;

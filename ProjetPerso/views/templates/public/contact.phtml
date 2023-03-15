@@ -1,23 +1,38 @@
 <main id="contact">
     <h1>Contactez-nous</h1>
-    
+
     <form action="" method="POST">
-        <label>Prenom</label>
-        <input type="text" name="firstname">
-        <label>Nom</label>
-        <input type="text" name="lastname">
-        <label>Email</label>
-        <input type="email" name="email">
-        <label>Objet</label>
-        <select>
-            <option>---</option>
-            <option>Demande de licence</option>
-            <option>Informations</option>
-            <option>Championnat</option>
-            <option>Autre</option>
-        </select>
-        <label>Message</label>
-        <input type="textarea" name="contactMessage">
+        
+        <fieldset>
+            <label>Prenom</label>
+            <input type="text" name="firstname">
+        </fieldset>
+        
+        <fieldset>
+            <label>Nom</label>
+            <input type="text" name="lastname">
+        </fieldset>
+        
+        <fieldset>
+            <label>Email</label>
+            <input type="email" name="email">
+        </fieldset>
+        
+        <fieldset>
+            <label>Objet</label>
+            <select>
+                <option>---</option>
+                <option>Demande de licence</option>
+                <option>Informations</option>
+                <option>Championnat</option>
+                <option>Autre</option>
+            </select>
+        </fieldset>
+        
+        <fieldset>
+            <label>Message</label>
+            <input type="textarea" name="contactMessage">
+        </fieldset>
         
         <input type="submit" name="contactBtn">
     </form>

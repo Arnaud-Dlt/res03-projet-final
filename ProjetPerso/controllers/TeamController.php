@@ -20,11 +20,11 @@ class TeamController extends AbstractController{
     }
     
     public function playerProfil(){
-        $this->publicRender("player_profil", []);
+        $this->publicRender("player-profil", []);
     }
     
     public function teamResume(){
-        $this->publicRender("team_resume", []);
+        $this->publicRender("team-resume", []);
     }
 
     public function convocations(){

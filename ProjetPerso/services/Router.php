@@ -121,12 +121,6 @@ class Router {
                     $this->pageController->contact(); // Qui affichera la page contact du club
                 }
             }
-            // else if($route[0]=== "login"){
-                
-            //     if(!isset($route[1])){
-            //         $this->adminController->login($post); // 
-            //     }
-            // }
             
             else if($route[0]==="logout"){
                         $this->adminController->adminLogout();

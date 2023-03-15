@@ -49,18 +49,17 @@
 }
 
 @media (min-width: 1024px){
+    
+    // LAYOUT PUBLIC
+    
     #public {
         display: grid;
         grid-template-columns: 13vw 87vw;
         grid-template-rows: 1fr 1fr;
+        
         #publicNav {
             grid-column: 1/2;
-            figure {
-                text-align: center;
-                img {
-                    width: 60%;
-                }
-            }
+            
             nav {
                 background-color: #15608E;
                 height: 100vh;
@@ -68,8 +67,16 @@
                 position: fixed;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                justify-content: flex-start;
+                padding: 6vh 0 2vh 0;
+                
+                figure {
+                    text-align: center;
+                
+                    img {
+                        width: 60%;
+                    }
+                }
                 
                 ul {
                     text-align: center;
@@ -92,6 +99,9 @@
             }
         }
 
+
+        // PAGE ACCUEIL
+        
         #home {
             grid-column: 2/3;
             grid-row: 1/2;
@@ -132,6 +142,77 @@
                 }
             }
         } 
+        
+        
+        // PAGES INFOS CLUB
+        
+        #le-club{
+            grid-column: 2/3;
+            grid-row: 1/2;
+            min-height: 100vh;
+            padding: 2vw;
+        }
+        
+        #le-club-history{
+            grid-column: 2/3;
+            grid-row: 1/2;
+            min-height: 100vh;
+            padding: 2vw;
+        }
+        
+        #le-club-infrastructure{
+            grid-column: 2/3;
+            grid-row: 1/2;
+            min-height: 100vh;
+            padding: 2vw;
+        }
+        
+        #le-club-organigramme{
+            grid-column: 2/3;
+            grid-row: 1/2;
+            min-height: 100vh;
+            padding: 2vw;
+        }
+        
+        // PAGES INFOS EQUIPE
+        
+        #teams{
+            grid-column: 2/3;
+            grid-row: 1/2;
+            min-height: 100vh;
+            padding: 2vw;
+        }
+        
+        #team-resume{
+            grid-column: 2/3;
+            grid-row: 1/2;
+            min-height: 100vh;
+            padding: 2vw;
+        }
+        
+        // PAGE CONTACT 
+        
+        #contact{
+            h1{
+                text-align: center;
+            }
+            
+            form {
+                box-shadow: 1px 1px 5px #000;
+                padding: 2vh;
+                margin: 10vh 15vw 10vh 15vw;
+                text-align: center;
+                label{
+                    margin: 2VH;
+                }
+                input{
+                    margin: 2VH;
+                }
+                select {
+                    
+                }
+            }
+        }
         
         #footer{
             grid-column: 2/3;
