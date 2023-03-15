@@ -1,6 +1,6 @@
 <?php 
 class Player {
-    private ? int $id;
+    private ?int $id;
     private string $firstname;
     private string $lastname;
     private string $phone;
@@ -9,8 +9,9 @@ class Player {
     private string $foot;
     private string $bio;
     private string $profilImg;
+    private ?int $categoryId;
     
-    public function __construct(?int $id,string $firstname, string $lastname, string $phone,string $birthdate,string $position,string $foot,string $bio,string $profilImg)
+    public function __construct(string $firstname, string $lastname, string $phone,string $birthdate,string $position,string $foot,string $bio,string $profilImg, ?int $categoryId)
     {
         $this->id = null;
         $this->firstname = $firstname;
@@ -21,6 +22,7 @@ class Player {
         $this->foot = $foot;
         $this->bio = $bio;
         $this->profilImg = $profilImg;
+        $this->categoryId = $categoryId;
     }
     
     /// GETTER
@@ -64,11 +66,8 @@ class Player {
     {
         return $this->profilImg;
     }
-    public function getPicturesId() : int
-    {
-        return $this->picturesId;
-    }
-    public function getCategoryId() : int
+    
+    public function getCategoryId() : ?int
     {
         return $this->categoryId;
     }
@@ -114,11 +113,6 @@ class Player {
     public function setProfilImg(string $profilImg) : void
     {
         $this->profilImg = $profilImg;
-    }
-    
-    public function setPicturesId(string $picturesId) : void
-    {
-        $this->picturesId = $picturesId;
     }
     
     public function setCategoryId(string $categoryId) : void

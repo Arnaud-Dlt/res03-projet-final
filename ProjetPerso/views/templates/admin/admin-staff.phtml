@@ -1,1 +1,57 @@
-<h1>staff</h1>
+<main>
+    <h1>Staff</h1>
+
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Role</th>
+        </thead>
+        <tbody>
+            <?php 
+            foreach($data[0] as $staff){ ?>
+            <tr>
+                <td><?= $staff->getId() ?></td>
+                <td><?= $staff->getFirstname() ?></td>
+                <td><?= $staff->getLastname()?></td>
+                <td><?= $staff->getRole()?></td>
+                <td><a href="">Modifier</a> <a href="">Supprimer</a></td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+    <h2>Ajouter un membre du staff</h2>
+    <form method="post" action="admin-staff" name="formStaffAdd">
+        
+        <fieldset>
+            <label>Image de profil</label>
+            <input type="text" name="staffProfilImg">
+        </fieldset>
+        
+        <fieldset>
+            <label>Prénom</label>
+            <input type="text" name="staffFirstname">
+        </fieldset>
+            
+        <fieldset>
+            <label>Nom</label>
+            <input type="text" name="staffLastname">
+        </fieldset>
+        
+        <fieldset>
+            <label>Phone</label>
+            <input type="text" name="staffPhone">
+        </fieldset>
+        
+        <fieldset>
+            <label>Role</label>
+            <input type="text" name="staffRole">
+        </fieldset>
+        
+        
+        <input type="submit" value="Ajouter">
+        
+        
+    </form>
+</main>

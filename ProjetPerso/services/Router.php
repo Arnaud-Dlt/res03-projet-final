@@ -12,11 +12,11 @@ class Router {
 
     public function __construct()
     {
-        // $this->articleController = new ArticleController();
-        // $this->categoryController = new CategoryController();
+        $this->articleController = new ArticleController();
+        $this->categoryController = new CategoryController();
         $this->teamController = new TeamController();
-        // $this->mediaController = new MediaController();
-        // $this->staffController = new StaffController();
+        $this->mediaController = new MediaController();
+        $this->staffController = new StaffController();
         $this->pageController = new PageController();
         $this->adminController = new AdminController();
     }
@@ -144,6 +144,7 @@ class Router {
                         
                         if(!isset($route[2])){
                             $this->adminController->adminPlayers(); // Qui affichera la page admin players
+                            $this->teamController->addPlayer($post);
                         }
                         
                         else if($route[2]=== "admin-player-edit"){
@@ -184,6 +185,7 @@ class Router {
                     else if($route[1]==="admin-staff"){
                         if(!isset($route[2])){
                             $this->adminController->adminStaff(); // Qui affichera la page admin staff
+                            $this->staffController->addStaff($post);
                         }
                         else if($route[2]==="admin-staff-edit"){
                             $this->adminController->adminStaffEdit(); // J'affiche une page 404

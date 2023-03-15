@@ -10,8 +10,9 @@ class StaffManager extends AbstractManager{
     
         $tabStaff=[];
         foreach($getAllStaff as $staff){
-            $object=new Staff($staff['id'], $staff['firstname'],$staff['lastname'],$staff['phone'],$staff['role']);
+            $object=new Staff($staff['first_name'],$staff['last_name'],$staff['phone'],$staff['role'],$staff['profil_img']);
             array_push($tabStaff, $object);
+            $object->setId($staff["id"]);
         }
         return $tabStaff;
     }
@@ -51,27 +52,28 @@ class StaffManager extends AbstractManager{
     
     public function insertStaff(Staff $staff) : Staff
     {
-        $query=$this->db->prepare("INSERT INTO staff VALUES (null, :firstname, :lastname, :phone, :role)");
+        $query=$this->db->prepare("INSERT INTO staff VALUES (null, :first_name, :last_name, :phone, :role, :profil_img)");
         $parameters= [
-            'firstname' =>$staff->getFirstname(),
-            'lastname' => $staff->getLastname(),
+            'first_name' =>$staff->getFirstname(),
+            'last_name' => $staff->getLastname(),
             'phone' => $staff->getPhone(),
-            'role' => $staff->getRole()
+            'role' => $staff->getRole(),
+            'profil_img'=>$staff->getProfilImg()
             ];
         $query->execute($parameters);
     
         $getStaff=$query->fetch(PDO::FETCH_ASSOC);
     
-        return $Staff;
+        return $staff;
     }
     
     public function editStaff(Staff $staff) : void
     {
-        $query=$this->db->prepare("UPDATE staff SET firstname = :firstname, lastname=:lastname, phone=:phone, role=:role");
+        $query=$this->db->prepare("UPDATE staff SET first_name = :first_name, last_name=:last_name, phone=:phone, role=:role");
         $parameters= [
             'id' => $staff->getId(),
-            'firstname' =>$staff->getFirstname(),
-            'lastname' => $staff->getLastname(),
+            'first_name' =>$staff->getFirstname(),
+            'last_name' => $staff->getLastname(),
             'phone' => $staff->getPhone(),
             'role' => $staff->getRole()
             ];

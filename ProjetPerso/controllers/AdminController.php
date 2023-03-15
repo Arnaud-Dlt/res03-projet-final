@@ -25,7 +25,10 @@ class AdminController extends AbstractController{
     }
     
     public function adminPlayers(){
-        $this->privateRender("admin-players", []);
+        $this->privateRender("admin-players", 
+        ['players'=>$this->playerManager->getAllPlayers(),
+        'category'=>$this->categoryManager->getAllCategories(),
+        ]);
     }
     public function adminPlayersEdit(){
             $this->privateRender("admin-player-edit", []);
@@ -54,7 +57,7 @@ class AdminController extends AbstractController{
     }
     
     public function adminStaff(){
-        $this->privateRender("admin-staff", []);
+        $this->privateRender("admin-staff", ['staff'=>$this->staffManager->getAllStaff()]);
     }
     public function adminStaffEdit(){
             $this->privateRender("admin-staff-edit", []);

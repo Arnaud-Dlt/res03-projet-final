@@ -6,6 +6,8 @@ require "./models/Player.php";
 require "./models/Media.php";
 require "./models/Staff.php";
 require "./models/Team.php";
+require "./models/Category.php";
+
 
 // MANAGERS
 

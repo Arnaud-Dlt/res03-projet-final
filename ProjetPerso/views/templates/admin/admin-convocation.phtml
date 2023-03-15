@@ -18,31 +18,16 @@
                 <th>Poste</th>
             </thead>
             <tbody>
+                <?php 
+                var_dump($data);
+                foreach($data as $player){ ?>
                 <tr>
-                    <td>Joueur 1</td>
-                    <td>Nom</td>
-                    <td>Defenseur</td>
+                    <td><?= $player->getFirstname ?></td>
+                    <td><?= $player->getLastname ?></td>
+                    <td><?= $player->getPosition ?></td>
+                    <td><?= $player->getFoot ?></td>
                 </tr>
-                <tr>
-                    <td>Joueur 1</td>
-                    <td>Nom</td>
-                    <td>Defenseur</td>
-                </tr>
-                <tr>
-                    <td>Joueur 1</td>
-                    <td>Nom</td>
-                    <td>Defenseur</td>
-                </tr>
-                <tr>
-                    <td>Joueur 1</td>
-                    <td>Nom</td>
-                    <td>Defenseur</td>
-                </tr>
-                <tr>
-                    <td>Joueur 1</td>
-                    <td>Nom</td>
-                    <td>Defenseur</td>
-                </tr>
+                <?php } ?>
             </tbody>
         </table>
     </section>

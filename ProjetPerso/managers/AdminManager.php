@@ -12,7 +12,6 @@ class AdminManager extends AbstractManager{
             $object=new Admin($admin['id'], $admin['email'],$admin['password']);
             array_push($tabAdmins, $object);
         }
-        var_dump($tabAdmins);
         return $tabAdmins;
     }
     

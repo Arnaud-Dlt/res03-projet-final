@@ -10,10 +10,11 @@ class PlayerManager extends AbstractManager{
     
         $tabPlayers=[];
         foreach($getAllPlayers as $player){
-            $object=new Player($player['id'], $player['first_name'],$player['last_name'],$player['phone'],$player['birthdate'],$player['position'],$player['foot'],$player['bio'],$player['profil_img']);
+            $object=new Player($player['first_name'],$player['last_name'],$player['phone'],$player['birthdate'],$player['position'],$player['foot'],$player['bio'],$player['profil_img'], $player['category_id']);
             array_push($tabPlayers, $object);
+            $object->setId($player["id"]);
         }
-        var_dump($tabPlayers);
+        
         return $tabPlayers;
     }
     
@@ -23,8 +24,9 @@ class PlayerManager extends AbstractManager{
         $parameters= ['id' => $id];
         $query->execute($parameters);
         $getPlayerById=$query->fetch(PDO::FETCH_ASSOC);
-        $newPlayer=new Player($getPlayerById['id'], $getPlayerById['firstname'],$getPlayerById['lastname'],$getPlayerById['phone'],$getPlayerById['birthdate'],$getPlayerById['position'],$getPlayerById['foot'],$getPlayerById['bio'],$getPlayerById['profilImg']);
-    
+        $newPlayer=new Player($getPlayerById['id'], $getPlayerById['firstname'],$getPlayerById['lastname'],$getPlayerById['phone'],$getPlayerById['birthdate'],$getPlayerById['position'],$getPlayerById['foot'],$getPlayerById['bio'],$getPlayerById['profilImg'], $player['category_id']);
+        
+        $newPlayer->setId($getPlayerById["id"]);
         return $newPlayer;
     }
     
@@ -52,17 +54,19 @@ class PlayerManager extends AbstractManager{
     
     public function insertPlayer(Player $player) : Player
     {
-        $query=$this->db->prepare("INSERT INTO players VALUES (null, :firstname, :lastname, :phone, :birthdate,:position,:foot,:bio,:profilImg)");
+        $query=$this->db->prepare("INSERT INTO players VALUES (null, :first_name, :last_name, :phone, :birthdate,   :position, :foot, :bio, :profil_img, :category_id)");
         $parameters= [
-            'firstname' =>$player->getFirstname(),
-            'lastname' => $player->getLastname(),
+            'first_name' =>$player->getFirstname(),
+            'last_name' => $player->getLastname(),
             'phone' => $player->getPhone(),
             'birthdate' => $player->getBirthdate(),
             'position' => $player->getPosition(),
             'foot' => $player->getFoot(),
             'bio' => $player->getBio(),
-            'profilImg' => $player->getProfilImg()
+            'profil_img' => $player->getProfilImg(),
+            'category_id' => $player->getCategoryId()
             ];
+            
         $query->execute($parameters);
     
         $getPlayer=$query->fetch(PDO::FETCH_ASSOC);

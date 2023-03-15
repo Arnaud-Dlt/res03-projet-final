@@ -106,7 +106,6 @@
             grid-column: 2/3;
             grid-row: 1/2;
             min-height: 100vh;
-            padding: 2vw;
             
             &>section:first-of-type{
                 margin: 5vh 0 5vh 0;
@@ -142,7 +141,6 @@
                 }
             }
         } 
-        
         
         // PAGES INFOS CLUB
         
@@ -214,10 +212,65 @@
             }
         }
         
+        #login{
+            grid-column: 2/3;
+            grid-row: 1/2;
+            min-height: 100vh;
+            padding: 2vw;
+        }
+        
         #footer{
             grid-column: 2/3;
             grid-row: 2/3;
         }
     
+    }
+    
+    #admin{
+        display: grid;
+        grid-template-columns: 13vw 87vw;
+        grid-template-rows: 1fr 1fr;
+        
+        #adminNav {
+            grid-column: 1/2;
+            
+            nav {
+                background-color: #15608E;
+                height: 100vh;
+                width: 13vw;
+                position: fixed;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 6vh 0 2vh 0;
+                
+                figure {
+                    text-align: center;
+                
+                    img {
+                        width: 60%;
+                    }
+                }
+                
+                ul {
+                    text-align: center;
+                    padding: 2vh;
+                    
+                    li {
+                        margin: 2vh;
+                        
+                        &>ul{
+                            display: none;
+                        }
+                        
+                        a {
+                            text-decoration: none;
+                            color: #fff;
+                            font-weight: 800;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

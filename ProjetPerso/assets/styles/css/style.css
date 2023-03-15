@@ -95,7 +95,6 @@ table {
     grid-column: 2/3;
     grid-row: 1/2;
     min-height: 100vh;
-    padding: 2vw;
   }
   #public #home > section:first-of-type {
     margin: 5vh 0 5vh 0;
@@ -175,9 +174,54 @@ table {
   #public #contact form input {
     margin: 2VH;
   }
+  #public #login {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vw;
+  }
   #public #footer {
     grid-column: 2/3;
     grid-row: 2/3;
+  }
+  #admin {
+    display: grid;
+    grid-template-columns: 13vw 87vw;
+    grid-template-rows: 1fr 1fr;
+  }
+  #admin #adminNav {
+    grid-column: 1/2;
+  }
+  #admin #adminNav nav {
+    background-color: #15608E;
+    height: 100vh;
+    width: 13vw;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 6vh 0 2vh 0;
+  }
+  #admin #adminNav nav figure {
+    text-align: center;
+  }
+  #admin #adminNav nav figure img {
+    width: 60%;
+  }
+  #admin #adminNav nav ul {
+    text-align: center;
+    padding: 2vh;
+  }
+  #admin #adminNav nav ul li {
+    margin: 2vh;
+  }
+  #admin #adminNav nav ul li > ul {
+    display: none;
+  }
+  #admin #adminNav nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 800;
   }
 }
 

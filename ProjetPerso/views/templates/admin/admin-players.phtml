@@ -1,60 +1,102 @@
-<main>
+<main id="admin-players">
     <h1>Joueurs</h1>
 
     <table>
         <thead>
-            <th></th>
+            <th>Id</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Tel</th>
+            <th>Date de naissance</th>
+            <th>Poste</th>
+            <th>Pied fort</th>
+            <th>Bio</th>
+            <th>Actions</th>
         </thead>
         <tbody>
-            <?php foreach($data as $players){ ?>
+            <?php 
+            foreach($data['players'] as $player){ ?>
             <tr>
-                <td><?= $this->playerManager->getFirstname() ?></td>
-                <td><?= $this->playerManager->getLastname()?></td>
-                <td><?= $this->playerManager->getPhone()?></td>
-                <td><?= $this->playerManager->getBirthdate()?></td>
-                <td><?= $this->playerManager->getPosition()?></td>
-                <td><?= $this->playerManager->getFoot()?></td>
-                <td><?= $this->playerManager->getBio()?></td>
+                <td><?= $player->getId() ?></td>
+                <td><?= $player->getFirstname() ?></td>
+                <td><?= $player->getLastname()?></td>
+                <td><?= $player->getPhone()?></td>
+                <td><?= $player->getBirthdate()?></td>
+                <td><?= $player->getPosition()?></td>
+                <td><?= $player->getFoot()?></td>
+                <td><?= $player->getBio()?></td>
+                <td><a href="">Modifier</a> <a href="">Supprimer</a></td>
             </tr>
             <?php } ?>
         </tbody>
     </table>
     <h2>Ajouter un joueur</h2>
-    <form method="POST" action="admin-players">
+    <form method="post" action="admin-players" name="formPlayerAdd">
 
-        <label>Image de profil</label>
-        <input type="file" name="playerPics">
-
-        <label>Prénom</label>
-        <input type="text" name="playerFirstname">
-
-        <label>Nom</label>
-        <input type="text" name="playerLastname">
-
-        <label>Phone</label>
-        <input type="text" name="playerPhone">
-
-        <label>Date de naissance</label>
-        <input type="date" name="playerBirthdate">
-
-        <label>Poste</label>
-        <select name="playerPosition">
-            <option>--Poste--</option>
-            <option>Gardiens</option>
-            <option>Défenseur</option>
-            <option>Milieu</option>
-            <option>Attaquant</option>
-        </select>
-
-        <label>Pied Fort</label>
-        <select name="playerFoot">
-            <option>--Pied Fort--</option>
-            <option>Droit</option>
-            <option>Gauche</option>
-        </select>
-
-        <label>Bio</label>
-        <textarea name="playerBio"></textarea>
+        <fieldset>
+            <label>Image de profil</label>
+            <input type="text" name="playerPics">
+        </fieldset>
+            
+        <fieldset>
+            <label>Prénom</label>
+            <input type="text" name="playerFirstname">
+        </fieldset>
+            
+        <fieldset>
+            <label>Nom</label>
+            <input type="text" name="playerLastname">
+        </fieldset>
+        
+        <fieldset>
+            <label>Phone</label>
+            <input type="text" name="playerPhone">
+        </fieldset>
+        
+        <fieldset>
+            <label>Date de naissance</label>
+            <input type="date" name="playerBirthdate">
+        </fieldset>
+        
+        <fieldset>
+            <label>Poste</label>
+            <select name="playerPosition">
+                <option>--Poste--</option>
+                <option>Gardiens</option>
+                <option>Défenseur</option>
+                <option>Milieu</option>
+                <option>Attaquant</option>
+            </select>
+        </fieldset>
+            
+        <fieldset>
+            <label>Pied Fort</label>
+            <select name="playerFoot">
+                <option>--Pied Fort--</option>
+                <option>Droit</option>
+                <option>Gauche</option>
+            </select>
+        </fieldset>
+            
+        <fieldset>
+            <label>Bio</label>
+            <textarea name="playerBio"></textarea>
+        </fieldset>
+            
+        <fieldset>
+            <label>Catégorie</label>
+            <select name="playerCategory">
+                <option>--Catégorie--</option>
+                <?php 
+                var_dump($data);
+                foreach($data['category'] as $category){ ?>
+                <option><?= $category->getId() ?> </option>
+                <?php } ?>
+            </select>
+        </fieldset>
+        
         <input type="submit" value="Ajouter">
+        
+        
     </form>
 </main>

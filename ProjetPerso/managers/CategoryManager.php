@@ -8,11 +8,13 @@ class CategoryManager extends AbstractManager{
         $query->execute();
         $getAllCategories=$query->fetchAll(PDO::FETCH_ASSOC);
     
-        $tabCategorys=[];
-        foreach($getAllCategories as $Category){
-            $object=new Category($Category['id'], $Category['firstname'],$Category['lastname'],$Category['phone'],$Category['birthdate'],$Category['position'],$Category['foot'],$Category['bio'],$Category['profilImg']);
+        $tabCategories=[];
+        foreach($getAllCategories as $category){
+            $object=new Category($category['name']);
             array_push($tabCategories, $object);
+            $object->setId($category["id"]);
         }
+        
         return $tabCategories;
     }
     
@@ -23,7 +25,7 @@ class CategoryManager extends AbstractManager{
         $query->execute($parameters);
         $getCategoryById=$query->fetch(PDO::FETCH_ASSOC);
         $newCategory=new Category($getCategoryById['id'], $getCategoryById['name']);
-    
+        
         return $newCategory;
     }
     

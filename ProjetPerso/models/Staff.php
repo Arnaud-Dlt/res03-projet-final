@@ -5,14 +5,16 @@ class Staff {
     private string $lastname;
     private string $phone;
     private string $role;
+    private string $profilImg;
     
-    public function __construct(string $firstname, string $lastname, string $phone,string $role)
+    public function __construct(string $firstname, string $lastname, string $phone,string $role, string $profilImg)
     {
         $this->id = null;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->phone = $phone;
-        $this->birthdate = $role;
+        $this->role = $role;
+        $this->profilImg = $profilImg;
     }
     
     /// GETTER
