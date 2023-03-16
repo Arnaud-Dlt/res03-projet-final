@@ -24,7 +24,7 @@ class PlayerManager extends AbstractManager{
         $parameters= ['id' => $id];
         $query->execute($parameters);
         $getPlayerById=$query->fetch(PDO::FETCH_ASSOC);
-        $newPlayer=new Player($getPlayerById['id'], $getPlayerById['firstname'],$getPlayerById['lastname'],$getPlayerById['phone'],$getPlayerById['birthdate'],$getPlayerById['position'],$getPlayerById['foot'],$getPlayerById['bio'],$getPlayerById['profilImg'], $player['category_id']);
+        $newPlayer=new Player($getPlayerById['first_name'],$getPlayerById['last_name'],$getPlayerById['phone'],$getPlayerById['birthdate'],$getPlayerById['position'],$getPlayerById['foot'],$getPlayerById['bio'],$getPlayerById['profil_img'], $getPlayerById['category_id']);
         
         $newPlayer->setId($getPlayerById["id"]);
         return $newPlayer;
@@ -76,16 +76,16 @@ class PlayerManager extends AbstractManager{
     
     public function editPlayer(Player $player) : void
     {
-        $query=$this->db->prepare("UPDATE players SET firstname = :firstname, lastname=:lastname, phone=:phone, birthdate=:birthdate, position=:position, foot=:foot, bio=:bio, profilImg=:profilImg WHERE players.id=:id");
+        $query=$this->db->prepare("UPDATE players SET first_name = :first_name, last_name=:last_name, phone=:phone, birthdate=:birthdate, position=:position, foot=:foot, bio=:bio, profil_img=:profil_img WHERE players.id=:id");
         $parameters= [
-            'firstname' =>$player->getFirstname(),
-            'lastname' => $player->getLastname(),
+            'first_name' =>$player->getFirstname(),
+            'last_name' => $player->getLastname(),
             'phone' => $player->getPhone(),
             'birthdate' => $player->getBirthdate(),
             'position' => $player->getPosition(),
             'foot' => $player->getFoot(),
             'bio' => $player->getBio(),
-            'profilImg' => $player->getProfilImg()
+            'profil_img' => $player->getProfilImg()
             ];
         $query->execute($parameters);
         $allPlayers=$query->fetch(PDO::FETCH_ASSOC);

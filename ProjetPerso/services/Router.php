@@ -144,16 +144,12 @@ class Router {
                         
                         if(!isset($route[2])){
                             $this->adminController->adminPlayers(); // Qui affichera la page admin players
-                            $this->adminController->addPlayer($post);
-                        }
-                        
-                        else if($route[2]=== "admin-player-edit"){
-                            $this->adminController->adminPlayersEdit($route[3], $post); // Qui affichera la page admin modif players
+                            $this->teamController->addPlayer($post);
                         }
                         
                         else if($route[2]=== "admin-player-delete"){
                             if(isset($route[3])){
-                                $this->adminController->deletePlayer($route[3]);
+                                $this->teamController->deletePlayer($route[3]);
                             }
                         }
                     }
@@ -161,11 +157,11 @@ class Router {
                     else if($route[1]==="admin-teams"){
                         
                         if(!isset($route[2])){
-                            $this->adminController->adminTeams(); // Qui affichera la page admin teams
+                            $this->teamController->adminTeams(); // Qui affichera la page admin teams
                         }
                         
                         else if($route[2]=== "admin-team-edit"){
-                            $this->adminController->adminTeamsEdit(); // Qui affichera la page admin modif teams
+                            $this->teamController->adminTeamsEdit(); // Qui affichera la page admin modif teams
                         }
                     }
                     
@@ -191,10 +187,12 @@ class Router {
                     else if($route[1]==="admin-staff"){
                         if(!isset($route[2])){
                             $this->adminController->adminStaff(); // Qui affichera la page admin staff
-                            $this->staffController->addStaff($post);
+                            $this->adminController->addStaff($post);
                         }
-                        else if($route[2]==="admin-staff-edit"){
-                            $this->adminController->adminStaffEdit(); // J'affiche une page 404
+                        else if($route[2]=== "admin-staff-delete"){
+                            if(isset($route[3])){
+                                $this->adminController->deleteStaff($route[3]);
+                            }
                         }
                     }
                 }

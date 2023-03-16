@@ -1,17 +1,21 @@
-<h1>Modifier Joueur</h1>
-<form method="POST" action="admin-player-edit">
+<?php 
+var_dump($data);
+?>
+<main>
+    <h1>Modifier Joueur</h1>
+<form method="POST" action="/res03-projet-final/ProjetPerso/admin/admin-players/<?= $data['players']->getId(); ?>">
     
     <label>Image de profil</label>
     <input type="file" name="editProfilImg">
     
     <label>Prénom</label>
-    <input type="text" name="editFirstname">
+    <input type="text" name="editFirstname" value="<?= $data['players']->getFirstname(); ?>">
     
     <label>Nom</label>
-    <input type="text" name="editLastname">
+    <input type="text" name="editLastname" value="<?= $data['players']->getLastname(); ?>">
     
     <label>Phone</label>
-    <input type="text" name="editPhone">
+    <input type="text" name="editPhone" value="<?= $data['players']->getPhone(); ?>">
     
     <label>Poste</label>
     <select name="editPosition">
@@ -30,6 +34,7 @@
     </select>
     
     <label>Bio</label>
-    <input type="textarea" name="editBio">
+    <input type="textarea" name="editBio" value="<?= $data['players']->getFoot(); ?>">
     <input type="submit" value="Modifier" name="editBtn">
 </form>
+</main>

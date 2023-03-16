@@ -80,6 +80,15 @@ class StaffManager extends AbstractManager{
         $query->execute($parameters);
         $allStaff=$query->fetch(PDO::FETCH_ASSOC);
     }
+    
+    public function deleteStaff(int $id) : void
+    {
+        $query=$this->db->prepare("DELETE FROM staff WHERE id= :id");
+        $parameters= [
+            'id' => $id
+            ];
+        $query->execute($parameters);
+    }
 }
 
 

@@ -5,7 +5,7 @@ class StaffController extends AbstractController{
     
     public function __construct()
     {
-        $this->sm = new StaffManager();
+        $this->staffManager = new StaffManager();
     }
     
     public function addStaff(array $post){
@@ -18,8 +18,12 @@ class StaffController extends AbstractController{
                 
             $newStaff=new Staff($post['staffFirstname'],$post['staffLastname'],$post['staffPhone'],$post['staffRole'], $post["staffProfilImg"]);
             
-            $this->sm->insertStaff($newStaff);
+            $this->staffManager->insertStaff($newStaff);
         }
+    }
+    public function deleteStaff(int $id){
+        $this->staffManager->deleteStaff($id);
+        header("Location: /res03-projet-final/ProjetPerso/admin/admin-staff");
     }
 }
 ?>

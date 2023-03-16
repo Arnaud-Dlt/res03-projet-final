@@ -6,6 +6,7 @@
             <th>Id</th>
             <th>Prénom</th>
             <th>Nom</th>
+            <th>Tel</th>
             <th>Role</th>
         </thead>
         <tbody>
@@ -15,8 +16,9 @@
                 <td><?= $staff->getId() ?></td>
                 <td><?= $staff->getFirstname() ?></td>
                 <td><?= $staff->getLastname()?></td>
+                <td><?= $staff->getPhone()?></td>
                 <td><?= $staff->getRole()?></td>
-                <td><a href="">Modifier</a> <a href="">Supprimer</a></td>
+                <td><a href="/res03-projet-final/ProjetPerso/admin/admin-staff/admin-staff-delete/<?= $staff->getId();?>">Supprimer</a></td>
             </tr>
             <?php } ?>
         </tbody>
