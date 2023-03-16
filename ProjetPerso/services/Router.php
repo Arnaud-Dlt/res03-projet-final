@@ -144,11 +144,17 @@ class Router {
                         
                         if(!isset($route[2])){
                             $this->adminController->adminPlayers(); // Qui affichera la page admin players
-                            $this->teamController->addPlayer($post);
+                            $this->adminController->addPlayer($post);
                         }
                         
                         else if($route[2]=== "admin-player-edit"){
-                            $this->adminController->adminPlayersEdit(); // Qui affichera la page admin modif players
+                            $this->adminController->adminPlayersEdit($route[3], $post); // Qui affichera la page admin modif players
+                        }
+                        
+                        else if($route[2]=== "admin-player-delete"){
+                            if(isset($route[3])){
+                                $this->adminController->deletePlayer($route[3]);
+                            }
                         }
                     }
                     

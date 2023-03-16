@@ -19,13 +19,12 @@
             </thead>
             <tbody>
                 <?php 
-                var_dump($data);
-                foreach($data as $player){ ?>
+                foreach($data['players'] as $player){ ?>
                 <tr>
-                    <td><?= $player->getFirstname ?></td>
-                    <td><?= $player->getLastname ?></td>
-                    <td><?= $player->getPosition ?></td>
-                    <td><?= $player->getFoot ?></td>
+                    <td><?= $player->getFirstname() ?></td>
+                    <td><?= $player->getLastname() ?></td>
+                    <td><?= $player->getPosition() ?></td>
+                    <td><?= $player->getFoot() ?></td>
                 </tr>
                 <?php } ?>
             </tbody>

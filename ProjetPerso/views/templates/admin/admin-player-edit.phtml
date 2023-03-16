@@ -1,20 +1,20 @@
 <h1>Modifier Joueur</h1>
-<form method="POST">
+<form method="POST" action="admin-player-edit">
     
     <label>Image de profil</label>
-    <input type="file">
+    <input type="file" name="editProfilImg">
     
     <label>Prénom</label>
-    <input type="text">
+    <input type="text" name="editFirstname">
     
     <label>Nom</label>
-    <input type="text">
+    <input type="text" name="editLastname">
     
     <label>Phone</label>
-    <input type="text">
+    <input type="text" name="editPhone">
     
     <label>Poste</label>
-    <select>
+    <select name="editPosition">
         <option>--Poste--</option>
         <option>Gardiens</option>
         <option>Défenseur</option>
@@ -23,13 +23,13 @@
     </select>
     
     <label>Pied Fort</label>
-    <select>
+    <select name="editFoot">
         <option>--Pied Fort--</option>
         <option>Droit</option>
         <option>Gauche</option>
     </select>
     
     <label>Bio</label>
-    <input type="textarea">
-    <input type="submit" value="Modifier">
+    <input type="textarea" name="editBio">
+    <input type="submit" value="Modifier" name="editBtn">
 </form>

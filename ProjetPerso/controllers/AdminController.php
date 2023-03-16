@@ -30,9 +30,41 @@ class AdminController extends AbstractController{
         'category'=>$this->categoryManager->getAllCategories(),
         ]);
     }
-    public function adminPlayersEdit(){
-            $this->privateRender("admin-player-edit", []);
+    public function adminPlayersEdit(int $id, array $post){
+        $this->privateRender("admin-player-edit", []);
+        
+        if(isset($post["editFirstname"]) && !empty($post["editFirstname"])
+            && isset($post["editLastname"]) && !empty($post["editLastname"])
+            && isset($post["editPhone"]) && !empty($post["editPhone"])
+            && isset($post["editPosition"]) && !empty($post["editPosition"])
+            && isset($post["editFoot"]) && !empty($post["editFoot"])
+            && isset($post["editBio"]) && !empty($post["editBio"])){
+                
+            $newPlayer=new Player($post['editFirstname'],$post['editLastname'],$post['editPhone'],$post['editPosition'],$post['editFoot'],$post['editBio']);
+            $newPlayer=setId($id);
+            $this->playerManager->editPlayer($newPlayer);
         }
+    }
+    public function addPlayer(array $post){
+        
+        if(isset($post["playerFirstname"]) && !empty($post["playerFirstname"])
+            && isset($post["playerLastname"]) && !empty($post["playerLastname"])
+            && isset($post["playerPhone"]) && !empty($post["playerPhone"])
+            && isset($post["playerBirthdate"]) && !empty($post["playerBirthdate"])
+            && isset($post["playerPosition"]) && !empty($post["playerPosition"])
+            && isset($post["playerFoot"]) && !empty($post["playerFoot"])
+            && isset($post["playerBio"]) && !empty($post["playerBio"])){
+                
+            $newPlayer=new Player($post['playerFirstname'],$post['playerLastname'],$post['playerPhone'],$post['playerBirthdate'],$post['playerPosition'],$post['playerFoot'],$post['playerBio'],$post['playerPics'],$post['playerCategory']);
+            
+            $this->playerManager->insertPlayer($newPlayer);
+        }
+    }
+    
+    public function deletePlayer(int $id){
+        $this->playerManager->deletePlayer($id);
+        header("Location: /res03-projet-final/ProjetPerso/admin/admin-players");
+    }
     
     public function adminTeams(){
         $this->privateRender("admin-teams", []);
@@ -42,7 +74,7 @@ class AdminController extends AbstractController{
         }
         
     public function adminConvoc(){
-            $this->privateRender("admin-convocation", []);
+            $this->privateRender("admin-convocation", ['players'=>$this->playerManager->getAllPlayers()]);
         }
     
     public function adminArticles(){

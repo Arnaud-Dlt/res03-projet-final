@@ -78,7 +78,6 @@ class PlayerManager extends AbstractManager{
     {
         $query=$this->db->prepare("UPDATE players SET firstname = :firstname, lastname=:lastname, phone=:phone, birthdate=:birthdate, position=:position, foot=:foot, bio=:bio, profilImg=:profilImg WHERE players.id=:id");
         $parameters= [
-            'id' => $Player->getId(),
             'firstname' =>$player->getFirstname(),
             'lastname' => $player->getLastname(),
             'phone' => $player->getPhone(),
@@ -90,6 +89,15 @@ class PlayerManager extends AbstractManager{
             ];
         $query->execute($parameters);
         $allPlayers=$query->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    public function deletePlayer(int $id) : void
+    {
+        $query=$this->db->prepare("DELETE FROM players WHERE id= :id");
+        $parameters= [
+            'id' => $id
+            ];
+        $query->execute($parameters);
     }
 }
 
