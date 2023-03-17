@@ -13,12 +13,9 @@ class ArticleController extends AbstractController{
     // ARTICLES
     
     public function articles(){
-        $this->publicRender("teams", []);
+        $this->publicRender("articles", []);
     }
     
-    public function effectif(){
-        $this->publicRender("effectif", []);
-    }
     
     public function addArticle(array $post){
         
@@ -27,9 +24,20 @@ class ArticleController extends AbstractController{
             && isset($post["articleContent"]) && !empty($post["articleContent"])
             && isset($post["articlePicture"]) && !empty($post["articlePicture"])){
                 
-            $newArticle=new Article($post['articleTitle'],$post['articleDescription'],$post['articleContent'],$post['articlePicture']);
+            $newArticle=new Post($post['articleTitle'],$post['articleDescription'],$post['articleContent'],$post['articlePicture']);
+            
+            var_dump($newArticle);
             
             $this->articleManager->insertArticle($newArticle);
+        }
+        else if(isset($post["articleTitle"]) && empty($post["articleTitle"])){
+            echo "Mettre un titre";
+        }
+        else if(isset($post["articleDescription"]) && empty($post["articleDescription"])){
+            echo "Mettre une description";
+        }
+        else if(isset($post["articleContent"]) && empty($post["articleContent"])){
+            echo "Mettre un contenu";
         }
     }
     

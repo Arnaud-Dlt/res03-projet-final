@@ -10,7 +10,7 @@ class ArticleManager extends AbstractManager{
     
         $tabArticles=[];
         foreach($getAllArticles as $article){
-            $object=new Article($article['first_name'],$article['last_name'],$article['phone'],$article['birthdate'],$article['position'],$article['foot'],$article['bio'],$article['profil_img'], $article['category_id']);
+            $object=new Post($article['title'],$article['description'],$article['content'],$article['picture']);
             array_push($tabArticles, $object);
             $object->setId($article["id"]);
         }
@@ -18,30 +18,30 @@ class ArticleManager extends AbstractManager{
         return $tabArticles;
     }
     
-    public function getArticleById(int $id) : Article
+    public function getArticleById(int $id) : Post
     {
         $query=$this->db->prepare("SELECT * FROM posts WHERE id= :id");
         $parameters= ['id' => $id];
         $query->execute($parameters);
         $getArticleById=$query->fetch(PDO::FETCH_ASSOC);
-        $newArticle=new Article($getArticleById['title'],$getArticleById['description'],$getArticleById['content'],$getArticleById['picture']);
+        $newArticle=new Post($getArticleById['title'],$getArticleById['description'],$getArticleById['content'],$getArticleById['picture']);
         
         $newArticle->setId($getArticleById["id"]);
         return $newArticle;
     }
     
-    public function getArticleByDescription(string $description) : Article
+    public function getArticleByDescription(string $description) : Post
     {
         $query=$this->db->prepare("SELECT * FROM posts WHERE description= :description");
         $parameters= ['description' => $description];
         $query->execute($parameters);
         $getArticleByDescription=$query->fetch(PDO::FETCH_ASSOC);
-        $newArticle=new Article($getArticleByDescription['title'],$getArticleByDescription['description'],$getArticleByDescription['content'],$getArticleByDescription['picture']);
+        $newArticle=new Post($getArticleByDescription['title'],$getArticleByDescription['description'],$getArticleByDescription['content'],$getArticleByDescription['picture']);
     
         return $newArticle;
     }
     
-    public function insertArticle(Article $article) : Article
+    public function insertArticle(Post $article) : Post
     {
         $query=$this->db->prepare("INSERT INTO posts VALUES (null, :title, :description, :content, :picture)");
         $parameters= [
