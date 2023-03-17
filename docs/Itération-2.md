@@ -10,8 +10,8 @@ Période de l'itération : du 13/03/2023 au 17/03/2023.
 
 ### Au cours de cette itération, j'ai accompli les tâches suivantes : 
 
--Authentification (Session): Sécurisation de l'accès à l'espace administrateur
--CRUD (create, delete) : Création et récupération de données.
+- Authentification (Session): Sécurisation de l'accès à l'espace administrateur
+- CRUD (create, delete) : Création et récupération de données.
 
 ### Difficultés :
 
