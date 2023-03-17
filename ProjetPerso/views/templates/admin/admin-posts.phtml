@@ -1,1 +1,53 @@
-<h1>admin article</h1>
+<main>
+    <h1>Articles</h1>
+
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Content</th>
+            <th>Picture</th>
+        </thead>
+        <tbody>
+            <?php 
+            foreach($data['articles'] as $article){ ?>
+            <tr>
+                <td><?= $article->getId() ?></td>
+                <td><?= $article->getTitle() ?></td>
+                <td><?= $article->getDescription()?></td>
+                <td><?= $article->getContent()?></td>
+                <td><?= $article->getPicture()?></td>
+                <td><a href="/res03-projet-final/ProjetPerso/admin/admin-articles/admin-article-delete/<?= $article->getId();?>">Supprimer</a></td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+    <h2>Ajouter un article</h2>
+    <form method="post" action="admin-articles" name="formArticleAdd">
+        
+        <fieldset>
+            <label>Title</label>
+            <input type="text" name="articleTitle">
+        </fieldset>
+        
+        <fieldset>
+            <label>Description</label>
+            <input type="text" name="articleDescription">
+        </fieldset>
+            
+        <fieldset>
+            <label>Content</label>
+            <input type="text" name="articleContent">
+        </fieldset>
+        
+        <fieldset>
+            <label>Picture</label>
+            <input type="text" name="articlePicture">
+        </fieldset>
+        
+        
+        <input type="submit" value="Ajouter">
+        
+        
+    </form>
+</main>

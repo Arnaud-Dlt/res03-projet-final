@@ -40,7 +40,7 @@ class AdminController extends AbstractController{
         }
     
     public function adminArticles(){
-        $this->privateRender("admin-posts", []);
+        $this->privateRender("admin-posts", ['articles'=>$this->articleManager->getAllArticles()]);
     }
 
     public function adminPhoto(){
@@ -122,7 +122,8 @@ class AdminController extends AbstractController{
         }
     }
     
-    public function adminLogout(){
+    public function adminLogout()
+    {
         session_destroy();
         header('Location: /res03-projet-final/ProjetPerso/');
     }

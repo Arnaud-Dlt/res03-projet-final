@@ -1,11 +1,11 @@
 <?php
 
 class MediaController extends AbstractController{
-    private MediaManager $mm;
+    private MediaManager $mediaManager;
     
     public function __construct()
     {
-        $this->mm = new MediaManager();
+        $this->mediaManager = new MediaManager();
     }
     
     // mediaS

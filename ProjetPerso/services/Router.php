@@ -172,11 +172,14 @@ class Router {
                     else if($route[1]==="admin-articles"){
                         
                         if(!isset($route[2])){
-                            $this->adminController->adminArticles(); // Qui affichera la page admin posts
+                            $this->adminController->adminArticles(); // Qui affichera la page admin article
+                            $this->articleController->addArticle($post);
                         }
                         
-                        else if($route[2]=== "admin-post-edit"){
-                            $this->adminController->adminPostEdit(); // Qui affichera la page admin modif post
+                        else if($route[2]=== "admin-article-delete"){
+                            if(isset($route[3])){
+                                $this->articleController->deleteArticle($route[3]);
+                            }
                         }
                     }
                     

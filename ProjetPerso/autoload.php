@@ -4,6 +4,7 @@
 require "./models/Admin.php";
 require "./models/Player.php";
 require "./models/Media.php";
+require "./models/Post.php";
 require "./models/Staff.php";
 require "./models/Team.php";
 require "./models/Category.php";

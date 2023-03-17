@@ -1,7 +1,7 @@
 <?php
 
 class StaffController extends AbstractController{
-    private StaffManager $sm;
+    private StaffManager $staffManager;
     
     public function __construct()
     {
