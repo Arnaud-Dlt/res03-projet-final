@@ -1,0 +1,33 @@
+<main>
+    <h1>Category</h1>
+
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+        </thead>
+        <tbody>
+            <?php 
+            foreach($data['categories'] as $category){ ?>
+            <tr>
+                <td><?= $category->getId() ?></td>
+                <td><?= $category->getName() ?></td>
+                <td><a href="/res03-projet-final/ProjetPerso/admin/admin-category/admin-category-delete/<?= $category->getId();?>">Supprimer</a></td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+    <h2>Ajouter une catgorie</h2>
+    <form method="post" action="admin-categorie" name="formCategoryAdd">
+        
+        <fieldset>
+            <label>Nom</label>
+            <input type="text" name="categoryName">
+        </fieldset>
+        
+        
+        <input type="submit" value="Ajouter">
+        
+        
+    </form>
+</main>

@@ -10,6 +10,7 @@ class TeamController extends AbstractController{
         $this->teamManager = new TeamManager();
     }
     
+    // PUBLIC
     
     public function teams(){
         $this->publicRender("teams", []);
@@ -31,6 +32,9 @@ class TeamController extends AbstractController{
         $this->publicRender("convocations", []);
     }
     
+    
+    // PRIVATE
+    
     public function addPlayer(array $post){
         
         if(isset($post["playerFirstname"]) && !empty($post["playerFirstname"])
@@ -44,8 +48,10 @@ class TeamController extends AbstractController{
             $newPlayer=new Player($post['playerFirstname'],$post['playerLastname'],$post['playerPhone'],$post['playerBirthdate'],$post['playerPosition'],$post['playerFoot'],$post['playerBio'],$post['playerPics'],$post['playerCategory']);
             
             $this->playerManager->insertPlayer($newPlayer);
-            header("Location: /res03-projet-final/ProjetPerso/admin/admin-players");
         }
+    }
+    public function editPlayer(int $id, $post){
+        $this->privateRender("admin-player-edit", ['players'=>$this->playerManager->getplayerById()]);
     }
     public function deletePlayer(int $id){
         $this->playerManager->deletePlayer($id);
@@ -56,10 +62,13 @@ class TeamController extends AbstractController{
         
         if(isset($post["teamName"]) && !empty($post["teamName"])){
                 
-            $newStaff=new Team($post['teamName']);
+            $newTeam= new Team($post['teamName'], $post["teamCategory"]);
             
-            $teamManager->insertTeam($newTeam);
+            $this->teamManager->insertTeam($newTeam);
         }
+    }
+    public function editTeam(int $id, $post){
+        $this->privateRender("admin-team-edit", []);
     }
     public function deleteTeam(int $id){
         $this->teamManager->deleteTeam($id);

@@ -2,11 +2,13 @@
 class Team {
     private ? int $id;
     private string $name;
+    private ?int $categoryId;
     
-    public function __construct(string $name)
+    public function __construct(string $name, ?int $categoryId)
     {
         $this->id = null;
         $this->name = $name;
+        $this->categoryId = $categoryId;
     }
     
     /// GETTER
@@ -21,7 +23,10 @@ class Team {
         return $this->name;
     }
     
-    
+    public function getCategoryId() : ?int
+    {
+        return $this->categoryId;
+    }
     
     /// SETTER
     
@@ -33,6 +38,10 @@ class Team {
     public function setName(string $name) : void
     {
         $this->name = $name;
+    }
+    public function setCategoryId(string $categoryId) : void
+    {
+        $this->categoryId = $categoryId;
     }
     
 }

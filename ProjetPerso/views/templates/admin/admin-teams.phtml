@@ -1,1 +1,44 @@
-<h1>admin-teams</h1>
+<main>
+    <h1>Equipes</h1>
+
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+        </thead>
+        <tbody>
+            <?php 
+            foreach($data['teams'] as $team){ ?>
+            <tr>
+                <td><?= $team->getId() ?></td>
+                <td><?= $team->getName() ?></td>
+                <td><a href="/res03-projet-final/ProjetPerso/admin/admin-teams/admin-team-delete/<?= $team->getId();?>">Supprimer</a></td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+    <h2>Ajouter une équipe</h2>
+    <form method="post" action="admin-teams" name="formEquipeAdd">
+        
+        <fieldset>
+            <label>Nom</label>
+            <input type="text" name="teamName">
+        </fieldset>
+        
+        <fieldset>
+            <label>Catégorie</label>
+            <select name="teamCategory">
+                <option>--Catégorie--</option>
+                <?php 
+                var_dump($data);
+                foreach($data['category'] as $category){ ?>
+                <option><?= $category->getId() ?> </option>
+                <?php } ?>
+            </select>
+        </fieldset>
+        
+        <input type="submit" value="Ajouter">
+        
+        
+    </form>
+</main>

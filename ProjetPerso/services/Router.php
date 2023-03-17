@@ -136,17 +136,19 @@ class Router {
                         $this->adminController->adminHome(); // Qui affichera la page admin home
                     }
                     
-                    else if($route[1]==="register"){
+                    else if($route[1]=== "register"){
                         $this->adminController->adminRegister($post);
                     }
                     
-                    else if($route[1]==="admin-players"){
+                    else if($route[1]=== "admin-players"){
                         
                         if(!isset($route[2])){
                             $this->adminController->adminPlayers(); // Qui affichera la page admin players
                             $this->teamController->addPlayer($post);
                         }
-                        
+                        else if($route[2]=== "admin-player-edit"){
+                                $this->teamController->editPlayer($route[3], $post);
+                        }
                         else if($route[2]=== "admin-player-delete"){
                             if(isset($route[3])){
                                 $this->teamController->deletePlayer($route[3]);
@@ -154,14 +156,20 @@ class Router {
                         }
                     }
                     
-                    else if($route[1]==="admin-teams"){
+                    else if($route[1]=== "admin-teams"){
                         
                         if(!isset($route[2])){
-                            $this->teamController->adminTeams(); // Qui affichera la page admin teams
+                            $this->adminController->adminTeams(); // Qui affichera la page admin teams
+                            $this->teamController->addTeam($post);
                         }
                         
                         else if($route[2]=== "admin-team-edit"){
                             $this->teamController->adminTeamsEdit(); // Qui affichera la page admin modif teams
+                        }
+                        else if($route[2]=== "admin-team-delete"){
+                            if(isset($route[3])){
+                                $this->teamController->deleteTeam($route[3]);
+                            }
                         }
                     }
                     
@@ -169,7 +177,7 @@ class Router {
                             $this->adminController->adminConvoc(); // Qui affichera la page admin modif teams
                         }
                         
-                    else if($route[1]==="admin-articles"){
+                    else if($route[1]=== "admin-articles"){
                         
                         if(!isset($route[2])){
                             $this->adminController->adminArticles(); // Qui affichera la page admin article
@@ -187,10 +195,10 @@ class Router {
                         $this->adminController->adminPhoto();
                     }
                     
-                    else if($route[1]==="admin-staff"){
+                    else if($route[1]=== "admin-staff"){
                         if(!isset($route[2])){
                             $this->adminController->adminStaff(); // Qui affichera la page admin staff
-                            $this->adminController->addStaff($post);
+                            $this->staffController->addStaff($post);
                         }
                         else if($route[2]=== "admin-staff-delete"){
                             if(isset($route[3])){

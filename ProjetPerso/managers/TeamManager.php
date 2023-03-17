@@ -4,59 +4,73 @@ class TeamManager extends AbstractManager{
     
     public function getAllTeams() : array
     {
-        $query=$this->db->prepare("SELECT * FROM teams");
+        $query=$this->db->prepare("SELECT * FROM team");
         $query->execute();
         $getAllTeams=$query->fetchAll(PDO::FETCH_ASSOC);
     
         $tabTeams=[];
         foreach($getAllTeams as $team){
-            $object=new Team($team['id'], $team['name']);
+            $object=new Team($team['name'],$team['category_id']);
+            $object->setId($team["id"]);
             array_push($tabTeams, $object);
+            
         }
+        
         return $tabTeams;
     }
     
     public function getTeamById(int $id) : Team
     {
-        $query=$this->db->prepare("SELECT * FROM teams WHERE id= :id");
+        $query=$this->db->prepare("SELECT * FROM team WHERE id= :id");
         $parameters= ['id' => $id];
+        
         $query->execute($parameters);
+        
         $getTeamById=$query->fetch(PDO::FETCH_ASSOC);
-        $newTeam=new Team($getTeamById['id'], $getTeamById['name']);
-    
+        
+        $newTeam=new Team($getTeamById['id'], $getTeamById['name'],$team['category_id']);
+        
+        $newTeam->setId($getTeamById["id"]);
+        
         return $newTeam;
     }
     
     public function getTeamByName(string $name) : Team
     {
-        $query=$this->db->prepare("SELECT * FROM Teams WHERE name= :name");
+        $query=$this->db->prepare("SELECT * FROM team WHERE name= :name");
+        
         $parameters= ['name' => $name];
+        
         $query->execute($parameters);
-        $getTeamById=$query->fetch(PDO::FETCH_ASSOC);
-        $newTeam=new Team($getTeamById['id'], $getTeamById['name']);
+        
+        $getTeamByName=$query->fetch(PDO::FETCH_ASSOC);
+        
+        $newTeam=new Team($getTeamByName['id'], $getTeamByName['name'],$team['category_id']);
     
         return $newTeam;
     }
     
-    public function insertTeam(Team $Team) : Team
+    public function insertTeam(Team $team) : Team
     {
-        $query=$this->db->prepare("INSERT INTO Teams VALUES (null, :name)");
+        $query=$this->db->prepare("INSERT INTO team VALUES (null, :name, :category_id)");
         $parameters= [
-            'name' =>$team->getName(),
+            'name' => $team->getName(),
+            'category_id' => $team->getCategoryId()
             ];
         $query->execute($parameters);
     
         $getTeam=$query->fetch(PDO::FETCH_ASSOC);
     
-        return $Team;
+        return $team;
     }
     
-    public function editTeam(Team $Team) : void
+    public function editTeam(Team $team) : void
     {
-        $query=$this->db->prepare("UPDATE Teams SET name = :name WHERE Teams.id=:id");
+        $query=$this->db->prepare("UPDATE team SET name = :name WHERE Teams.id=:id");
         $parameters= [
-            'id' => $Team->getId(),
+            'id' => $team->getId(),
             'name' =>$team->getName(),
+            'category_id' => $team->getCategoryId()
             ];
         $query->execute($parameters);
         $allTeams=$query->fetch(PDO::FETCH_ASSOC);

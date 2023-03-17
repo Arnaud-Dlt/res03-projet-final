@@ -32,7 +32,15 @@ class AdminController extends AbstractController{
     }
     
     public function adminTeams(){
-        $this->privateRender("admin-teams", []);
+        $this->privateRender("admin-teams", 
+        ['teams'=>$this->teamManager->getAllTeams(),
+        'category'=>$this->categoryManager->getAllCategories(),]);
+    }
+    
+    public function adminCategories(){
+        $this->privateRender("admin-category", 
+        ['teams'=>$this->teamManager->getAllTeams(),
+        'category'=>$this->categoryManager->getAllCategories()]);
     }
     
     public function adminConvoc(){
