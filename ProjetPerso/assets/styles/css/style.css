@@ -55,7 +55,6 @@ table {
   #public {
     display: grid;
     grid-template-columns: 13vw 87vw;
-    grid-template-rows: 1fr 1fr;
   }
   #public #publicNav {
     grid-column: 1/2;
@@ -98,15 +97,36 @@ table {
   }
   #public #home > section:first-of-type {
     margin: 5vh 0 5vh 0;
+    padding: 1vh;
+  }
+  #public #home > section:first-of-type > section h2 {
+    text-align: center;
+    color: #15608E;
+    font-size: 2rem;
   }
   #public #home > section:nth-of-type(2) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 5vh 0 5vh 0;
+    padding: 1vh;
+    text-align: center;
+    box-shadow: 1px 1px 10px #000;
   }
-  #public #home > section:nth-of-type(2) > section:last-of-type {
+  #public #home > section:nth-of-type(2) article {
+    text-align: center;
+    box-shadow: 1px 1px 10px #000;
+    min-height: 45vh;
+    margin: 1vh;
+  }
+  #public #home > section:nth-of-type(2) > section:nth-of-type(2) {
     display: grid;
     grid-template-rows: repeat(4, 1fr);
+  }
+  #public #home > section:nth-of-type(2) > section:nth-of-type(2) > article {
+    text-align: center;
+    box-shadow: 1px 1px 10px #000;
+    min-height: 10vh;
+    margin: 1vh;
   }
   #public #home > section:nth-of-type(2) button {
     grid-column: 1/3;
@@ -115,10 +135,14 @@ table {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 5vh 0 5vh 0;
+    padding: 1vh;
+    text-align: center;
   }
-  #public #home > section:nth-of-type(3) > section:last-of-type {
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
+  #public #home > section:nth-of-type(3) > section {
+    text-align: center;
+    box-shadow: 1px 1px 10px #000;
+    min-height: 45vh;
+    margin: 1vh;
   }
   #public #home > section:nth-of-type(3) button {
     grid-column: 1/3;
@@ -181,8 +205,44 @@ table {
     padding: 2vw;
   }
   #public #footer {
+    background-color: #000;
+    color: #fff;
     grid-column: 2/3;
     grid-row: 2/3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  #public #footer h2 {
+    grid-column: 1/2;
+  }
+  #public #footer > section:first-of-type {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #public #footer > section:first-of-type > section:first-of-type {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  #public #footer > section:first-of-type > section:nth-of-type(2) {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  #public #footer > section:first-of-type > section:last-of-type {
+    grid-column: 3/4;
+    grid-row: 1/2;
+  }
+  #public #footer > section:nth-of-type(2) {
+    text-align: center;
+    grid-column: 1/4;
+    grid-row: 2/3;
+  }
+  #public #footer > section:last-of-type {
+    text-align: center;
+    grid-column: 1/4;
+    grid-row: 3/4;
   }
   #admin {
     display: grid;
