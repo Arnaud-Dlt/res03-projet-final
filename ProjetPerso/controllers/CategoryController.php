@@ -5,7 +5,29 @@ class CategoryController extends AbstractController{
     
     public function __construct()
     {
-        $this->cm = new CategoryManager();
+        $this->categoryManager = new CategoryManager();
+    }
+    
+    public function categories(){
+        $this->publicRender("categories", []);
+    }
+    
+    
+    public function addCategory(array $post){
+        
+        if(isset($post["categoryName"]) && !empty($post["categoryName"])){
+                
+            $newCategory=new Category($post['categoryName']);
+            
+            var_dump($newCategory);
+            
+            $this->categoryManager->insertCategory($newCategory);
+        }
+    }
+    
+    public function deleteCategory(int $id){
+        $this->categoryManager->deleteCategory($id);
+        header("Location: /res03-projet-final/ProjetPerso/admin/admin-category");
     }
 }
 ?>

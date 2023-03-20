@@ -3,22 +3,22 @@ var_dump($data);
 ?>
 <main>
     <h1>Modifier Joueur</h1>
-<form method="POST" action="/res03-projet-final/ProjetPerso/admin/admin-players/<?= $data['players']->getId(); ?>">
+<form method="POST" action="/res03-projet-final/ProjetPerso/admin/admin-players/admin-player-edit/<?= $data['players']->getId(); ?>">
     
     <label>Image de profil</label>
     <input type="file" name="editProfilImg">
     
     <label>Prénom</label>
-    <input type="text" name="editFirstname" value="">
+    <input type="text" name="editFirstname" value="<?= $data['players']->getFirstname()?>">
     
     <label>Nom</label>
-    <input type="text" name="editLastname" value="">
+    <input type="text" name="editLastname" value="<?= $data['players']->getLastname()?>">
     
     <label>Phone</label>
-    <input type="text" name="editPhone" value="">
+    <input type="text" name="editPhone" value="<?= $data['players']->getPhone()?>">
     
     <label>Poste</label>
-    <select name="editPosition">
+    <select name="editPosition" value="<?= $data['players']->getPosition()?>">
         <option>--Poste--</option>
         <option>Gardiens</option>
         <option>Défenseur</option>
@@ -27,14 +27,14 @@ var_dump($data);
     </select>
     
     <label>Pied Fort</label>
-    <select name="editFoot">
+    <select name="editFoot" value="<?= $data['players']->getFoot()?>">
         <option>--Pied Fort--</option>
         <option>Droit</option>
         <option>Gauche</option>
     </select>
     
     <label>Bio</label>
-    <input type="textarea" name="editBio" value="<?= $data['players']->getFoot(); ?>">
+    <input type="textarea" name="editBio" value="<?= $data['players']->getBio(); ?>">
     <input type="submit" value="Modifier" name="editBtn">
 </form>
 </main>

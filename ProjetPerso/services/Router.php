@@ -140,6 +140,40 @@ class Router {
                         $this->adminController->adminRegister($post);
                     }
                     
+                    else if($route[1]=== "admin-teams"){
+                        
+                        if(!isset($route[2])){
+                            $this->adminController->adminTeams(); // Qui affichera la page admin teams
+                            $this->teamController->addTeam($post);
+                        }
+                        
+                        else if($route[2]=== "admin-team-edit"){
+                            $this->teamController->adminTeamsEdit(); // Qui affichera la page admin modif teams
+                        }
+                        else if($route[2]=== "admin-team-delete"){
+                            if(isset($route[3])){
+                                $this->teamController->deleteTeam($route[3]);
+                            }
+                        }
+                    }
+                    
+                    else if($route[1]=== "admin-category"){
+                        
+                        if(!isset($route[2])){
+                            $this->adminController->adminCategories(); // Qui affichera la page admin teams
+                            $this->categoryController->addCategory($post);
+                        }
+                        
+                        else if($route[2]=== "admin-category-edit"){
+                            $this->categoryController->adminCategoryEdit(); // Qui affichera la page admin modif teams
+                        }
+                        else if($route[2]=== "admin-category-delete"){
+                            if(isset($route[3])){
+                                $this->categoryController->deleteCategory($route[3]);
+                            }
+                        }
+                    }
+                    
                     else if($route[1]=== "admin-players"){
                         
                         if(!isset($route[2])){
@@ -156,19 +190,14 @@ class Router {
                         }
                     }
                     
-                    else if($route[1]=== "admin-teams"){
-                        
+                    else if($route[1]=== "admin-staff"){
                         if(!isset($route[2])){
-                            $this->adminController->adminTeams(); // Qui affichera la page admin teams
-                            $this->teamController->addTeam($post);
+                            $this->adminController->adminStaff(); // Qui affichera la page admin staff
+                            $this->staffController->addStaff($post);
                         }
-                        
-                        else if($route[2]=== "admin-team-edit"){
-                            $this->teamController->adminTeamsEdit(); // Qui affichera la page admin modif teams
-                        }
-                        else if($route[2]=== "admin-team-delete"){
+                        else if($route[2]=== "admin-staff-delete"){
                             if(isset($route[3])){
-                                $this->teamController->deleteTeam($route[3]);
+                                $this->adminController->deleteStaff($route[3]);
                             }
                         }
                     }
@@ -195,17 +224,7 @@ class Router {
                         $this->adminController->adminPhoto();
                     }
                     
-                    else if($route[1]=== "admin-staff"){
-                        if(!isset($route[2])){
-                            $this->adminController->adminStaff(); // Qui affichera la page admin staff
-                            $this->staffController->addStaff($post);
-                        }
-                        else if($route[2]=== "admin-staff-delete"){
-                            if(isset($route[3])){
-                                $this->adminController->deleteStaff($route[3]);
-                            }
-                        }
-                    }
+                    
                 }
                 else {
                     $this->adminController->login($post);

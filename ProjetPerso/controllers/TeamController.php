@@ -51,7 +51,36 @@ class TeamController extends AbstractController{
         }
     }
     public function editPlayer(int $id, $post){
-        $this->privateRender("admin-player-edit", ['players'=>$this->playerManager->getplayerById()]);
+        $playerToEdit=$this->playerManager->getPlayerById($id);
+        
+        $tab=[];
+        
+        $tab['players']=$playerToEdit;
+        
+        $this->privateRender("admin-player-edit", $tab);
+        
+        if(isset($post["editProfilImg"]) && !empty($post["editProfilImg"])
+            && isset($post["editFirstname"]) && !empty($post["editFirstname"])
+            && isset($post["editLastname"]) && !empty($post["editLastname"])
+            && isset($post["editPhone"]) && !empty($post["editPhone"])
+            && isset($post["editPosition"]) && !empty($post["editPosition"])
+            && isset($post["editFoot"]) && !empty($post["editFoot"])
+            && isset($post["editBio"]) && !empty($post["editBio"])){
+                
+                $playerEdit=$this->playerManager->getPlayerById($id);
+                
+                $playerEdit->setFirstname($post["editFirstname"]);
+                $playerEdit->setLastname($post["editLastname"]);
+                $playerEdit->setPhone($post["editPhone"]);
+                $playerEdit->setPosition($post["editPosition"]);
+                $playerEdit->setFoot($post["editFoot"]);
+                $playerEdit->setBio($post["editBio"]);
+                $playerEdit->setProfilImg($post["editProfilImg"]);
+                
+                $this->playerManager->editPlayer($playerToEdit);
+                
+                header("Location: /res03-projet-final/ProjetPerso/admin/admin-players");
+            }
     }
     public function deletePlayer(int $id){
         $this->playerManager->deletePlayer($id);
@@ -60,7 +89,8 @@ class TeamController extends AbstractController{
     
     public function addTeam(array $post){
         
-        if(isset($post["teamName"]) && !empty($post["teamName"])){
+        if(isset($post["teamName"]) && !empty($post["teamName"])
+        && isset($post["teamCategory"]) && !empty($post["teamCategory"])){
                 
             $newTeam= new Team($post['teamName'], $post["teamCategory"]);
             

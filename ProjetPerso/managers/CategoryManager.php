@@ -39,5 +39,38 @@ class CategoryManager extends AbstractManager{
     
         return $newCategory;
     }
+    
+    public function insertCategory(Category $category) : Category
+    {
+        $query=$this->db->prepare("INSERT INTO category VALUES (null, :name)");
+        $parameters= [
+            'name' =>$category->getName(),
+            ];
+            
+        $query->execute($parameters);
+    
+        $getCategory=$query->fetch(PDO::FETCH_ASSOC);
+    
+        return $category;
+    }
+    
+    public function editCategory(Category $category) : void
+    {
+        $query=$this->db->prepare("UPDATE category SET name = :name WHERE category.id=:id");
+        $parameters= [
+            'name' =>$category->getName(),
+            ];
+        $query->execute($parameters);
+        $allcategorys=$query->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    public function deletecategory(int $id) : void
+    {
+        $query=$this->db->prepare("DELETE FROM category WHERE id= :id");
+        $parameters= [
+            'id' => $id
+            ];
+        $query->execute($parameters);
+    }
 }
 ?>
