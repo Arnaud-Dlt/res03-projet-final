@@ -50,6 +50,17 @@ class TeamManager extends AbstractManager{
         return $newTeam;
     }
     
+    public function getTeamsByCategory(): array
+    {
+        $query=$this->db->prepare("SELECT * FROM Teamss WHERE category= :category_id");
+        $parameters= ['category' => $category];
+        $query->execute($parameters);
+        $getTeamsByCategory=$query->fetchAll(PDO::FETCH_ASSOC);
+        $newTeams=new Teams($getTeamsByCategory['name'],$getTeamsByCategory['category_id']);
+    
+        return $newTeams;
+    }
+    
     public function insertTeam(Team $team) : Team
     {
         $query=$this->db->prepare("INSERT INTO team VALUES (null, :name, :category_id)");

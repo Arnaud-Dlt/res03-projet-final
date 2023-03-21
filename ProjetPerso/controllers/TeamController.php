@@ -17,7 +17,12 @@ class TeamController extends AbstractController{
     }
     
     public function effectif(){
-        $this->publicRender("effectif", []);
+        $this->publicRender("effectif", 
+        ['goalkeepers'=>$this->playerManager->getPlayersByPosition('gardien'),
+        'defenders'=>$this->playerManager->getPlayersByPosition('défenseur'),
+        'midfielders'=>$this->playerManager->getPlayersByPosition('milieu'),
+        'strikers'=>$this->playerManager->getPlayersByPosition('attaquant')
+        ]);
     }
     
     public function playerProfil(){

@@ -4,17 +4,19 @@
 class PageController extends AbstractController {
     private PlayerManager $playerManager;
     private TeamManager $teamManager;
+    private ArticleManager $articleManager;
     
     
     public function __construct(){
         $this->playerManager = new PlayerManager();
         $this->teamManager = new TeamManager();
+        $this->articleManager = new ArticleManager();
     }
     
     // PUBLIC PAGE
     
     public function accueil(){
-        $this->publicRender("home", []);
+        $this->publicRender("home", ['lastArticle'=>$this->articleManager->getLastArticle()]);
     }
     
     public function club(){

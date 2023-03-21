@@ -2,7 +2,7 @@
 
 class ArticleManager extends AbstractManager{
     
-    public function getAllArticles() : array
+    public function getAllArticles() : array    /* Récuperer tous les articles */
     {
         $query=$this->db->prepare("SELECT * FROM posts");
         $query->execute();
@@ -41,7 +41,20 @@ class ArticleManager extends AbstractManager{
         return $newArticle;
     }
     
-    public function insertArticle(Post $article) : Post
+    public function getLastArticle(): Post /* Recuperer le dernier article posté */
+    {
+        $query=$this->db->prepare("SELECT * FROM posts ORDER BY ID DESC LIMIT 1");
+        $query->execute();
+        $getLastPost=$query->fetch(PDO::FETCH_ASSOC);
+        $lastArticle=new Post($getLastPost['title'],$getLastPost['description'],$getLastPost['content'],$getLastPost['picture']);
+        
+        $lastArticle->setId($getLastPost["id"]);
+        return $lastArticle;
+    }
+    
+    
+    
+    public function insertArticle(Post $article) : Post     /* Ajouter Article */
     {
         $query=$this->db->prepare("INSERT INTO posts VALUES (null, :title, :description, :content, :picture)");
         $parameters= [
@@ -58,7 +71,7 @@ class ArticleManager extends AbstractManager{
         return $article;
     }
     
-    public function editArticle(Article $article) : void
+    public function editArticle(Article $article) : void    /* Modifier Article */
     {
         $query=$this->db->prepare("UPDATE posts SET first_name = :first_name, last_name=:last_name, phone=:phone, birthdate=:birthdate, position=:position, foot=:foot, bio=:bio, profil_img=:profil_img WHERE articles.id=:id");
         $parameters= [
@@ -75,7 +88,7 @@ class ArticleManager extends AbstractManager{
         $allArticles=$query->fetch(PDO::FETCH_ASSOC);
     }
     
-    public function deleteArticle(int $id) : void
+    public function deleteArticle(int $id) : void   /* Supprimer article */
     {
         $query=$this->db->prepare("DELETE FROM posts WHERE id= :id");
         $parameters= [

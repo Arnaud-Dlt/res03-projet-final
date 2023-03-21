@@ -30,24 +30,40 @@ class PlayerManager extends AbstractManager{
         return $newPlayer;
     }
     
-    public function getPlayerByPosition(string $position) : Player
+    public function getPlayersByPosition(string $position) : array
     {
         $query=$this->db->prepare("SELECT * FROM players WHERE position= :position");
         $parameters= ['position' => $position];
         $query->execute($parameters);
-        $getPlayerById=$query->fetch(PDO::FETCH_ASSOC);
-        $newPlayer=new Player($getPlayerById['id'], $getPlayerById['firstname'],$getPlayerById['lastname'],$getPlayerById['phone'],$getPlayerById['birthdate'],$getPlayerById['position'],$getPlayerById['foot'],$getPlayerById['bio'],$getPlayerById['profilImg']);
-    
-        return $newPlayer;
+        $getPlayersByPosition=$query->fetchAll(PDO::FETCH_ASSOC);
+        
+        $tabPlayersByPosition=[];
+        foreach($getPlayersByPosition as $player){
+            $object=new Player($player['first_name'],$player['last_name'],$player['phone'],$player['birthdate'],$player['position'],$player['foot'],$player['bio'],$player['profil_img'], $player['category_id']);
+            array_push($tabPlayersByPosition, $object);
+            $object->setId($player["id"]);
+        }
+        return $tabPlayersByPosition;
     }
     
-    public function getPlayerByFoot(string $foot) : Player
+    public function getPlayersByFoot(string $foot) : Player
     {
         $query=$this->db->prepare("SELECT * FROM players WHERE foot= :foot");
         $parameters= ['foot' => $foot];
         $query->execute($parameters);
-        $getPlayerById=$query->fetch(PDO::FETCH_ASSOC);
-        $newPlayer=new Player($getPlayerById['id'], $getPlayerById['firstname'],$getPlayerById['lastname'],$getPlayerById['phone'],$getPlayerById['birthdate'],$getPlayerById['position'],$getPlayerById['foot'],$getPlayerById['bio'],$getPlayerById['profilImg']);
+        $getPlayerByFoot=$query->fetch(PDO::FETCH_ASSOC);
+        $newPlayer=new Player($getPlayerByFoot['first_name'],$getPlayerByFoot['last_name'],$getPlayerByFoot['phone'],$getPlayerByFoot['birthdate'],$getPlayerByFoot['position'],$getPlayerByFoot['foot'],$getPlayerByFoot['bio'],$getPlayerByFoot['profil_img'],$getPlayerByFoot['category_id']);
+    
+        return $newPlayer;
+    }
+    
+    public function getPlayerByCategory(): Player
+    {
+        $query=$this->db->prepare("SELECT * FROM players WHERE category= :category_id");
+        $parameters= ['category' => $category];
+        $query->execute($parameters);
+        $getPlayerByCategory=$query->fetch(PDO::FETCH_ASSOC);
+        $newPlayer=new Player($getPlayerByCategory['first_name'],$getPlayerByCategory['last_name'],$getPlayerByCategory['phone'],$getPlayerByCategory['birthdate'],$getPlayerByCategory['position'],$getPlayerByCategory['foot'],$getPlayerByCategory['bio'],$getPlayerByCategory['profil_img'],$getPlayerByCategory['category_id']);
     
         return $newPlayer;
     }
