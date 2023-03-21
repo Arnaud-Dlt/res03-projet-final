@@ -4,60 +4,22 @@
     </figure>
     <h1>Toutes les équipes</h1>
     <section>
-        <h3>Séniors</h3>
-        <section>
-            <ul>
+        <ul>
+            <?php 
+            foreach($data['teams'] as $team){ ?> <!--Pour chaque équipe -->
                 <li>
                     <article>
                         <header>
                             <figure>
-                                <img src="" alt="photo d'équipe">
+                                <!--<img src="" alt="photo d'équipe">-->  <!--Afficher photo d'équipe-->
                             </figure>
                         </header>
                         <main>
-                            <h2></h2>
+                            <h2><?= $team->getName()?></h2> <!--Afficher son nom-->
                         </main>
                     </article>
                 </li>
-            </ul>
-        </section>
-    </section>
-    <section>
-        <h3>Vétérans</h3>
-        <section>
-            <ul>
-                <li>
-                    <article>
-                        <header>
-                            <figure>
-                                <img src="" alt="photo d'équipe">
-                            </figure>
-                        </header>
-                        <main>
-                    
-                        </main>
-                    </article>
-                </li>
-            </ul>
-        </section>
-    </section>
-    <section>
-        <h3>Jeunes</h3>
-        <section>
-            <ul>
-                <li>
-                    <article>
-                        <header>
-                            <figure>
-                                <img src="" alt="photo d'équipe">
-                            </figure>
-                        </header>
-                        <main>
-                    
-                        </main>
-                    </article>
-                </li>
-            </ul>
-        </section>
+        <?php } ?>
+        </ul>
     </section>
 </main>

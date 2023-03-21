@@ -13,7 +13,7 @@ class TeamController extends AbstractController{
     // PUBLIC
     
     public function teams(){
-        $this->publicRender("teams", []);
+        $this->publicRender("teams", ['teams'=>$this->teamManager->getAllTeams()]);
     }
     
     public function effectif(){
@@ -53,12 +53,6 @@ class TeamController extends AbstractController{
     public function editPlayer(int $id, $post){
         $playerToEdit=$this->playerManager->getPlayerById($id);
         
-        $tab=[];
-        
-        $tab['players']=$playerToEdit;
-        
-        $this->privateRender("admin-player-edit", $tab);
-        
         if(isset($post["editProfilImg"]) && !empty($post["editProfilImg"])
             && isset($post["editFirstname"]) && !empty($post["editFirstname"])
             && isset($post["editLastname"]) && !empty($post["editLastname"])
@@ -67,17 +61,6 @@ class TeamController extends AbstractController{
             && isset($post["editFoot"]) && !empty($post["editFoot"])
             && isset($post["editBio"]) && !empty($post["editBio"])){
                 
-                $playerEdit=$this->playerManager->getPlayerById($id);
-                
-                $playerEdit->setFirstname($post["editFirstname"]);
-                $playerEdit->setLastname($post["editLastname"]);
-                $playerEdit->setPhone($post["editPhone"]);
-                $playerEdit->setPosition($post["editPosition"]);
-                $playerEdit->setFoot($post["editFoot"]);
-                $playerEdit->setBio($post["editBio"]);
-                $playerEdit->setProfilImg($post["editProfilImg"]);
-                
-                $this->playerManager->editPlayer($playerToEdit);
                 
                 header("Location: /res03-projet-final/ProjetPerso/admin/admin-players");
             }

@@ -13,7 +13,7 @@ class ArticleController extends AbstractController{
     // ARTICLES
     
     public function articles(){
-        $this->publicRender("articles", []);
+        $this->publicRender("articles", ['articles'=>$this->articleManager->getAllArticles()]);
     }
     
     

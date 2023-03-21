@@ -5,20 +5,24 @@
         <option>Date récentes</option>
         <option>Date ancienne</option>
     </select>
-    <ul>
-        <li>
-            <article>
-                <header>
-                    <figure>
-                        <img src=""  alt="photo de l'article">
-                    </figure>
-                </header>
-                <main>
-                    <h3>Title</h3>
-                    <p>Content</p>
-                </main>
-                <button>Lire l'article</button>
-            </article>
-        </li>
-    </ul>
+    <section>
+        <ul>
+        <?php foreach($data['articles'] as $article){?>
+            <li>
+                <article>
+                    <header>
+                        <figure>
+                            <!--<img src=""  alt="photo de l'article">-->
+                        </figure>
+                    </header>
+                    <main>
+                        <h3><?= $article->getTitle() ?></h3>
+                        <p><?= $article->getDescription() ?></p>
+                    </main>
+                    <button>Lire l'article</button>
+                </article>
+            </li>
+            <?php } ?>
+        </ul>
+    </section>
 </main>

@@ -82,7 +82,7 @@ class Router {
             else if($route[0]=== "articles"){
                 
                 if(!isset($route[1])){
-                    $this->pageController->articles(); // Qui affichera la page des articles du club
+                    $this->articleController->articles(); // Qui affichera la page des articles du club
                 }
                 
                 else if($route[1]=== "articleId"){
