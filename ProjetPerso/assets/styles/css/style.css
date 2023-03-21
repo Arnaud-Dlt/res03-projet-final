@@ -35,6 +35,289 @@ table {
   border-spacing: 0;
 }
 
+#publicNav {
+  grid-column: 1/2;
+}
+#publicNav nav {
+  background-color: #15608E;
+  height: 100vh;
+  width: 13vw;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 6vh 0 2vh 0;
+}
+#publicNav nav figure {
+  text-align: center;
+}
+#publicNav nav figure img {
+  width: 60%;
+}
+#publicNav nav ul {
+  text-align: center;
+  padding: 2vh;
+}
+#publicNav nav ul li {
+  margin: 2vh;
+}
+#publicNav nav ul li > ul {
+  display: none;
+}
+#publicNav nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 800;
+}
+
+#adminNav {
+  grid-column: 1/2;
+}
+#adminNav nav {
+  background-color: #15608E;
+  height: 100vh;
+  width: 13vw;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 6vh 0 2vh 0;
+}
+#adminNav nav figure {
+  text-align: center;
+}
+#adminNav nav figure img {
+  width: 60%;
+}
+#adminNav nav ul {
+  text-align: center;
+  padding: 2vh;
+}
+#adminNav nav ul li {
+  margin: 2vh;
+}
+#adminNav nav ul li > ul {
+  display: none;
+}
+#adminNav nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 800;
+}
+
+#footer {
+  background-color: #000;
+  color: #fff;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+#footer h2 {
+  grid-column: 1/2;
+}
+#footer > section:first-of-type {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+#footer > section:first-of-type > section:first-of-type {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+#footer > section:first-of-type > section:nth-of-type(2) {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+#footer > section:first-of-type > section:last-of-type {
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+#footer > section:nth-of-type(2) {
+  text-align: center;
+  grid-column: 1/4;
+  grid-row: 2/3;
+}
+#footer > section:last-of-type {
+  text-align: center;
+  grid-column: 1/4;
+  grid-row: 3/4;
+}
+
+#home {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  min-height: 100vh;
+}
+#home > section:first-of-type {
+  margin: 5vh 0 5vh 0;
+  padding: 1vh;
+}
+#home > section:first-of-type > section h2 {
+  text-align: center;
+  color: #15608E;
+  font-size: 2rem;
+}
+#home > section:nth-of-type(2) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 5vh 1vw 5vh 1vw;
+  padding: 1vh;
+  text-align: center;
+  box-shadow: 1px 1px 10px #15608E;
+}
+#home > section:nth-of-type(2) > section:first-of-type > h2 {
+  color: #15608E;
+  font-size: 2rem;
+}
+#home > section:nth-of-type(2) > section:first-of-type > article {
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  text-align: center;
+  box-shadow: 1px 1px 10px red;
+  min-height: 80vh;
+  margin: 1vh;
+}
+#home > section:nth-of-type(2) > section:nth-of-type(2) {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  margin: 1vh;
+}
+#home > section:nth-of-type(2) > section:nth-of-type(2) h2 {
+  color: #15608E;
+  font-size: 2rem;
+}
+#home > section:nth-of-type(2) > section:nth-of-type(2) > article {
+  display: grid;
+  grid-template-column: 1fr 2fr;
+  text-align: center;
+  box-shadow: 1px 1px 10px #15608E;
+  min-height: 10vh;
+  margin: 1vh;
+}
+#home > section:nth-of-type(2) > section:nth-of-type(2) > article figure {
+  grid-column: 1/2;
+}
+#home > section:nth-of-type(2) > section:nth-of-type(2) > article > section {
+  grid-column: 2/3;
+}
+#home > section:nth-of-type(2) button {
+  grid-column: 1/3;
+}
+#home > section:nth-of-type(3) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 5vh 0 5vh 0;
+  padding: 1vh;
+  text-align: center;
+}
+#home > section:nth-of-type(3) > section {
+  text-align: center;
+  box-shadow: 1px 1px 10px #15608E;
+  min-height: 45vh;
+  margin: 1vh;
+}
+#home > section:nth-of-type(3) button {
+  grid-column: 1/3;
+}
+
+#le-club {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  min-height: 100vh;
+  padding: 2vw;
+  display: grid;
+  grid-template-rows: 0.1fr 1fr 1fr 1fr;
+}
+#le-club h1 {
+  grid-row: 1/2;
+}
+#le-club > section:first-of-type {
+  grid-row: 2/3;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+}
+#le-club > section:first-of-type figure {
+  grid-column: 1/2;
+}
+#le-club > section:first-of-type > section:first-of-type {
+  grid-column: 2/3;
+}
+#le-club > section:nth-of-type(2) {
+  grid-row: 3/4;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+}
+#le-club > section:nth-of-type(2) > section:first-of-type {
+  grid-column: 1/2;
+}
+#le-club > section:nth-of-type(2) figure {
+  grid-column: 2/3;
+}
+#le-club > section:nth-of-type(3) {
+  grid-row: 4/5;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+}
+#le-club > section:nth-of-type(3) figure {
+  grid-column: 1/2;
+}
+#le-club > section:nth-of-type(3) > section:first-of-type {
+  grid-column: 2/3;
+}
+
+#le-club-infrastructure {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  min-height: 100vh;
+  padding: 2vw;
+}
+
+#le-club-organigramme {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  min-height: 100vh;
+  padding: 2vw;
+}
+
+#teams {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  min-height: 100vh;
+  padding: 2vw;
+}
+
+#team-resume {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  min-height: 100vh;
+  padding: 2vw;
+}
+
+#contact h1 {
+  text-align: center;
+}
+#contact form {
+  box-shadow: 1px 1px 5px #000;
+  padding: 2vh;
+  margin: 10vh 15vw 10vh 15vw;
+  text-align: center;
+}
+#contact form label {
+  margin: 2VH;
+}
+#contact form input {
+  margin: 2VH;
+}
+#login {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  min-height: 100vh;
+  padding: 2vw;
+}
+
 .sr-only {
   display: none;
 }
@@ -56,232 +339,10 @@ table {
     display: grid;
     grid-template-columns: 13vw 87vw;
   }
-  #public #publicNav {
-    grid-column: 1/2;
-  }
-  #public #publicNav nav {
-    background-color: #15608E;
-    height: 100vh;
-    width: 13vw;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 6vh 0 2vh 0;
-  }
-  #public #publicNav nav figure {
-    text-align: center;
-  }
-  #public #publicNav nav figure img {
-    width: 60%;
-  }
-  #public #publicNav nav ul {
-    text-align: center;
-    padding: 2vh;
-  }
-  #public #publicNav nav ul li {
-    margin: 2vh;
-  }
-  #public #publicNav nav ul li > ul {
-    display: none;
-  }
-  #public #publicNav nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 800;
-  }
-  #public #home {
-    grid-column: 2/3;
-    grid-row: 1/2;
-    min-height: 100vh;
-  }
-  #public #home > section:first-of-type {
-    margin: 5vh 0 5vh 0;
-    padding: 1vh;
-  }
-  #public #home > section:first-of-type > section h2 {
-    text-align: center;
-    color: #15608E;
-    font-size: 2rem;
-  }
-  #public #home > section:nth-of-type(2) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 5vh 0 5vh 0;
-    padding: 1vh;
-    text-align: center;
-    box-shadow: 1px 1px 10px #000;
-  }
-  #public #home > section:nth-of-type(2) article {
-    text-align: center;
-    box-shadow: 1px 1px 10px #000;
-    min-height: 45vh;
-    margin: 1vh;
-  }
-  #public #home > section:nth-of-type(2) > section:nth-of-type(2) {
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-  }
-  #public #home > section:nth-of-type(2) > section:nth-of-type(2) > article {
-    text-align: center;
-    box-shadow: 1px 1px 10px #000;
-    min-height: 10vh;
-    margin: 1vh;
-  }
-  #public #home > section:nth-of-type(2) button {
-    grid-column: 1/3;
-  }
-  #public #home > section:nth-of-type(3) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 5vh 0 5vh 0;
-    padding: 1vh;
-    text-align: center;
-  }
-  #public #home > section:nth-of-type(3) > section {
-    text-align: center;
-    box-shadow: 1px 1px 10px #000;
-    min-height: 45vh;
-    margin: 1vh;
-  }
-  #public #home > section:nth-of-type(3) button {
-    grid-column: 1/3;
-  }
-  #public #le-club {
-    grid-column: 2/3;
-    grid-row: 1/2;
-    min-height: 100vh;
-    padding: 2vw;
-  }
-  #public #le-club-history {
-    grid-column: 2/3;
-    grid-row: 1/2;
-    min-height: 100vh;
-    padding: 2vw;
-  }
-  #public #le-club-infrastructure {
-    grid-column: 2/3;
-    grid-row: 1/2;
-    min-height: 100vh;
-    padding: 2vw;
-  }
-  #public #le-club-organigramme {
-    grid-column: 2/3;
-    grid-row: 1/2;
-    min-height: 100vh;
-    padding: 2vw;
-  }
-  #public #teams {
-    grid-column: 2/3;
-    grid-row: 1/2;
-    min-height: 100vh;
-    padding: 2vw;
-  }
-  #public #team-resume {
-    grid-column: 2/3;
-    grid-row: 1/2;
-    min-height: 100vh;
-    padding: 2vw;
-  }
-  #public #contact h1 {
-    text-align: center;
-  }
-  #public #contact form {
-    box-shadow: 1px 1px 5px #000;
-    padding: 2vh;
-    margin: 10vh 15vw 10vh 15vw;
-    text-align: center;
-  }
-  #public #contact form label {
-    margin: 2VH;
-  }
-  #public #contact form input {
-    margin: 2VH;
-  }
-  #public #login {
-    grid-column: 2/3;
-    grid-row: 1/2;
-    min-height: 100vh;
-    padding: 2vw;
-  }
-  #public #footer {
-    background-color: #000;
-    color: #fff;
-    grid-column: 2/3;
-    grid-row: 2/3;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-  }
-  #public #footer h2 {
-    grid-column: 1/2;
-  }
-  #public #footer > section:first-of-type {
-    grid-row: 1/2;
-    grid-column: 2/3;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-  #public #footer > section:first-of-type > section:first-of-type {
-    grid-column: 1/2;
-    grid-row: 1/2;
-  }
-  #public #footer > section:first-of-type > section:nth-of-type(2) {
-    grid-column: 2/3;
-    grid-row: 1/2;
-  }
-  #public #footer > section:first-of-type > section:last-of-type {
-    grid-column: 3/4;
-    grid-row: 1/2;
-  }
-  #public #footer > section:nth-of-type(2) {
-    text-align: center;
-    grid-column: 1/4;
-    grid-row: 2/3;
-  }
-  #public #footer > section:last-of-type {
-    text-align: center;
-    grid-column: 1/4;
-    grid-row: 3/4;
-  }
   #admin {
     display: grid;
     grid-template-columns: 13vw 87vw;
     grid-template-rows: 1fr 1fr;
-  }
-  #admin #adminNav {
-    grid-column: 1/2;
-  }
-  #admin #adminNav nav {
-    background-color: #15608E;
-    height: 100vh;
-    width: 13vw;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 6vh 0 2vh 0;
-  }
-  #admin #adminNav nav figure {
-    text-align: center;
-  }
-  #admin #adminNav nav figure img {
-    width: 60%;
-  }
-  #admin #adminNav nav ul {
-    text-align: center;
-    padding: 2vh;
-  }
-  #admin #adminNav nav ul li {
-    margin: 2vh;
-  }
-  #admin #adminNav nav ul li > ul {
-    display: none;
-  }
-  #admin #adminNav nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 800;
   }
 }
 

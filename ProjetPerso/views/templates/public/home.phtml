@@ -6,14 +6,14 @@
         <h2 class="sr-only">Matchs à venir</h2>
         <section>
             <h2>Prochains matchs</h2>
-            <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.5/iframeResizer.min.js"></script><script>if(!window._rsz){window._rsz=function(){var i=iFrameResize({checkOrigin:false,interval:100});};if(document.readyState!="loading"){_rsz()}else{document.addEventListener("DOMContentLoaded",_rsz)}}</script><iframe id="64070604bd0ad9680e6ade48" src="https://scorenco.com/widget/64070604bd0ad9680e6ade48/?auto_height=true" style="display: block; width: 100%; overflow: auto; margin: auto; border-width: 0px;" scrolling="no"></iframe>-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.5/iframeResizer.min.js"></script><script>if(!window._rsz){window._rsz=function(){var i=iFrameResize({checkOrigin:false,interval:100});};if(document.readyState!="loading"){_rsz()}else{document.addEventListener("DOMContentLoaded",_rsz)}}</script><iframe id="64070604bd0ad9680e6ade48" src="https://scorenco.com/widget/64070604bd0ad9680e6ade48/?auto_height=true" style="display: block; width: 100%; overflow: auto; margin: auto; border-width: 0px;" scrolling="no"></iframe>
         </section>
     </section>
 
     <section>
         <h2 class="sr-only">Articles</h2>
         <section>
-            <h2>Article le plus récent</h2>
+            <h2>Dernières Actualités</h2>
             <article>
                 <header>
                     <figure>
@@ -23,23 +23,41 @@
                 <section>
                     <h2><?= $data['lastArticle']->getTitle() ?></h2>
                     <p><?= $data['lastArticle']->getDescription() ?></p>
+                    <button>Voir cet article</button>
                 </section>
-                <button>Voir cet article</button>
             </article>
             
         </section>
         <section>
-            <h2>Autres articles</h2>
+            <h2>Autres actualités</h2>
             <article>
-                <p>article 1</p>
+                <figure>
+                    <img src="" alt="">
+                </figure>
+                <section>
+                    <h3>Titre</h3>
+                    <p>Description</p>
+                </section>
             </article>
             
             <article>
-                <p>article 2</p>
+                <figure>
+                    <img src="" alt="">
+                </figure>
+                <section>
+                    <h3>Titre</h3>
+                    <p>Description</p>
+                </section>
             </article>
             
             <article>
-                <p>article 3</p>
+                <figure>
+                    <img src="" alt="">
+                </figure>
+                <section>
+                    <h3>Titre</h3>
+                    <p>Description</p>
+                </section>
             </article>
             
         </section>

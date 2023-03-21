@@ -1,4 +1,17 @@
 @import 'reset';
+@import 'publicNav';
+@import 'adminNav';
+@import 'footer';
+@import 'home';
+@import 'club';
+@import 'club-infrastructure';
+@import 'club-organigramme';
+@import 'teams';
+@import 'team-resume';
+@import 'contact';
+@import 'login';
+
+
 
 .sr-only {
     display: none;
@@ -19,14 +32,12 @@
             }
         }
 
-        #home {
-            
-        } 
-    
+        #home {}
+
     }
 }
 
-@media (min-width: 426px) and (max-width: 768px){
+@media (min-width: 426px) and (max-width: 768px) {
     #public {
         #publicNav {
             nav {
@@ -41,312 +52,27 @@
             }
         }
 
-        #home {
-            
-        } 
-    
+        #home {}
+
     }
 }
 
-@media (min-width: 1024px){
-    
+@media (min-width: 1024px) {
+
     // LAYOUT PUBLIC
-    
     #public {
         display: grid;
         grid-template-columns: 13vw 87vw;
         
-        #publicNav {
-            grid-column: 1/2;
-            
-            nav {
-                background-color: #15608E;
-                height: 100vh;
-                width: 13vw;
-                position: fixed;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                padding: 6vh 0 2vh 0;
-                
-                figure {
-                    text-align: center;
-                
-                    img {
-                        width: 60%;
-                    }
-                }
-                
-                ul {
-                    text-align: center;
-                    padding: 2vh;
-                    
-                    li {
-                        margin: 2vh;
-                        
-                        &>ul{
-                            display: none;
-                        }
-                        
-                        a {
-                            text-decoration: none;
-                            color: #fff;
-                            font-weight: 800;
-                        }
-                    }
-                }
-            }
-        }
 
-
-        // PAGE ACCUEIL
         
-        #home {
-            grid-column: 2/3;
-            grid-row: 1/2;
-            min-height: 100vh;
-            
-            
-            figure{
-                img{
-                    
-                }
-            }
-            
-            &>section:first-of-type{
-                margin: 5vh 0 5vh 0;
-                padding: 1vh;
-                &>section{
-                    h2{
-                        text-align:center;
-                        color: #15608E;
-                        font-size: 2rem;
-                    }
-                }
-            }
-            
-            &>section:nth-of-type(2){
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                margin: 5vh 0 5vh 0;
-                padding: 1vh;
-                text-align: center;
-                box-shadow: 1px 1px 10px #000;
-                
-                article{
-                    text-align: center;
-                    box-shadow: 1px 1px 10px #000;
-                    min-height: 45vh;
-                    margin: 1vh;
-                }
-                
-                &>section:nth-of-type(2){
-                    display: grid;
-                    grid-template-rows: repeat(4, 1fr);
-                    
-                    &>article{
-                        text-align: center;
-                        box-shadow: 1px 1px 10px #000;
-                        min-height: 10vh;
-                        margin: 1vh;
-                    }
-                }
-                
-                button{
-                    grid-column: 1/3;
-                }
-            }
-            
-            &>section:nth-of-type(3){
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                margin: 5vh 0 5vh 0;
-                padding: 1vh;
-                text-align: center;
-                
-                &>section{
-                    text-align: center;
-                    box-shadow: 1px 1px 10px #000;
-                    min-height: 45vh;
-                    margin: 1vh;
-                }
-                
-                
-                button{
-                    grid-column: 1/3;
-                }
-            }
-        } 
-        
-        // PAGES INFOS CLUB
-        
-        #le-club{
-            grid-column: 2/3;
-            grid-row: 1/2;
-            min-height: 100vh;
-            padding: 2vw;
-        }
-        
-        #le-club-history{
-            grid-column: 2/3;
-            grid-row: 1/2;
-            min-height: 100vh;
-            padding: 2vw;
-        }
-        
-        #le-club-infrastructure{
-            grid-column: 2/3;
-            grid-row: 1/2;
-            min-height: 100vh;
-            padding: 2vw;
-        }
-        
-        #le-club-organigramme{
-            grid-column: 2/3;
-            grid-row: 1/2;
-            min-height: 100vh;
-            padding: 2vw;
-        }
-        
-        // PAGES INFOS EQUIPE
-        
-        #teams{
-            grid-column: 2/3;
-            grid-row: 1/2;
-            min-height: 100vh;
-            padding: 2vw;
-        }
-        
-        #team-resume{
-            grid-column: 2/3;
-            grid-row: 1/2;
-            min-height: 100vh;
-            padding: 2vw;
-        }
-        
-        // PAGE CONTACT 
-        
-        #contact{
-            h1{
-                text-align: center;
-            }
-            
-            form {
-                box-shadow: 1px 1px 5px #000;
-                padding: 2vh;
-                margin: 10vh 15vw 10vh 15vw;
-                text-align: center;
-                label{
-                    margin: 2VH;
-                }
-                input{
-                    margin: 2VH;
-                }
-                select {
-                    
-                }
-            }
-        }
-        
-        #login{
-            grid-column: 2/3;
-            grid-row: 1/2;
-            min-height: 100vh;
-            padding: 2vw;
-        }
-        
-        #footer{
-            background-color: #000;
-            color: #fff;
-            grid-column: 2/3;
-            grid-row: 2/3;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            
-            h2 {
-                grid-column: 1/2;
-            }
-            
-            &>section:first-of-type{
-                grid-row: 1/2;
-                grid-column: 2/3;
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                
-                &>section:first-of-type{
-                    grid-column: 1/2;
-                    grid-row: 1/2;
-                }
-                &>section:nth-of-type(2){
-                    grid-column: 2/3;
-                    grid-row: 1/2;
-                }
-                &>section:last-of-type{
-                    grid-column: 3/4;
-                    grid-row: 1/2;
-                }
-            }
-            &>section:nth-of-type(2){
-                text-align: center;
-                grid-column: 1/4;
-                grid-row: 2/3;
-            }
-            &>section:last-of-type{
-                text-align: center;
-                grid-column: 1/4;
-                grid-row: 3/4;
-            }
-            
-        }
-    
     }
     
-    #admin{
+    // LAYOUT ADMIN
+    
+    #admin {
         display: grid;
         grid-template-columns: 13vw 87vw;
         grid-template-rows: 1fr 1fr;
-        
-        #adminNav {
-            grid-column: 1/2;
-            
-            nav {
-                background-color: #15608E;
-                height: 100vh;
-                width: 13vw;
-                position: fixed;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                padding: 6vh 0 2vh 0;
-                
-                figure {
-                    text-align: center;
-                
-                    img {
-                        width: 60%;
-                    }
-                }
-                
-                ul {
-                    text-align: center;
-                    padding: 2vh;
-                    
-                    li {
-                        margin: 2vh;
-                        
-                        &>ul{
-                            display: none;
-                        }
-                        
-                        a {
-                            text-decoration: none;
-                            color: #fff;
-                            font-weight: 800;
-                        }
-                    }
-                }
-            }
-        }
     }
 }
