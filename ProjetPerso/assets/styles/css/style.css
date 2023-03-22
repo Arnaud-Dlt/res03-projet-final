@@ -347,12 +347,28 @@ table {
   font-size: 2rem;
   color: #15608E;
 }
-#effectif section ul {
+#effectif nav ul {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+}
+#effectif section h2 {
+  font-size: 2rem;
+  color: #15608E;
+}
+#effectif section ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 2vh;
+}
+#effectif section ul li {
+  margin-bottom: 2vh;
+}
+#effectif section ul li article {
+  min-height: 30vh;
 }
 #effectif section ul li article header figure img {
-  width: 10%;
+  width: 90%;
 }
 #team-resume {
   grid-column: 2/3;

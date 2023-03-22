@@ -9,19 +9,34 @@
         color:#15608E;
     }
     
-    section{
-        h2{
-            
-        }
+    nav{
         ul{
             display: flex;
             flex-direction: row;
+            justify-content: space-around;
             li{
+                
+            }
+        }
+    }
+    
+    section{
+        h2{
+            font-size: 2rem;
+            color:#15608E;
+        }
+        ul{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin: 2vh;
+            li{
+                margin-bottom: 2vh;
                 article{
+                    min-height: 30vh;
                     header{
                         figure{
                             img{
-                                width:10%;
+                                width:90%;
                             }
                         }
                     }

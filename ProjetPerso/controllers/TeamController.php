@@ -25,7 +25,7 @@ class TeamController extends AbstractController{
         ]);
     }
     
-    public function playerProfil(){
+    public function playerProfil(int $id){
         $this->publicRender("player-profil", []);
     }
     
