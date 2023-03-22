@@ -18,6 +18,38 @@ class PlayerManager extends AbstractManager{
         return $tabPlayers;
     }
     
+    public function playersOrderByName() : array
+    {
+        $query=$this->db->prepare("SELECT * FROM players ORDER BY last_name");
+        $query->execute();
+        $getAllPlayers=$query->fetchAll(PDO::FETCH_ASSOC);
+    
+        $tabPlayers=[];
+        foreach($getAllPlayers as $player){
+            $object=new Player($player['first_name'],$player['last_name'],$player['phone'],$player['birthdate'],$player['position'],$player['foot'],$player['bio'],$player['profil_img'], $player['category_id']);
+            array_push($tabPlayers, $object);
+            $object->setId($player["id"]);
+        }
+        
+        return $tabPlayers;
+    }
+    
+    public function playersOrderByPosition() : array
+    {
+        $query=$this->db->prepare("SELECT * FROM players ORDER BY position");
+        $query->execute();
+        $getAllPlayers=$query->fetchAll(PDO::FETCH_ASSOC);
+    
+        $tabPlayers=[];
+        foreach($getAllPlayers as $player){
+            $object=new Player($player['first_name'],$player['last_name'],$player['phone'],$player['birthdate'],$player['position'],$player['foot'],$player['bio'],$player['profil_img'], $player['category_id']);
+            array_push($tabPlayers, $object);
+            $object->setId($player["id"]);
+        }
+        
+        return $tabPlayers;
+    }
+    
     public function getPlayerById(int $id) : Player
     {
         $query=$this->db->prepare("SELECT * FROM players WHERE id= :id");

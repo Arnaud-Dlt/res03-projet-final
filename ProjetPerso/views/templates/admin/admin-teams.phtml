@@ -26,11 +26,15 @@
         </fieldset>
         
         <fieldset>
+            <label>Photo d'équipe (url)</label>
+            <input type="text" name="teamPicture">
+        </fieldset>
+        
+        <fieldset>
             <label>Catégorie</label>
             <select name="teamCategory">
                 <option>--Catégorie--</option>
                 <?php 
-                var_dump($data);
                 foreach($data['category'] as $category){ ?>
                 <option value="<?= $category->getId() ?>"><?= $category->getName() ?></option>
                 <?php } ?>
@@ -38,7 +42,6 @@
         </fieldset>
         
         <input type="submit" value="Ajouter">
-        
         
     </form>
 </main>

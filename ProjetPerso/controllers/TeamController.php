@@ -78,9 +78,10 @@ class TeamController extends AbstractController{
     public function addTeam(array $post){
         
         if(isset($post["teamName"]) && !empty($post["teamName"])
+        && isset($post["teamPicture"]) && !empty($post["teamPicture"])
         && isset($post["teamCategory"]) && !empty($post["teamCategory"])){
                 
-            $newTeam= new Team($post['teamName'], $post["teamCategory"]);
+            $newTeam= new Team($post['teamName'], $post['teamPicture'], $post["teamCategory"]);
             
             $this->teamManager->insertTeam($newTeam);
         }

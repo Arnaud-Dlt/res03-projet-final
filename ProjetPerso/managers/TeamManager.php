@@ -10,7 +10,7 @@ class TeamManager extends AbstractManager{
     
         $tabTeams=[];
         foreach($getAllTeams as $team){
-            $object=new Team($team['name'],$team['category_id']);
+            $object=new Team($team['name'], $team['picture'], $team['category_id']);
             $object->setId($team["id"]);
             array_push($tabTeams, $object);
             
@@ -28,7 +28,7 @@ class TeamManager extends AbstractManager{
         
         $getTeamById=$query->fetch(PDO::FETCH_ASSOC);
         
-        $newTeam=new Team($getTeamById['id'], $getTeamById['name'],$team['category_id']);
+        $newTeam=new Team($getTeamById['name'], $getTeamById['picture'], $getTeamById['category_id']);
         
         $newTeam->setId($getTeamById["id"]);
         
@@ -45,27 +45,28 @@ class TeamManager extends AbstractManager{
         
         $getTeamByName=$query->fetch(PDO::FETCH_ASSOC);
         
-        $newTeam=new Team($getTeamByName['id'], $getTeamByName['name'],$team['category_id']);
+        $newTeam=new Team($getTeamByName['name'], $getTeamByName['picture'], $getTeamByName['category_id']);
     
         return $newTeam;
     }
     
     public function getTeamsByCategory(): array
     {
-        $query=$this->db->prepare("SELECT * FROM Teamss WHERE category= :category_id");
+        $query=$this->db->prepare("SELECT * FROM team WHERE category= :category_id");
         $parameters= ['category' => $category];
         $query->execute($parameters);
         $getTeamsByCategory=$query->fetchAll(PDO::FETCH_ASSOC);
-        $newTeams=new Teams($getTeamsByCategory['name'],$getTeamsByCategory['category_id']);
+        $newTeams=new Teams($getTeamsByCategory['name'], $getTeamsByCategory['picture'], $getTeamsByCategory['category_id']);
     
         return $newTeams;
     }
     
     public function insertTeam(Team $team) : Team
     {
-        $query=$this->db->prepare("INSERT INTO team VALUES (null, :name, :category_id)");
+        $query=$this->db->prepare("INSERT INTO team VALUES (null, :name, :picture, :category_id)");
         $parameters= [
             'name' => $team->getName(),
+            'picture' => $team->getPicture(),
             'category_id' => $team->getCategoryId()
             ];
         $query->execute($parameters);
@@ -77,10 +78,11 @@ class TeamManager extends AbstractManager{
     
     public function editTeam(Team $team) : void
     {
-        $query=$this->db->prepare("UPDATE team SET name = :name WHERE Teams.id=:id");
+        $query=$this->db->prepare("UPDATE team SET name = :name, picture = :picture WHERE team.id=:id");
         $parameters= [
             'id' => $team->getId(),
             'name' =>$team->getName(),
+            'picture' => $team->getPicture(),
             'category_id' => $team->getCategoryId()
             ];
         $query->execute($parameters);
