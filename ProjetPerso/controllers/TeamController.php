@@ -33,7 +33,7 @@ class TeamController extends AbstractController{
         $this->publicRender("team-resume", []);
     }
 
-    public function convocations(){
+    public function convocations($post){
         $this->publicRender("convocations", []);
     }
     

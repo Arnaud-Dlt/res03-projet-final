@@ -44,6 +44,39 @@ class AdminController extends AbstractController{
     }
     
     public function adminConvoc(){
+        if(isset($_POST["n°1"])){
+            
+            $data=[];
+            $player=[];
+            
+            $data['dateMatch']=$_POST['dateMatch'];
+            $data['lieuMatch']=$_POST['lieuMatch'];
+            $data['equipeAdverse']=$_POST['equipeAdverse'];
+            $data['rdvMatch']=$_POST['rdvMatch'];
+            $data['lieuRdvMatch']=$_POST['lieuRdvMatch'];
+            
+            $player[]=$_POST['n°1'];
+            $player[]=$_POST['n°2'];
+            $player[]=$_POST['n°3'];
+            $player[]=$_POST['n°4'];
+            $player[]=$_POST['n°5'];
+            $player[]=$_POST['n°6'];
+            $player[]=$_POST['n°7'];
+            $player[]=$_POST['n°8'];
+            $player[]=$_POST['n°9'];
+            $player[]=$_POST['n°10'];
+            $player[]=$_POST['n°11'];
+            $player[]=$_POST['n°12'];
+            $player[]=$_POST['n°13'];
+            $player[]=$_POST['n°14'];
+            
+            $data['listPlayers']=$player;
+            
+            json_encode($data);
+            var_dump(json_encode($data));
+            var_dump($data);
+        }
+            
             $this->privateRender("admin-convocation", ['players'=>$this->playerManager->playersOrderByName()]);
         }
     

@@ -1,0 +1,35 @@
+#effectif {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vw;
+    
+    h1{
+        font-size: 2rem;
+        color:#15608E;
+    }
+    
+    section{
+        h2{
+            
+        }
+        ul{
+            display: flex;
+            flex-direction: row;
+            li{
+                article{
+                    header{
+                        figure{
+                            img{
+                                width:10%;
+                            }
+                        }
+                    }
+                    main{
+                        
+                    }
+                }
+            }
+        }
+    }
+}

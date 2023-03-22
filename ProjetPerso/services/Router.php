@@ -75,7 +75,7 @@ class Router {
             else if($route[0]=== "convocations"){
                 
                 if(!isset($route[1])){
-                    $this->teamController->convocations(); // Qui affichera la page des équipes du club
+                    $this->teamController->convocations($post); // Qui affichera la page des équipes du club
                 }
             }
             

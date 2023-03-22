@@ -1,5 +1,5 @@
 <main id="effectif">
-<a href="https://arnauddeletre.sites.3wa.io/res03-projet-final/ProjetPerso/equipes">< Equipes</a>
+<a href="/res03-projet-final/ProjetPerso/equipes">< Equipes</a>
 <h1>Effectif</h1>
     <nav>
         <ul>
@@ -19,13 +19,13 @@
                 <article>
                     <header>
                         <figure>
-                            <img src="" alt="photo du joueur">
+                            <img src="./../assets/img/joueurs/<?= $goalkeeper->getProfilImg() ?>" alt="photo du joueur">
                         </figure>
                     </header>
-                    <main>
+                    <section>
                         <h3><?= $goalkeeper->getFirstname() ?> <?= $goalkeeper->getLastname() ?></h3>
                         <p></p>
-                    </main>
+                    </section>
                     <button>Voir joueur</button>
                 </article>
             </li>
@@ -39,13 +39,13 @@
                 <article>
                     <header>
                         <figure>
-                            <img src="<?= $defender->getProfilImg() ?>" alt="photo du joueur">
+                            <img src="./../assets/img/joueurs/<?= $defender->getProfilImg() ?>" alt="photo du joueur">
                         </figure>
                     </header>
-                    <main>
+                    <section>
                         <h3><?= $defender->getFirstname() ?> <?= $defender->getLastname() ?></h3>
                         <p></p>
-                    </main>
+                    </section>
                     <button>Voir joueur</button>
                 </article>
             </li>
@@ -59,13 +59,13 @@
                 <article>
                     <header>
                         <figure>
-                            <img src="" alt="photo du joueur">
+                            <img src="./../assets/img/joueurs/<?= $midfielder->getProfilImg() ?>" alt="photo du joueur">
                         </figure>
                     </header>
-                    <main>
+                    <section>
                         <h3><?= $midfielder->getFirstname() ?> <?= $midfielder->getLastname() ?></h3>
                         <p></p>
-                    </main>
+                    </section>
                     <button>Voir joueur</button>
                 </article>
             </li>
@@ -79,13 +79,13 @@
                 <article>
                     <header>
                         <figure>
-                            <img src="" alt="photo du joueur">
+                            <img src="./../assets/img/joueurs/<?= $strikers->getProfilImg() ?>" alt="photo du joueur">
                         </figure>
                     </header>
-                    <main>
+                    <section>
                         <h3><?= $strikers->getFirstname() ?> <?= $strikers->getLastname() ?></h3>
                         <p></p>
-                    </main>
+                    </section>
                     <button>Voir joueur</button>
                 </article>
             </li>

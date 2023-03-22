@@ -1,0 +1,35 @@
+#allArticles {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vw;
+    
+    h2{
+        font-size: 2rem;
+        color:#15608E;
+        margin-bottom: 5vh;
+    }
+    ul{
+        display: flex;
+        flex-direction: row;
+        li{
+            margin: 10vh 5vw 5vh 0;
+            article{
+                padding: 2vw;
+                box-shadow: 1px 1px 5px #15608E;
+                header {
+                    figure{
+                        img{
+                            
+                        }
+                    }
+                }
+                main {
+                    h3 {
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+        }
+    }
+}

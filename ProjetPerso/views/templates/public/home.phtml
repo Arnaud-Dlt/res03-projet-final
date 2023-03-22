@@ -1,6 +1,6 @@
 <main id="home">
     <figure>
-        <img src="assets/img/backgrd_USSM.jpg" alt="photo-aléatoire">
+        <img src="/res03-projet-final/ProjetPerso/assets/img/backgrd_USSM.jpg" alt="photo-aléatoire">
     </figure>
     <section>
         <h2 class="sr-only">Matchs à venir</h2>
@@ -15,13 +15,14 @@
         <section>
             <h2>Dernières Actualités</h2>
             <article>
+                <h2 class="sr-only"><?= $data['lastArticle']->getTitle() ?></h2>
                 <header>
                     <figure>
                         <img src="" alt="photo article">
                     </figure>
                 </header>
                 <section>
-                    <h2><?= $data['lastArticle']->getTitle() ?></h2>
+                    <h3><?= $data['lastArticle']->getTitle() ?></h3>
                     <p><?= $data['lastArticle']->getDescription() ?></p>
                     <button>Voir cet article</button>
                 </section>
@@ -31,6 +32,7 @@
         <section>
             <h2>Autres actualités</h2>
             <article>
+                <h2 class="sr-only"><?= $data['lastArticle']->getTitle() ?></h2>
                 <figure>
                     <img src="" alt="">
                 </figure>
@@ -41,6 +43,7 @@
             </article>
             
             <article>
+                <h2 class="sr-only"><?= $data['lastArticle']->getTitle() ?></h2>
                 <figure>
                     <img src="" alt="">
                 </figure>
@@ -51,6 +54,7 @@
             </article>
             
             <article>
+                <h2 class="sr-only"><?= $data['lastArticle']->getTitle() ?></h2>
                 <figure>
                     <img src="" alt="">
                 </figure>

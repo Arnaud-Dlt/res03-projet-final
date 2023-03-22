@@ -6,12 +6,12 @@
 @import 'club';
 @import 'club-infrastructure';
 @import 'club-organigramme';
+@import 'articles';
 @import 'teams';
+@import 'effectif';
 @import 'team-resume';
 @import 'contact';
 @import 'login';
-
-
 
 .sr-only {
     display: none;
@@ -63,9 +63,6 @@
     #public {
         display: grid;
         grid-template-columns: 13vw 87vw;
-        
-
-        
     }
     
     // LAYOUT ADMIN

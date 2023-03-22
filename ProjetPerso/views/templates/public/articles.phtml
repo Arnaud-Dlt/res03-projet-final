@@ -1,5 +1,5 @@
 <main id="allArticles">
-    <h1>Tous les articles</h1>
+    <h2>Tous les articles</h2>
     <select>
         <option>-Trier par...</option>
         <option>Date récentes</option>
@@ -12,7 +12,7 @@
                 <article>
                     <header>
                         <figure>
-                            <!--<img src=""  alt="photo de l'article">-->
+                            <img src="<?= $article->getPicture() ?>"  alt="photo de l'article">
                         </figure>
                     </header>
                     <main>

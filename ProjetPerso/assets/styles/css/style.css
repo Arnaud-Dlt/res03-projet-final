@@ -245,6 +245,10 @@ table {
 #le-club > section:first-of-type > section:first-of-type {
   grid-column: 2/3;
 }
+#le-club > section:first-of-type > section:first-of-type h2 {
+  font-size: 2rem;
+  color: #15608E;
+}
 #le-club > section:nth-of-type(2) {
   grid-row: 3/4;
   display: grid;
@@ -252,6 +256,10 @@ table {
 }
 #le-club > section:nth-of-type(2) > section:first-of-type {
   grid-column: 1/2;
+}
+#le-club > section:nth-of-type(2) > section:first-of-type h2 {
+  font-size: 2rem;
+  color: #15608E;
 }
 #le-club > section:nth-of-type(2) figure {
   grid-column: 2/3;
@@ -266,6 +274,10 @@ table {
 }
 #le-club > section:nth-of-type(3) > section:first-of-type {
   grid-column: 2/3;
+}
+#le-club > section:nth-of-type(3) > section:first-of-type h2 {
+  font-size: 2rem;
+  color: #15608E;
 }
 
 #le-club-infrastructure {
@@ -282,13 +294,66 @@ table {
   padding: 2vw;
 }
 
-#teams {
+#allArticles {
   grid-column: 2/3;
   grid-row: 1/2;
   min-height: 100vh;
   padding: 2vw;
 }
+#allArticles h2 {
+  font-size: 2rem;
+  color: #15608E;
+  margin-bottom: 5vh;
+}
+#allArticles ul {
+  display: flex;
+  flex-direction: row;
+}
+#allArticles ul li {
+  margin: 10vh 5vw 5vh 0;
+}
+#allArticles ul li article {
+  padding: 2vw;
+  box-shadow: 1px 1px 5px #15608E;
+}
+#allArticles ul li article main h3 {
+  font-size: 1.4rem;
+}
 
+#teams {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  min-height: 100vh;
+  padding-left: 1vw;
+}
+#teams figure img {
+  width: 100%;
+}
+#teams h1 {
+  font-size: 2rem;
+  color: #15608E;
+}
+#teams section > h2 a {
+  text-decoration: none;
+  color: #000;
+}
+#effectif {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  min-height: 100vh;
+  padding: 2vw;
+}
+#effectif h1 {
+  font-size: 2rem;
+  color: #15608E;
+}
+#effectif section ul {
+  display: flex;
+  flex-direction: row;
+}
+#effectif section ul li article header figure img {
+  width: 10%;
+}
 #team-resume {
   grid-column: 2/3;
   grid-row: 1/2;
