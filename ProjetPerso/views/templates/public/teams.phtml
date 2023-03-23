@@ -1,10 +1,10 @@
 <main id="teams">
     <figure>
-        <img src="https://pbs.twimg.com/media/DRLhgLsX0AAO9U8.jpg" alt="logo">
+        <img src="" alt="">
     </figure>
     <h1>Toutes les équipes</h1>
     <section>
-        <h2><a href="https://arnauddeletre.sites.3wa.io/res03-projet-final/ProjetPerso/equipes/effectif">Voir l'effectif complet</a></h2>
+        <h2><a href="res03-projet-final/ProjetPerso/equipes/effectif">Voir l'effectif complet</a></h2>
         <ul>
             <?php 
             foreach($data['teams'] as $team){ ?> <!--Pour chaque équipe -->
@@ -12,11 +12,11 @@
                     <article>
                         <header>
                             <figure>
-                                <img src="<?php $team->getPicture(); ?>" alt="photo d'équipe">  <!--Afficher photo d'équipe-->
+                                <img src="/res03-projet-final/ProjetPerso/assets/img/<?php $team->getPicture(); ?>" alt="photo d'équipe">  <!--Afficher photo d'équipe-->
                             </figure>
                         </header>
                         <main>
-                            <h2><a href=""><?= $team->getName()?></a></h2> <!--Afficher son nom-->
+                            <h2><a href="/res03-projet-final/ProjetPerso/equipes/résumé-saison/<?php $team->getId(); ?>"><?= $team->getName()?></a></h2> <!--Afficher son nom-->
                         </main>
                     </article>
                 </li>

@@ -26,10 +26,12 @@ class TeamController extends AbstractController{
     }
     
     public function playerProfil(int $id){
-        $this->publicRender("player-profil", []);
+        $this->publicRender("player-profil", ['player'=>$this->playerManager->getPlayersById($id)]);
     }
     
     public function teamResume(){
+        $teamToShow=$this->teamManager->getTeamById();
+        var_dump($teamToShow);
         $this->publicRender("team-resume", []);
     }
 
@@ -55,21 +57,42 @@ class TeamController extends AbstractController{
             $this->playerManager->insertPlayer($newPlayer);
         }
     }
-    public function editPlayer(int $id, $post){
-        $playerToEdit=$this->playerManager->getPlayerById($id);
+    public function updatePlayer(string $id, $post){
         
-        if(isset($post["editProfilImg"]) && !empty($post["editProfilImg"])
-            && isset($post["editFirstname"]) && !empty($post["editFirstname"])
-            && isset($post["editLastname"]) && !empty($post["editLastname"])
-            && isset($post["editPhone"]) && !empty($post["editPhone"])
-            && isset($post["editPosition"]) && !empty($post["editPosition"])
-            && isset($post["editFoot"]) && !empty($post["editFoot"])
-            && isset($post["editBio"]) && !empty($post["editBio"])){
+        $this->privateRender('admin-player-edit', ['player'=>$this->playerManager->getPlayerById($id)]);
+        
+        
+            if(isset($post["editProfilImg"]) && !empty($post["editProfilImg"])
+                && isset($post["editFirstname"]) && !empty($post["editFirstname"])
+                && isset($post["editLastname"]) && !empty($post["editLastname"])
+                && isset($post["editPhone"]) && !empty($post["editPhone"])
+                && isset($post["editPosition"]) && !empty($post["editPosition"])
+                && isset($post["editFoot"]) && !empty($post["editFoot"])
+                && isset($post["editBio"]) && !empty($post["editBio"])){
+            
+                // récupération du joueur à modifier
                 
+                $playerToUpdate=new Player($post["editProfilImg"],$post["editFirstname"],$post["editLastname"],$post["editPhone"],$post["editPosition"],$post["editFoot"],$post["editBio"]);
                 
+                // $playerToUpdate = $this->playerManager->getPlayerById($id);
+                // var_dump($playerToUpdate);
+                // // mise à jour des informations du joueur
+                // $playerToUpdate->setProfilImg($post['editProfilImg']);
+                // $playerToUpdate->setFirstname($post['editFirstname']);
+                // $playerToUpdate->setLastname($post['editLastname']);
+                // $playerToUpdate->setPhone($post['editPhone']);
+                // $playerToUpdate->setPosition($post['editPosition']);
+                // $playerToUpdate->setFoot($post['editFoot']);
+                // $playerToUpdate->setBio($post['editBio']);
+                
+                // enregistrement des modifications
+                $this->playerManager->updatePlayer($playerToUpdate);
+                
+                // redirection vers la page de liste des joueurs
                 header("Location: /res03-projet-final/ProjetPerso/admin/admin-players");
             }
-    }
+            
+    } // fonctionne pas 
     public function deletePlayer(int $id){
         $this->playerManager->deletePlayer($id);
         header("Location: /res03-projet-final/ProjetPerso/admin/admin-players");
@@ -88,7 +111,7 @@ class TeamController extends AbstractController{
     }
     public function editTeam(int $id, $post){
         $this->privateRender("admin-team-edit", []);
-    }
+    } // fonctionne pas non plus
     public function deleteTeam(int $id){
         $this->teamManager->deleteTeam($id);
         header("Location: /res03-projet-final/ProjetPerso/admin/admin-teams");

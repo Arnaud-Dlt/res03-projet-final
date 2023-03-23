@@ -67,8 +67,8 @@ class Router {
                     }
                 }
                 
-                else if($route[1]=== "equipe"){
-                    $this->teamController->teamResume(); // Qui affichera la page résumé d'une équipe sélectionnée
+                else if($route[1]=== "résumé-saison"){
+                    $this->teamController->teamResume($route[2]); // Qui affichera la page résumé d'une équipe sélectionnée
                 }
             }
             
@@ -181,7 +181,7 @@ class Router {
                             $this->teamController->addPlayer($post);
                         }
                         else if($route[2]=== "admin-player-edit"){
-                                $this->teamController->editPlayer($route[3], $post);
+                            $this->teamController->updatePlayer($route[3], $post);
                         }
                         else if($route[2]=== "admin-player-delete"){
                             if(isset($route[3])){
@@ -224,8 +224,8 @@ class Router {
                         $this->adminController->adminPhoto();
                     }
                     
-                    
                 }
+                
                 else {
                     $this->adminController->login($post);
                 }
