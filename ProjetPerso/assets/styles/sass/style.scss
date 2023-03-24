@@ -1,7 +1,6 @@
 @import 'reset';
 @import 'publicNav';
 @import 'adminNav';
-@import 'footer';
 @import 'home';
 @import 'club';
 @import 'club-infrastructure';
@@ -10,51 +9,39 @@
 @import 'teams';
 @import 'effectif';
 @import 'team-resume';
+@import 'galerie';
+@import 'events';
 @import 'contact';
 @import 'login';
+@import 'footer';
 
 .sr-only {
     display: none;
 }
+.seeBtn{
+    background-color: #15608E;
+    color:#fff;
+    height: 5vh;
+    width: 10vw;
+    padding: 1vh;
+    background-color: #15608E;
+    color:#fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.seeBtn:hover{
+    background-color: #02265A;
+    cursor: pointer;
+}
+
 
 @media (max-width: 425px) {
-    #public {
-        #publicNav {
-            nav {
-                ul {
-                    li {
-                        a {
-                            text-decoration: none;
-                            color: black;
-                        }
-                    }
-                }
-            }
-        }
-
-        #home {}
-
-    }
+    
 }
 
 @media (min-width: 426px) and (max-width: 768px) {
-    #public {
-        #publicNav {
-            nav {
-                ul {
-                    li {
-                        a {
-                            text-decoration: none;
-                            color: black;
-                        }
-                    }
-                }
-            }
-        }
-
-        #home {}
-
-    }
+    
 }
 
 @media (min-width: 1024px) {
@@ -63,6 +50,8 @@
     #public {
         display: grid;
         grid-template-columns: 13vw 87vw;
+        font-family:'Josefin Sans', sans-serif;
+        font-size: 1rem;
     }
     
     // LAYOUT ADMIN
@@ -71,5 +60,6 @@
         display: grid;
         grid-template-columns: 13vw 87vw;
         grid-template-rows: 1fr 1fr;
+        font-family:'Josefin Sans', sans-serif;
     }
 }

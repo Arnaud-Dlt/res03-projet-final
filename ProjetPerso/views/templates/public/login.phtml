@@ -1,10 +1,10 @@
 <main id="login">
     <h1>Login admin</h1>
-    <form action="admin" method="post">
+    <form action="admin" method="post" class="form-floating mb-3">
         <label>Email</label>
-        <input type="text" name="loginEmail" required>
+        <input type="email" name="loginEmail" class="form-control" id="floatingInput" required>
         <label>Mot de passe</label>
-        <input type="password"  name="loginPassword" required>
+        <input type="password"  name="loginPassword" class="form-control" id="floatingPassword" required>
         <input type="submit" name="loginBtn" value="Se connecter">
-</form>
+    </form>
 </main>

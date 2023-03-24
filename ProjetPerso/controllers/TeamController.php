@@ -30,12 +30,12 @@ class TeamController extends AbstractController{
     }
     
     public function teamResume(){
-        $teamToShow=$this->teamManager->getTeamById();
+        $teamToShow=$this->teamManager->getTeamById($id);
         var_dump($teamToShow);
-        $this->publicRender("team-resume", []);
+        $this->publicRender("team-resume", );
     }
 
-    public function convocations($post){
+    public function convocations(){
         $this->publicRender("convocations", []);
     }
     

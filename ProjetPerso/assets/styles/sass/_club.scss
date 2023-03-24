@@ -1,62 +1,69 @@
-#le-club {
-    grid-column: 2/3;
-    grid-row: 1/2;
-    min-height: 100vh;
-    padding: 2vw;
-    display: grid;
-    grid-template-rows: 0.1fr 1fr 1fr 1fr;
-    
-    h1{
+@media (max-width: 425px) {}
+
+@media (min-width: 426px) and (max-width: 768px) {}
+
+@media (min-width: 1024px) {
+    #le-club {
+        grid-column: 2/3;
         grid-row: 1/2;
-    }
-    
-    &>section:first-of-type{
-        grid-row: 2/3;
+        min-height: 100vh;
+        padding: 2vw;
         display: grid;
-        grid-template-columns: 0.5fr 1fr;
-        
-        figure{
-            grid-column: 1/2;
+        grid-template-rows: 0.1fr 1fr 1fr 1fr;
+
+        h1 {
+            grid-row: 1/2;
         }
-        &>section:first-of-type{
-            grid-column: 2/3;
-            
-            h2{
-                font-size: 2rem;
-                color:#15608E;
+
+        &>section:first-of-type {
+            grid-row: 2/3;
+            display: grid;
+            grid-template-columns: 0.5fr 1fr;
+
+            figure {
+                grid-column: 1/2;
+            }
+            &>section:first-of-type {
+                grid-column: 2/3;
+
+                h2 {
+                    font-size: 2rem;
+                    color: #15608E;
+                }
+            }
+        }
+        &>section:nth-of-type(2) {
+            grid-row: 3/4;
+            display: grid;
+            grid-template-columns: 1fr 0.5fr;
+
+            &>section:first-of-type {
+                grid-column: 1/2;
+                h2 {
+                    font-size: 2rem;
+                    color: #15608E;
+                }
+            }
+            figure {
+                grid-column: 2/3;
+            }
+        }
+        &>section:nth-of-type(3) {
+            grid-row: 4/5;
+            display: grid;
+            grid-template-columns: 0.5fr 1fr;
+
+            figure {
+                grid-column: 1/2;
+            }
+            &>section:first-of-type {
+                grid-column: 2/3;
+                h2 {
+                    font-size: 2rem;
+                    color: #15608E;
+                }
             }
         }
     }
-    &>section:nth-of-type(2){
-        grid-row: 3/4;
-        display: grid;
-        grid-template-columns: 1fr 0.5fr;
-        
-        &>section:first-of-type{
-            grid-column: 1/2;
-            h2{
-                font-size: 2rem;
-                color:#15608E;
-            }
-        }
-        figure{
-            grid-column: 2/3;
-        }
-    }
-    &>section:nth-of-type(3){
-        grid-row: 4/5;
-        display: grid;
-        grid-template-columns: 0.5fr 1fr;
-        
-        figure{
-            grid-column: 1/2;
-        }
-        &>section:first-of-type{
-            grid-column: 2/3;
-            h2{
-                font-size: 2rem;
-                color:#15608E;
-            }
-        }
-    }
+
 }

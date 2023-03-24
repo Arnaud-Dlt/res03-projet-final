@@ -1,1 +1,47 @@
-<h1>admin pics</h1>
+<main>
+    <h1>Galerie</h1>
+
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Content</th>
+            <th>Picture</th>
+        </thead>
+        <tbody>
+            <?php 
+            foreach($data['albums'] as $album){ ?>
+            <tr>
+                <td><?= $album->getId() ?></td>
+                <td><?= $album->getTitle() ?></td>
+                <td><?= $album->getDescription()?></td>
+                <td><?= $album->getPicture()?></td>
+                <td><a href="/res03-projet-final/ProjetPerso/admin/admin-albums/admin-album-delete/<?= $album->getId();?>">Supprimer</a></td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+    <h2>Ajouter un album</h2>
+    <form method="post" action="admin-albums" name="formalbumAdd">
+        
+        <fieldset>
+            <label>Title</label>
+            <input type="text" name="albumTitle">
+        </fieldset>
+        
+        <fieldset>
+            <label>Description</label>
+            <input type="text" name="albumDescription">
+        </fieldset>
+            
+        <fieldset>
+            <label>Picture</label>
+            <input type="text" name="albumPicture">
+        </fieldset>
+        
+        <input type="submit" value="Ajouter">
+        
+        
+    </form>
+</main>

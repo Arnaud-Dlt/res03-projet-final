@@ -1,6 +1,12 @@
-#login {
-    grid-column: 2/3;
-    grid-row: 1/2;
-    min-height: 100vh;
-    padding: 2vw;
+@media (max-width: 425px) {}
+
+@media (min-width: 426px) and (max-width: 768px) {}
+
+@media (min-width: 1024px) {
+    #login {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        min-height: 100vh;
+        padding: 2vw;
+    }
 }

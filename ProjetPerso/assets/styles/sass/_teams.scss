@@ -1,29 +1,34 @@
-#teams {
-    grid-column: 2/3;
-    grid-row: 1/2;
-    min-height: 100vh;
-    padding-left: 1vw;
-    figure {
-        img {
-            width: 100%;
-        }
-    }
+@media (max-width: 425px) {}
 
-    h1 {
-        font-size: 2rem;
-        color: #15608E;
-    }
+@media (min-width: 426px) and (max-width: 768px) {}
 
-    section {
-        &>h2 {
-            a {
-                text-decoration: none;
-                color: #000;
+@media (min-width: 1024px) {
+    #teams {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        min-height: 100vh;
+        padding-left: 1vw;
+        figure {
+            img {
+                width: 100%;
             }
         }
-        ul{
-            
+
+        h1 {
+            font-size: 2rem;
+            color: #15608E;
         }
+
+        section {
+            &>h2 {
+                a {
+                    text-decoration: none;
+                    color: #000;
+                }
+            }
+            ul {}
+        }
+
     }
 
 }

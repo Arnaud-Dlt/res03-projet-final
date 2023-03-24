@@ -24,7 +24,7 @@
                 <section>
                     <h3><?= $data['lastArticle']->getTitle() ?></h3>
                     <p><?= $data['lastArticle']->getDescription() ?></p>
-                    <button>Voir cet article</button>
+                    <button class="seeBtn">Voir cet article</button>
                 </section>
             </article>
             
@@ -63,20 +63,20 @@
                     <p>Description</p>
                 </section>
             </article>
-            
         </section>
-        <button>Voir Plus</button>
+        <a href='/res03-projet-final/ProjetPerso/articles'><button class="seeBtn">Voir Plus</button></a>
     </section>
     
     <section>
-        <h2 class="sr-only">Aperçu galerie</h2>
+        <h2>Galerie</h2>
         <section>
-            <h2>Album1</h2>
+            <article>
+                <h2>Album 1</h2>
+            </article>
+            <article>
+                <h2>Album 2</h2>
+            </article>
         </section>
-        
-        <section>
-            <h2>Album2</h2>
-        </section>
-        <button>Voir Albums</button>
+        <a href='/res03-projet-final/ProjetPerso/galerie'><button class="seeBtn">Voir Plus</button></a>
     </section>
 </main>

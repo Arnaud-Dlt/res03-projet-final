@@ -1,6 +1,77 @@
-#le-club-organigramme {
-    grid-column: 2/3;
-    grid-row: 1/2;
-    min-height: 100vh;
-    padding: 2vw;
+@media (max-width: 425px) {}
+
+@media (min-width: 426px) and (max-width: 768px) {}
+
+@media (min-width: 1024px) {
+    #le-club-organigramme {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        min-height: 100vh;
+        padding: 2vw;
+        
+        h1{
+            font-size: 2rem;
+            color: #15608E;
+            margin-bottom: 10vh;
+        }
+        
+        section:first-of-type{
+            
+        }
+        &>section:nth-of-type(2){
+            display: grid;
+            grid-template-rows: repeat(5,1fr);
+            grid-template-columns: repeat(9, 1fr);
+            
+            section {
+                border: 1px solid #000;
+                text-align: center;
+                min-height: 10vh;
+            }
+            
+            #president{
+                grid-column: 4/5;
+                grid-row: 1/2;
+                
+            }
+            
+            #vice-president{
+                grid-column: 5/6;
+                grid-row: 2/3;
+            }
+            
+            #tresorier{
+                grid-column: 3/4;
+                grid-row: 3/4;
+            }
+            
+            #secretaire{
+                grid-column: 1/2;
+                grid-row: 3/4;
+            }
+            
+            #responsable-senior{
+                grid-column: 5/6;
+                grid-row: 4/5;
+            }
+            
+            #responsable-seniorA{
+                grid-column: 4/5;
+                grid-row: 6/7;
+            }
+            #responsable-seniorB{
+                grid-column: 6/7;
+                grid-row: 6/7;
+            }
+            
+            #responsable-veterans{
+                grid-column: 7/8;
+                grid-row: 4/5;
+            }
+            #responsable-jeunes{
+                grid-column: 9/10;
+                grid-row: 4/5;
+            }
+        }
+    }
 }

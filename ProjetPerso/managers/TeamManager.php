@@ -19,7 +19,7 @@ class TeamManager extends AbstractManager{
         return $tabTeams;
     }
     
-    public function getTeamById(int $id) : Team
+    public function getTeamById($id) : Team
     {
         $query=$this->db->prepare("SELECT * FROM team WHERE id= :id");
         $parameters= ['id' => $id];
