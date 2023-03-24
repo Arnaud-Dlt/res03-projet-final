@@ -181,6 +181,7 @@ class Router {
                             $this->teamController->addPlayer($post);
                         }
                         else if($route[2]=== "admin-player-edit"){
+                            $this->adminController->adminPlayerEdit();
                             $this->teamController->updatePlayer($route[3], $post);
                         }
                         else if($route[2]=== "admin-player-delete"){

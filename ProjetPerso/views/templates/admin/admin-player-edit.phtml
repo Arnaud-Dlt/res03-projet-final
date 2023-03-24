@@ -1,40 +1,56 @@
-<?php 
-var_dump($data);
-?>
 <main>
     <h1>Modifier Joueur</h1>
-<form method="POST" action="/res03-projet-final/ProjetPerso/admin/admin-players/admin-player-edit/<?= $data['player']->getId(); ?>">
-    
-    <label>Image de profil</label>
-    <input type="file" name="editProfilImg">
-    
+<form method="post" name="editPlayerForm" action="/res03-projet-final/ProjetPerso/admin/admin-players/admin-player-edit/<?= $data['players']->getId(); ?>">
+    <fieldset>
     <label>Prénom</label>
-    <input type="text" name="editFirstname" value="<?= $data['player']->getFirstname()?>">
-    
+    <input type="text" name="editFirstname" value="<?= $data['players']->getFirstname()?>">
+    </fieldset>
+    <fieldset>
     <label>Nom</label>
-    <input type="text" name="editLastname" value="<?= $data['player']->getLastname()?>">
-    
+    <input type="text" name="editLastname" value="<?= $data['players']->getLastname()?>">
+    </fieldset>
+    <fieldset>
     <label>Phone</label>
-    <input type="text" name="editPhone" value="<?= $data['player']->getPhone()?>">
+    <input type="text" name="editPhone" value="<?= $data['players']->getPhone()?>">
+    </fieldset>
     
+    <fieldset>
+    <label>Date de naissance</label>
+    <input type="date" name="editBirthdate" value="<?= $data['players']->getBirthdate() ?>" disabled>
+    </fieldset>
+    
+    <fieldset>
     <label>Poste</label>
-    <select name="editPosition" value="<?= $data['player']->getPosition()?>">
+    <select name="editPosition" value="<?= $data['players']->getPosition()?>">
         <option>--Poste--</option>
         <option>Gardiens</option>
         <option>Défenseur</option>
         <option>Milieu</option>
         <option>Attaquant</option>
     </select>
+    </fieldset>
     
+    <fieldset>
     <label>Pied Fort</label>
     <select name="editFoot" value="<?= $data['player']->getFoot()?>">
         <option>--Pied Fort--</option>
         <option>Droit</option>
         <option>Gauche</option>
     </select>
+    </fieldset>
     
+    <fieldset>
     <label>Bio</label>
     <input type="textarea" name="editBio" value="<?= $data['player']->getBio(); ?>">
+    </fieldset>
+    
+    <fieldset>
+    <label>Image de profil</label>
+    <input type="text" name="editProfilImg">
+    </fieldset>
+    
+    
+    
     <input type="submit" value="Modifier" name="editBtn">
 </form>
 </main>

@@ -124,19 +124,19 @@ class PlayerManager extends AbstractManager{
     
     public function editPlayer(Player $player) : void
     {
-        $query=$this->db->prepare("UPDATE players SET first_name = :first_name, last_name=:last_name, phone=:phone, birthdate=:birthdate, position=:position, foot=:foot, bio=:bio, profil_img=:profil_img WHERE players.id=:id");
+        var_dump($player);
+        $query=$this->db->prepare("UPDATE players SET first_name = :first_name, last_name=:last_name, phone=:phone, position=:position, foot=:foot, bio=:bio, profil_img= :profil_img WHERE id=:id");
         $parameters= [
+            'id'=>$player->getId(),
             'first_name' =>$player->getFirstname(),
             'last_name' => $player->getLastname(),
             'phone' => $player->getPhone(),
-            'birthdate' => $player->getBirthdate(),
             'position' => $player->getPosition(),
             'foot' => $player->getFoot(),
             'bio' => $player->getBio(),
             'profil_img' => $player->getProfilImg()
             ];
         $query->execute($parameters);
-        $allPlayers=$query->fetch(PDO::FETCH_ASSOC);
     }
     
     public function deletePlayer(int $id) : void

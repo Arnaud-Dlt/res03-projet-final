@@ -57,24 +57,41 @@ class TeamController extends AbstractController{
             $this->playerManager->insertPlayer($newPlayer);
         }
     }
-    public function updatePlayer(string $id, $post){
+    public function updatePlayer($id){
         
-        $this->privateRender('admin-player-edit', ['player'=>$this->playerManager->getPlayerById($id)]);
+        // $this->privateRender('admin-player-edit', ['player'=>$this->playerManager->getPlayerById($id)]);
         
+        // $displayPlayerToUpdate = $this->playerManager->getPlayerById($id);
         
-            if(isset($post["editProfilImg"]) && !empty($post["editProfilImg"])
-                && isset($post["editFirstname"]) && !empty($post["editFirstname"])
+        // $tab = [];
+        
+        // $tab["player"] = $displayPlayerToUpdate;
+        
+        // $this->privateRender("admin-player-edit", $tab);
+        $post=$_POST;
+        
+        if(empty($post)){
+            $playerToUpdate=$this->playerManager->getPlayerById($id);
+            $data['player']=$playerToUpdate;
+        }
+        
+        else{
+            echo "avant condition post";
+            var_dump($post);
+            if(isset($post["editFirstname"]) && !empty($post["editFirstname"])
                 && isset($post["editLastname"]) && !empty($post["editLastname"])
                 && isset($post["editPhone"]) && !empty($post["editPhone"])
                 && isset($post["editPosition"]) && !empty($post["editPosition"])
                 && isset($post["editFoot"]) && !empty($post["editFoot"])
-                && isset($post["editBio"]) && !empty($post["editBio"])){
+                && isset($post["editBio"]) && !empty($post["editBio"])
+                && isset($post["editBirthdate"]) && !empty($post["editBirthdate"])
+                ){
             
                 // récupération du joueur à modifier
+                echo "Avant update";
+                $playerToUpdate=new Player($post["editFirstname"],$post["editLastname"],$post["editPhone"],$post["editBirthdate"], $post["editPosition"],$post["editFoot"],$post["editBio"],$post["editProfilImg"],null);
                 
-                $playerToUpdate=new Player($post["editProfilImg"],$post["editFirstname"],$post["editLastname"],$post["editPhone"],$post["editPosition"],$post["editFoot"],$post["editBio"]);
                 
-                // $playerToUpdate = $this->playerManager->getPlayerById($id);
                 // var_dump($playerToUpdate);
                 // // mise à jour des informations du joueur
                 // $playerToUpdate->setProfilImg($post['editProfilImg']);
@@ -84,15 +101,16 @@ class TeamController extends AbstractController{
                 // $playerToUpdate->setPosition($post['editPosition']);
                 // $playerToUpdate->setFoot($post['editFoot']);
                 // $playerToUpdate->setBio($post['editBio']);
-                
+                echo "avant edit";
                 // enregistrement des modifications
-                $this->playerManager->updatePlayer($playerToUpdate);
-                
+                $this->playerManager->editPlayer($playerToUpdate);
+                echo "avant redirection";
                 // redirection vers la page de liste des joueurs
                 header("Location: /res03-projet-final/ProjetPerso/admin/admin-players");
             }
-            
-    } // fonctionne pas 
+        }       
+    } 
+    
     public function deletePlayer(int $id){
         $this->playerManager->deletePlayer($id);
         header("Location: /res03-projet-final/ProjetPerso/admin/admin-players");
@@ -111,7 +129,7 @@ class TeamController extends AbstractController{
     }
     public function editTeam(int $id, $post){
         $this->privateRender("admin-team-edit", []);
-    } // fonctionne pas non plus
+    } 
     public function deleteTeam(int $id){
         $this->teamManager->deleteTeam($id);
         header("Location: /res03-projet-final/ProjetPerso/admin/admin-teams");

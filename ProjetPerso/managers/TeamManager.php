@@ -86,7 +86,6 @@ class TeamManager extends AbstractManager{
             'category_id' => $team->getCategoryId()
             ];
         $query->execute($parameters);
-        $allTeams=$query->fetch(PDO::FETCH_ASSOC);
     }
     
     public function deleteTeam(int $id) : void
