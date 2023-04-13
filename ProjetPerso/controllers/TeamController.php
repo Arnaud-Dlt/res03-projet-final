@@ -26,13 +26,15 @@ class TeamController extends AbstractController{
     }
     
     public function playerProfil(int $id){
-        $this->publicRender("player-profil", ['player'=>$this->playerManager->getPlayersById($id)]);
+        $this->publicRender("player-profil", ['player'=>$this->playerManager->getPlayerById()]);
+        var_dump($data['player']);
     }
     
-    public function teamResume(){
-        $teamToShow=$this->teamManager->getTeamById($id);
-        var_dump($teamToShow);
-        $this->publicRender("team-resume", );
+    public function teamResumeA(){
+        $this->publicRender("team-resumeA", []);
+    }
+    public function teamResumeB(){
+        $this->publicRender("team-resumeB", []);
     }
 
     public function convocations(){
@@ -59,17 +61,6 @@ class TeamController extends AbstractController{
     }
     public function updatePlayer($id){
         
-        // $this->privateRender('admin-player-edit', ['player'=>$this->playerManager->getPlayerById($id)]);
-        
-        // $displayPlayerToUpdate = $this->playerManager->getPlayerById($id);
-        
-        // $tab = [];
-        
-        // $tab["player"] = $displayPlayerToUpdate;
-        
-        // $this->privateRender("admin-player-edit", $tab);
-        $post=$_POST;
-        
         if(empty($post)){
             $playerToUpdate=$this->playerManager->getPlayerById($id);
             $data['player']=$playerToUpdate;
@@ -91,16 +82,6 @@ class TeamController extends AbstractController{
                 echo "Avant update";
                 $playerToUpdate=new Player($post["editFirstname"],$post["editLastname"],$post["editPhone"],$post["editBirthdate"], $post["editPosition"],$post["editFoot"],$post["editBio"],$post["editProfilImg"],null);
                 
-                
-                // var_dump($playerToUpdate);
-                // // mise à jour des informations du joueur
-                // $playerToUpdate->setProfilImg($post['editProfilImg']);
-                // $playerToUpdate->setFirstname($post['editFirstname']);
-                // $playerToUpdate->setLastname($post['editLastname']);
-                // $playerToUpdate->setPhone($post['editPhone']);
-                // $playerToUpdate->setPosition($post['editPosition']);
-                // $playerToUpdate->setFoot($post['editFoot']);
-                // $playerToUpdate->setBio($post['editBio']);
                 echo "avant edit";
                 // enregistrement des modifications
                 $this->playerManager->editPlayer($playerToUpdate);

@@ -1,4 +1,34 @@
-@media (max-width: 425px) {}
+@media (max-width: 425px) {
+    #events{
+        h2{
+            color: #15608E;
+            font-size: 2rem;
+            margin: 2vh 0 10vh 1vw;
+        }
+        &>section{
+            margin: 1vh 1vw 0 1vw;
+            
+            &>section{
+                display: grid;
+                grid-template-rows: 0.2fr 1fr;
+                text-align: center;
+                
+                h3{
+                    font-size: 1.2rem;
+                    color: #15608E;
+                    grid-row: 1/2;
+                }
+                figure{
+                    grid-row: 2/3;
+                    align-self:center;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
 
 @media (min-width: 426px) and (max-width: 768px) {}
 

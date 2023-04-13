@@ -1,4 +1,35 @@
-@media (max-width: 425px) {}
+@media (max-width: 425px) {
+    #teams {
+        min-height: 100vh;
+        
+        figure {
+            img {
+                width: 100%;
+            }
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #15608E;
+        }
+
+        section {
+            &>h2 {
+                a {
+                    text-decoration: none;
+                    color: #000;
+                }
+            }
+            ul {
+                li{
+                    margin-top: 2vh;
+                    border: 1px solid #000;
+                }
+            }
+        }
+
+    }
+}
 
 @media (min-width: 426px) and (max-width: 768px) {}
 

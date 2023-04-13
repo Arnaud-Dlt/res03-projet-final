@@ -2,6 +2,7 @@
     <h2><?php $data['players']->getFirstname(); $data['players']->getLastname(); ?></h2>
     <h3><?php $data['players']->getPosition()?></h3>
     <section>
+        <?php var_dump($data) ?>
         <figure>
             <img src="<?php $data['players']->getProfilImg()?>" alt="photo du joueur">
         </figure>

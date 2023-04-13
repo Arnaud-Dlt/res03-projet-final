@@ -37,7 +37,10 @@
 
 
 @media (max-width: 425px) {
-    
+    #public {
+        font-family:'Josefin Sans', sans-serif;
+        font-size: 1rem;
+    }
 }
 
 @media (min-width: 426px) and (max-width: 768px) {

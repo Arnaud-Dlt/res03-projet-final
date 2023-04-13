@@ -1,27 +1,28 @@
 <main>
+    <?php var_dump($data['player']);?>
     <h1>Modifier Joueur</h1>
-<form method="post" name="editPlayerForm" action="/res03-projet-final/ProjetPerso/admin/admin-players/admin-player-edit/<?= $data['players']->getId(); ?>">
+<form method="post" name="editPlayerForm" action="/res03-projet-final/ProjetPerso/admin/admin-players/admin-player-edit/<?= $data['player']->getId(); ?>">
     <fieldset>
     <label>Prénom</label>
-    <input type="text" name="editFirstname" value="<?= $data['players']->getFirstname()?>">
+    <input type="text" name="editFirstname" value="<?= $data['player']->getFirstname()?>">
     </fieldset>
     <fieldset>
     <label>Nom</label>
-    <input type="text" name="editLastname" value="<?= $data['players']->getLastname()?>">
+    <input type="text" name="editLastname" value="<?= $data['player']->getLastname()?>">
     </fieldset>
     <fieldset>
     <label>Phone</label>
-    <input type="text" name="editPhone" value="<?= $data['players']->getPhone()?>">
+    <input type="text" name="editPhone" value="<?= $data['player']->getPhone()?>">
     </fieldset>
     
     <fieldset>
     <label>Date de naissance</label>
-    <input type="date" name="editBirthdate" value="<?= $data['players']->getBirthdate() ?>" disabled>
+    <input type="date" name="editBirthdate" value="<?= $data['player']->getBirthdate() ?>" disabled>
     </fieldset>
     
     <fieldset>
     <label>Poste</label>
-    <select name="editPosition" value="<?= $data['players']->getPosition()?>">
+    <select name="editPosition" value="<?= $data['player']->getPosition()?>">
         <option>--Poste--</option>
         <option>Gardiens</option>
         <option>Défenseur</option>

@@ -1,4 +1,59 @@
-@media (max-width: 425px) {}
+@media (max-width: 425px) {
+    #publicNav {
+
+        nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            background-color: #15608E;
+
+            #menuBtn {
+                grid-column: 1/2;
+                grid-row: 1/2;
+                color: #fff;
+                margin-left: 2vw;
+                align-self: center;
+                justify-self: flex-start;
+            }
+            figure {
+                grid-column: 2/3;
+                grid-row: 1/2;
+                text-align: center;
+                img {
+                    width: 20%;
+                }
+            }
+            #reseauxSociaux {
+                grid-column: 3/4;
+                grid-row: 1/2;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                a{
+                    text-decoration: none;
+                    color:#fff;
+                }
+            }
+            ul {
+                grid-column: 1/4;
+                grid-row: 2/3;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                color:#fff;
+                a{
+                    text-decoration: none;
+                    color:#fff;
+                }
+                li{
+                    ul{
+                        display:none;
+                    }
+                }
+            }
+        }
+    }
+}
 
 @media (min-width: 426px) and (max-width: 768px) {}
 
@@ -24,6 +79,14 @@
                 }
             }
 
+            #menuBtn {
+                display: none;
+            }
+
+            #reseauxSociaux {
+                display: none;
+            }
+
             ul {
                 text-align: center;
                 padding: 2vh;
@@ -41,11 +104,11 @@
                         color: #fff;
                         font-weight: 800;
                     }
-                    
+
                 }
-                li:hover{
-                        border-left: 5px solid #fff;
-                    }
+                li:hover {
+                    border-left: 5px solid #fff;
+                }
             }
         }
     }

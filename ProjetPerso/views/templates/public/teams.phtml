@@ -1,22 +1,22 @@
 <main id="teams">
     <figure>
-        <img src="" alt="">
+        <img src="/res03-projet-final/ProjetPerso/assets/img/backgrd_USSM.jpg" alt="Photo de tous les joueurs">
     </figure>
     <h1>Toutes les équipes</h1>
     <section>
-        <h2><a href="/res03-projet-final/ProjetPerso/equipes/effectif">Voir l'effectif complet</a></h2>
+        <h2><a href="/res03-projet-final/ProjetPerso/equipes/effectif">Voir l'effectif complet ></a></h2>
         <ul>
             <?php 
             foreach($data['teams'] as $team){ ?> <!--Pour chaque équipe -->
                 <li>
                     <article>
                         <header>
-                            <figure>
-                                <img src="/res03-projet-final/ProjetPerso/assets/img/<?php $team->getPicture(); ?>" alt="photo d'équipe">  <!--Afficher photo d'équipe-->
-                            </figure>
+                            <h2><a href="/res03-projet-final/ProjetPerso/equipes/résumé-saisonA/"><?= $team->getName()?></a></h2> <!--Afficher son nom-->
                         </header>
                         <main>
-                            <h2><a href="/res03-projet-final/ProjetPerso/equipes/résumé-saison/<?php $team->getId(); ?>"><?= $team->getName()?></a></h2> <!--Afficher son nom-->
+                            <figure>
+                                <img src="/res03-projet-final/ProjetPerso/assets/img/equipeA.jpg" alt="photo d'équipe">  <!--Afficher photo d'équipe-->
+                            </figure>
                         </main>
                     </article>
                 </li>

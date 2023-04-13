@@ -41,7 +41,7 @@ class AdminController extends AbstractController{
     public function adminTeams(){
         $this->privateRender("admin-teams", 
         ['teams'=>$this->teamManager->getAllTeams(),
-        'category'=>$this->categoryManager->getAllCategories(),]);
+        'category'=>$this->categoryManager->getAllCategories()]);
     }
     
     public function adminCategories(){

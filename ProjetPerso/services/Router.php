@@ -63,12 +63,18 @@ class Router {
                         $this->teamController->effectif(); // Qui affichera la page effectif du club
                     }
                     else if($route[2]=== "joueur"){
-                        $this->teamController->playerProfil(); // Qui affichera la page fiche joueur
+                        
+                        if(!isset($route[3])){
+                                $this->teamController->playerProfil($route[3]);
+                            }
                     }
                 }
                 
-                else if($route[1]=== "résumé-saison"){
-                    $this->teamController->teamResume(); // Qui affichera la page résumé d'une équipe sélectionnée
+                else if($route[1]=== "résumé-saisonA"){
+                    $this->teamController->teamResumeA($route[2]);
+                }
+                else if($route[1]=== "résumé-saisonB"){
+                    $this->teamController->teamResumeB($route[2]);
                 }
             }
             
@@ -198,7 +204,7 @@ class Router {
                         }
                         else if($route[2]=== "admin-staff-delete"){
                             if(isset($route[3])){
-                                $this->adminController->deleteStaff($route[3]);
+                                $this->staffController->deleteStaff($route[3]);
                             }
                         }
                     }
