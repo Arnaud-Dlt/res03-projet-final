@@ -1,12 +1,66 @@
-@media (max-width: 425px) {}
+@media (max-width: 425px) {
+
+    #team-resume {
+        min-height: 100vh;
+        padding: 2vw;
+
+        section {
+            margin: 5vh 0 5vh 0;
+            h2 {
+                font-size: 2rem;
+                color: #15608E;
+                margin: 2vh 0 2vh 0;
+            }
+        }
+    }
+}
 
 @media (min-width: 426px) and (max-width: 768px) {}
 
 @media (min-width: 1024px) {
     #team-resume {
-        grid-column: 2/3;
-        grid-row: 1/2;
         min-height: 100vh;
         padding: 2vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 0.1fr 1fr;
+
+        h1 {
+            grid-column: 1/4;
+            grid-row: 1/2;
+            font-size: 2rem;
+            color: #15608E;
+        }
+        
+        section:first-of-type {
+            grid-row: 2/3;
+            grid-column: 1/2;
+            margin: 5vh 2vw 5vh 0;
+            h2 {
+                font-size: 1.5rem;
+                color: #15608E;
+                margin: 2vh 0 2vh 0;
+            }
+        }
+        section:nth-of-type(2) {
+            grid-row: 2/3;
+            grid-column: 2/3;
+            margin: 5vh 2vw 5vh 0;
+            h2 {
+                font-size: 1.5rem;
+                color: #15608E;
+                margin: 2vh 0 2vh 0;
+            }
+        }
+        section:last-of-type {
+            grid-row: 2/3;
+            grid-column: 3/4;
+            margin: 5vh 0 5vh 0;
+            h2 {
+                font-size: 1.5rem;
+                color: #15608E;
+                margin: 2vh 0 2vh 0;
+            }
+        }
     }
 }

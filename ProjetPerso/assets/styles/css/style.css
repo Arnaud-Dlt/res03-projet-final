@@ -785,12 +785,63 @@ table {
     width: 90%;
   }
 }
-@media (min-width: 1024px) {
+@media (max-width: 425px) {
   #team-resume {
-    grid-column: 2/3;
-    grid-row: 1/2;
     min-height: 100vh;
     padding: 2vw;
+  }
+  #team-resume section {
+    margin: 5vh 0 5vh 0;
+  }
+  #team-resume section h2 {
+    font-size: 2rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+}
+@media (min-width: 1024px) {
+  #team-resume {
+    min-height: 100vh;
+    padding: 2vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.1fr 1fr;
+  }
+  #team-resume h1 {
+    grid-column: 1/4;
+    grid-row: 1/2;
+    font-size: 2rem;
+    color: #15608E;
+  }
+  #team-resume section:first-of-type {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    margin: 5vh 2vw 5vh 0;
+  }
+  #team-resume section:first-of-type h2 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #team-resume section:nth-of-type(2) {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    margin: 5vh 2vw 5vh 0;
+  }
+  #team-resume section:nth-of-type(2) h2 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #team-resume section:last-of-type {
+    grid-row: 2/3;
+    grid-column: 3/4;
+    margin: 5vh 0 5vh 0;
+  }
+  #team-resume section:last-of-type h2 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
   }
 }
 @media (max-width: 425px) {
