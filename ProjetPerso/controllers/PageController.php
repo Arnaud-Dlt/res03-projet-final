@@ -16,7 +16,7 @@ class PageController extends AbstractController {
     // PUBLIC PAGE
     
     public function accueil(){
-        $this->publicRender("home", ['lastArticle'=>$this->articleManager->getLastArticle()]);
+        $this->publicRender("home", ['lastArticle'=>$this->articleManager->getLastFiveArticle()]);
     }
     
     public function club(){

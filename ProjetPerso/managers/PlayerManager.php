@@ -100,7 +100,9 @@ class PlayerManager extends AbstractManager{
         return $newPlayer;
     }
     
-    public function insertPlayer(Player $player) : Player
+    
+    
+    public function createPlayer(Player $player) : Player
     {
         $query=$this->db->prepare("INSERT INTO players VALUES (null, :first_name, :last_name, :phone, :birthdate,   :position, :foot, :bio, :profil_img, :category_id)");
         $parameters= [
@@ -122,9 +124,8 @@ class PlayerManager extends AbstractManager{
         return $player;
     }
     
-    public function editPlayer(Player $player) : void
+    public function updatePlayer(Player $player) : void
     {
-        var_dump($player);
         $query=$this->db->prepare("UPDATE players SET first_name = :first_name, last_name=:last_name, phone=:phone, position=:position, foot=:foot, bio=:bio, profil_img= :profil_img WHERE id=:id");
         $parameters= [
             'id'=>$player->getId(),

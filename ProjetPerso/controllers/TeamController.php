@@ -56,41 +56,45 @@ class TeamController extends AbstractController{
                 
             $newPlayer=new Player($post['playerFirstname'],$post['playerLastname'],$post['playerPhone'],$post['playerBirthdate'],$post['playerPosition'],$post['playerFoot'],$post['playerBio'],$post['playerPics'],$post['playerCategory']);
             
-            $this->playerManager->insertPlayer($newPlayer);
+            $this->playerManager->createPlayer($newPlayer);
         }
     }
-    public function updatePlayer($id){
+    
+    public function updatePlayer(int $id, array $post)
+    {
+        $displayPlayerToUpdate = $this->playerManager->getPlayerById($id);
         
-        if(empty($post)){
-            $playerToUpdate=$this->playerManager->getPlayerById($id);
-            $data['player']=$playerToUpdate;
-        }
+        $tab = [];
         
-        else{
-            echo "avant condition post";
-            var_dump($post);
-            if(isset($post["editFirstname"]) && !empty($post["editFirstname"])
-                && isset($post["editLastname"]) && !empty($post["editLastname"])
-                && isset($post["editPhone"]) && !empty($post["editPhone"])
-                && isset($post["editPosition"]) && !empty($post["editPosition"])
-                && isset($post["editFoot"]) && !empty($post["editFoot"])
-                && isset($post["editBio"]) && !empty($post["editBio"])
-                && isset($post["editBirthdate"]) && !empty($post["editBirthdate"])
-                ){
-            
-                // récupération du joueur à modifier
-                echo "Avant update";
-                $playerToUpdate=new Player($post["editFirstname"],$post["editLastname"],$post["editPhone"],$post["editBirthdate"], $post["editPosition"],$post["editFoot"],$post["editBio"],$post["editProfilImg"],null);
+        $tab["player"] = $displayPlayerToUpdate;
+        
+        $this->privateRender("admin-player-edit", $tab);
+        
+        if(isset($post["editFirstname"]) && !empty($post["editFirstname"])
+            && isset($post["editLastname"]) && !empty($post["editLastname"])
+            && isset($post["editPhone"]) && !empty($post["editPhone"])
+            && isset($post["editPosition"]) && !empty($post["editPosition"])
+            && isset($post["editFoot"]) && !empty($post["editFoot"])
+            && isset($post["editBio"]) && !empty($post["editBio"])
+            && isset($post["editBirthdate"]) && !empty($post["editBirthdate"]))
+            {
+                $playerToUpdate = $this->playerManager->getPlayerById($id);
                 
-                echo "avant edit";
-                // enregistrement des modifications
-                $this->playerManager->editPlayer($playerToUpdate);
-                echo "avant redirection";
-                // redirection vers la page de liste des joueurs
+                $playerToUpdate= new Player($post['editFirstname'],$post['editLastname'],$post['editPhone'],$post['editPosition'],$post['editFoot'],$post['editBio'],$post['editBirthdate']);
+                
+                // $playerToUpdate->setFirstName($post['editFirstname']);
+                // $playerToUpdate->setLastName($post['editLastname']);
+                // $playerToUpdate->setPhone($post['editPhone']);
+                // $playerToUpdate->setPosition($post['editPosition']);
+                // $playerToUpdate->setFoot($post['editFoot']);
+                // $playerToUpdate->setBio($post['editBio']);
+                // $playerToUpdate->setBirthdate($post['editBirthdate']);
+                
+                
+                $this->playerManager->updatePlayer($playerToUpdate);
                 header("Location: /res03-projet-final/ProjetPerso/admin/admin-players");
             }
-        }       
-    } 
+    }
     
     public function deletePlayer(int $id){
         $this->playerManager->deletePlayer($id);

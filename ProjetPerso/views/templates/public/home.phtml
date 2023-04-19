@@ -11,58 +11,30 @@
     </section>
 
     <section>
-        <h2 class="sr-only">Articles</h2>
-        <section>
-            <h2>Dernière Actualité <span class="fa-regular fa-futbol fa-xs"></h2>
+        <h2>Dernières Actualités <span class="fa-regular fa-futbol fa-xs"></span></h2>
+        <section> 
+        <ul>
+        <?php 
+               
+        foreach($data['lastArticle'] as $article){?>
+            <li>
             <article>
-                <h2 class="sr-only"><?= $data['lastArticle']->getTitle() ?></h2>
+                <h2 class="sr-only">Article</h2>
                 <header>
                     <figure>
                         <img src="https://picsum.photos/200/100" alt="photo article">
                     </figure>
                 </header>
                 <section>
-                    <h3><?= $data['lastArticle']->getTitle() ?></h3>
-                    <p><?= $data['lastArticle']->getDescription() ?></p>
+                    <h3><?= $article->getTitle() ?></h3>
+                    <p><?= $article->getDescription() ?></p>
                     <button class="seeBtn">Voir cet article</button>
                 </section>
             </article>
+            </li>
+            <?php } ?>
             
-        </section>
-        <section>
-            <h2>Autres actualités <span class="fa-regular fa-futbol fa-xs"></span></h2>
-            <article>
-                <h2 class="sr-only"></h2>
-                <figure>
-                    <img src="https://picsum.photos/200/100" alt="photo article">
-                </figure>
-                <section>
-                    <h3>What is Lorem Ipsum?</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                </section>
-            </article>
-            
-            <article>
-                <h2 class="sr-only"></h2>
-                <figure>
-                    <img src="https://picsum.photos/200/100" alt="photo article">
-                </figure>
-                <section>
-                    <h3>What is Lorem Ipsum?</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                </section>
-            </article>
-            
-            <article>
-                <h2 class="sr-only"></h2>
-                <figure>
-                    <img src="https://picsum.photos/200/100" alt="photo article">
-                </figure>
-                <section>
-                    <h3>What is Lorem Ipsum?</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                </section>
-            </article>
+        </ul>
         </section>
         <a href='/res03-projet-final/ProjetPerso/articles'><button class="seeBtn">Voir Plus</button></a>
     </section>
@@ -70,6 +42,7 @@
     <section>
         <h2>Galerie <span class="fa-solid fa-camera"></span></h2>
         <section>
+            <h2 class="sr-only">Albums Photos</h2>
             <article>
                 <figure>
                     <img src="https://picsum.photos/300" alt="photo article">

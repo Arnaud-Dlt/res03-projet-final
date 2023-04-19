@@ -41,15 +41,19 @@ class ArticleManager extends AbstractManager{
         return $newArticle;
     }
     
-    public function getLastArticle(): Post /* Recuperer le dernier article posté */
+    public function getLastFiveArticle(): array /* Recuperer le dernier article posté */
     {
-        $query=$this->db->prepare("SELECT * FROM posts ORDER BY ID DESC LIMIT 1");
+        $query=$this->db->prepare("SELECT * FROM posts ORDER BY ID DESC LIMIT 5");
         $query->execute();
-        $getLastPost=$query->fetch(PDO::FETCH_ASSOC);
-        $lastArticle=new Post($getLastPost['title'],$getLastPost['description'],$getLastPost['content'],$getLastPost['picture']);
+        $getLastPost=$query->fetchAll(PDO::FETCH_ASSOC);
         
-        $lastArticle->setId($getLastPost["id"]);
-        return $lastArticle;
+        $tabLastArticles=[];
+        foreach($getLastPost as $article){
+            $object=new Post($article['title'],$article['description'],$article['content'],$article['picture']);
+            array_push($tabLastArticles, $object);
+            $object->setId($article["id"]);
+        }
+        return $tabLastArticles;
     }
     
     
@@ -73,16 +77,12 @@ class ArticleManager extends AbstractManager{
     
     public function editArticle(Article $article) : void    /* Modifier Article */
     {
-        $query=$this->db->prepare("UPDATE posts SET first_name = :first_name, last_name=:last_name, phone=:phone, birthdate=:birthdate, position=:position, foot=:foot, bio=:bio, profil_img=:profil_img WHERE articles.id=:id");
+        $query=$this->db->prepare("UPDATE posts SET title=:title, description=:description, content=:content, picture=:picture WHERE articles.id=:id");
         $parameters= [
-            'first_name' =>$article->getFirstname(),
-            'last_name' => $article->getLastname(),
-            'phone' => $article->getPhone(),
-            'birthdate' => $article->getBirthdate(),
-            'position' => $article->getPosition(),
-            'foot' => $article->getFoot(),
-            'bio' => $article->getBio(),
-            'profil_img' => $article->getProfilImg()
+            'title' =>$article->getTitle(),
+            'description' => $article->getDescription(),
+            'content' => $article->getContent(),
+            'picture' => $article->getPicture(),
             ];
         $query->execute($parameters);
         $allArticles=$query->fetch(PDO::FETCH_ASSOC);

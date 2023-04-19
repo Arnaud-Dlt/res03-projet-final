@@ -69,10 +69,11 @@ class Router {
                             }
                     }
                 }
-                
+
                 else if($route[1]=== "résumé-saisonA"){
                     $this->teamController->teamResumeA($route[2]);
                 }
+                
                 else if($route[1]=== "résumé-saisonB"){
                     $this->teamController->teamResumeB($route[2]);
                 }
@@ -183,12 +184,16 @@ class Router {
                     else if($route[1]=== "admin-players"){
                         
                         if(!isset($route[2])){
-                            $this->adminController->adminPlayers(); // Qui affichera la page admin players
+                            $this->adminController->adminPlayers(); 
                             $this->teamController->addPlayer($post);
                         }
                         else if($route[2]=== "admin-player-edit"){
-                            $this->adminController->adminPlayerEdit();
-                            $this->teamController->updatePlayer($route[3], $post);
+                            if(isset($route[3]))
+                            {
+                                $this->teamController->updatePlayer($route[3], $post);
+                            }
+                            
+                            
                         }
                         else if($route[2]=== "admin-player-delete"){
                             if(isset($route[3])){
@@ -238,7 +243,7 @@ class Router {
                 }
             }
             
-            // SI RIEN NE RENTRE DANS LES CONDITIONS
+            //  404
 
             else {
                 $this->pageController->error(); // J'affiche une page 404

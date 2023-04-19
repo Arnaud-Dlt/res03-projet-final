@@ -1,7 +1,8 @@
 <main id="effectif">
-<a href="/res03-projet-final/ProjetPerso/equipes">< Equipes</a>
+<a href="/res03-projet-final/ProjetPerso/equipes"><| Equipes</a>
 <h1>Effectif</h1>
     <nav>
+        <h3 class="sr-only">Lien vers les postes</h3>
         <ul>
             <li><a href="#gardiens">Gardiens</a></li>
             <li><a href="#defenseurs">Defenseurs</a></li>
@@ -17,6 +18,7 @@
             foreach($data['goalkeepers'] as $goalkeeper){?>
             <li>
                 <article>
+                    <h3 class="sr-only">Gardien</h3>
                     <header>
                         <figure>
                             <img src="./../assets/img/joueurs/<?= $goalkeeper->getProfilImg() ?>" alt="photo du joueur">
@@ -26,7 +28,9 @@
                         <h3><?= $goalkeeper->getFirstname() ?> <?= $goalkeeper->getLastname() ?></h3>
                         <p></p>
                     </section>
-                    <a href="/res03-projet-final/ProjetPerso/equipes/joueur"><button>Voir joueur</button></a>
+                    <!--<a href="/res03-projet-final/ProjetPerso/equipes/joueur">-->
+                        <button>Voir joueur</button>
+                        <!--</a>-->
                 </article>
             </li>
             <?php } ?>
@@ -37,6 +41,7 @@
             foreach($data['defenders'] as $defender){?>
             <li>
                 <article>
+                    <h3 class="sr-only">Défenseur</h3>
                     <header>
                         <figure>
                             <img src="./../assets/img/joueurs/<?= $defender->getProfilImg() ?>" alt="photo du joueur">
@@ -57,6 +62,7 @@
             foreach($data['midfielders'] as $midfielder){?>
             <li>
                 <article>
+                    <h3 class="sr-only">Milieu</h3>
                     <header>
                         <figure>
                             <img src="./../assets/img/joueurs/<?= $midfielder->getProfilImg() ?>" alt="photo du joueur">
@@ -77,6 +83,7 @@
             foreach($data['strikers'] as $strikers){?>
             <li>
                 <article>
+                    <h3 class="sr-only">Attaquant</h3>
                     <header>
                         <figure>
                             <img src="./../assets/img/joueurs/<?= $strikers->getProfilImg() ?>" alt="photo du joueur">
