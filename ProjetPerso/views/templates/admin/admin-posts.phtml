@@ -8,6 +8,7 @@
             <th>Description</th>
             <th>Content</th>
             <th>Picture</th>
+            <th>Action</th>
         </thead>
         <tbody>
             <?php 
@@ -18,13 +19,13 @@
                 <td><?= $article->getDescription()?></td>
                 <td><?= $article->getContent()?></td>
                 <td><?= $article->getPicture()?></td>
-                <td><a href="/res03-projet-final/ProjetPerso/admin/admin-articles/admin-article-delete/<?= $article->getId();?>">Supprimer</a></td>
+                <td><a href="/res03-projet-final/ProjetPerso/admin/admin-posts/admin-post-edit/<?= $article->getId();?>">Modifier</a><a href="/res03-projet-final/ProjetPerso/admin/admin-posts/admin-article-delete/<?= $article->getId();?>">Supprimer</a></td>
             </tr>
             <?php } ?>
         </tbody>
     </table>
     <h2>Ajouter un article</h2>
-    <form method="post" action="admin-articles" name="formArticleAdd">
+    <form method="post" action="admin-posts" name="formArticleAdd">
         
         <fieldset>
             <label>Title</label>

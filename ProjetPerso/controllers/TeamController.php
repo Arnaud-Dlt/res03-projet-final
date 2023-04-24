@@ -3,11 +3,13 @@
 class TeamController extends AbstractController{
     private PlayerManager $playerManager;
     private TeamManager $teamManager;
+    private CategoryManager $categoryManager;
     
     public function __construct()
     {
         $this->playerManager = new PlayerManager();
         $this->teamManager = new TeamManager();
+        $this->categoryManager = new CategoryManager();
     }
     
     // PUBLIC
@@ -26,13 +28,13 @@ class TeamController extends AbstractController{
     }
     
     public function playerProfil(int $id){
-        $this->publicRender("player-profil", ['player'=>$this->playerManager->getPlayerById()]);
-        var_dump($data['player']);
+        $this->publicRender("player-profil", []);
     }
     
     public function teamResumeA(){
         $this->publicRender("team-resumeA", []);
     }
+    
     public function teamResumeB(){
         $this->publicRender("team-resumeB", []);
     }
@@ -53,46 +55,45 @@ class TeamController extends AbstractController{
             && isset($post["playerPosition"]) && !empty($post["playerPosition"])
             && isset($post["playerFoot"]) && !empty($post["playerFoot"])
             && isset($post["playerBio"]) && !empty($post["playerBio"])){
-                
+            // si les champs sont rempli 
+            
+            // nouvelle instance
             $newPlayer=new Player($post['playerFirstname'],$post['playerLastname'],$post['playerPhone'],$post['playerBirthdate'],$post['playerPosition'],$post['playerFoot'],$post['playerBio'],$post['playerPics'],$post['playerCategory']);
             
+            // créer joueur 
             $this->playerManager->createPlayer($newPlayer);
         }
     }
     
-    public function updatePlayer(int $id, array $post)
-    {
+    public function updatePlayer(int $id, array $post){
+        
+        // recupération du l'id du joueur selectionné
         $displayPlayerToUpdate = $this->playerManager->getPlayerById($id);
         
+        // stockage des infos du joueur
         $tab = [];
-        
         $tab["player"] = $displayPlayerToUpdate;
         
+        // affichage de la page avec les infos du joueurs pré-remplie dans le form
         $this->privateRender("admin-player-edit", $tab);
         
         if(isset($post["editFirstname"]) && !empty($post["editFirstname"])
             && isset($post["editLastname"]) && !empty($post["editLastname"])
             && isset($post["editPhone"]) && !empty($post["editPhone"])
+            && isset($post["editBirthdate"]) && !empty($post["editBirthdate"])
             && isset($post["editPosition"]) && !empty($post["editPosition"])
             && isset($post["editFoot"]) && !empty($post["editFoot"])
-            && isset($post["editBio"]) && !empty($post["editBio"])
-            && isset($post["editBirthdate"]) && !empty($post["editBirthdate"]))
+            && isset($post["editBio"])
+            && isset($post["editProfilImg"]) && !empty($post["editProfilImg"])
+            && isset($post["editPlayerCategory"]) && !empty($post["editPlayerCategory"]))
             {
                 $playerToUpdate = $this->playerManager->getPlayerById($id);
                 
-                $playerToUpdate= new Player($post['editFirstname'],$post['editLastname'],$post['editPhone'],$post['editPosition'],$post['editFoot'],$post['editBio'],$post['editBirthdate']);
+                $playerToUpdate= new Player($post['editFirstname'],$post['editLastname'],$post['editPhone'],$post['editBirthdate'],$post['editPosition'],$post['editFoot'],$post['editBio'],$post["editProfilImg"],$post["editPlayerCategory"]);
                 
-                // $playerToUpdate->setFirstName($post['editFirstname']);
-                // $playerToUpdate->setLastName($post['editLastname']);
-                // $playerToUpdate->setPhone($post['editPhone']);
-                // $playerToUpdate->setPosition($post['editPosition']);
-                // $playerToUpdate->setFoot($post['editFoot']);
-                // $playerToUpdate->setBio($post['editBio']);
-                // $playerToUpdate->setBirthdate($post['editBirthdate']);
-                
+                $playerToUpdate->setId($id);
                 
                 $this->playerManager->updatePlayer($playerToUpdate);
-                header("Location: /res03-projet-final/ProjetPerso/admin/admin-players");
             }
     }
     
@@ -112,9 +113,11 @@ class TeamController extends AbstractController{
             $this->teamManager->insertTeam($newTeam);
         }
     }
+    
     public function editTeam(int $id, $post){
         $this->privateRender("admin-team-edit", []);
     } 
+    
     public function deleteTeam(int $id){
         $this->teamManager->deleteTeam($id);
         header("Location: /res03-projet-final/ProjetPerso/admin/admin-teams");

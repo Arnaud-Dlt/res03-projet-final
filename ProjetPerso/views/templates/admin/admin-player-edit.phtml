@@ -17,13 +17,12 @@
     
     <fieldset>
     <label>Date de naissance</label>
-    <input type="date" name="editBirthdate" value="<?= $data['player']->getBirthdate() ?>" disabled>
+    <input type="date" name="editBirthdate" value="<?= $data['player']->getBirthdate() ?>" >
     </fieldset>
     
     <fieldset>
     <label>Poste</label>
     <select name="editPosition" value="<?= $data['player']->getPosition()?>">
-        <option>--Poste--</option>
         <option>Gardiens</option>
         <option>Défenseur</option>
         <option>Milieu</option>
@@ -34,7 +33,6 @@
     <fieldset>
     <label>Pied Fort</label>
     <select name="editFoot" value="<?= $data['player']->getFoot()?>">
-        <option>--Pied Fort--</option>
         <option>Droit</option>
         <option>Gauche</option>
     </select>
@@ -48,6 +46,18 @@
     <fieldset>
     <label>Image de profil</label>
     <input type="text" name="editProfilImg">
+    </fieldset>
+    <fieldset>
+    <label>Catégorie</label>
+    <?php var_dump($data['category']); ?>
+        <select name="editPlayerCategory">
+            <option value="<?=$data['player']->getCategoryId(); ?>" >Catégorie Actuelle</option>
+            <?php 
+            var_dump($data['category']);
+            foreach($data['category'] as $category){ ?>
+                <option value="<?= $data["category"]->getId() ?>"><?= $data["category"]->getName() ?></option>
+            <?php } ?>
+        </select>
     </fieldset>
     
     

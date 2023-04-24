@@ -41,9 +41,33 @@ class ArticleController extends AbstractController{
         }
     }
     
+    public function updateArticle(int $id, array $post){
+        
+        // recupération du l'id de l'article selectionné
+        $displayArticleToUpdate = $this->articleManager->getArticleById($id);
+        
+        // stockage des infos de l'article 
+        $tab = [];
+        $tab["article"] = $displayArticleToUpdate;
+        
+        $this->privateRender("admin-post-edit", $tab);
+        
+        if(isset($post["articleEditTitle"]) && !empty($post["articleEditTitle"])
+            && isset($post["articleEditDescription"]) && !empty($post["articleEditDescription"])
+            && isset($post["articleEditContent"]) && !empty($post["articleEditContent"])
+            && isset($post["articleEditPicture"]) && !empty($post["articleEditPicture"])){
+            
+            $postToUpdate=new Post($post['articleEditTitle'],$post['articleEditDescription'],$post['articleEditContent'],$post['articleEditPicture']);
+            $postToUpdate->setId($id);
+            var_dump($postToUpdate);
+            
+            $this->articleManager->updateArticle($postToUpdate);
+        }
+    }
+    
     public function deleteArticle(int $id){
         $this->articleManager->deleteArticle($id);
-        header("Location: /res03-projet-final/ProjetPerso/admin/admin-articles");
+        header("Location: /res03-projet-final/ProjetPerso/admin/admin-post");
     }
     
 }

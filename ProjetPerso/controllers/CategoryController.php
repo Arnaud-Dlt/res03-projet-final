@@ -19,8 +19,6 @@ class CategoryController extends AbstractController{
                 
             $newCategory=new Category($post['categoryName']);
             
-            var_dump($newCategory);
-            
             $this->categoryManager->insertCategory($newCategory);
         }
     }

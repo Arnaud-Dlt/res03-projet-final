@@ -1,12 +1,19 @@
 <main>
+    <?php var_dump($data['article'])?>
     <h1>Modifier articles</h1>
-    <form method="post">
+    <form method="post" action="/res03-projet-final/ProjetPerso/admin/admin-posts/admin-post-edit/<?= $data['article']->getId(); ?>">
     
-        <label>Photo d'équipe</label>
-        <input type="file">
+        <label>Photo</label>
+        <input type="text" name="articleEditPicture" value="">
     
-        <label>Name</label>
-        <input type="text">
+        <label>Titre</label>
+        <input type="text" name="articleEditTitle" value="<?= $data['article']->getTitle() ?>">
+        
+        <label>Description</label>
+        <input type="text" name="articleEditDescription" value="<?= $data['article']->getDescription() ?>">
+        
+        <label>Contenu</label>
+        <input type="text" name="articleEditContent" value="<?= $data['article']->getContent() ?>">
     
         <input type="submit" value="Modifier">
     </form>

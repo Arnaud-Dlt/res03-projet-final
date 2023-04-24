@@ -75,17 +75,17 @@ class ArticleManager extends AbstractManager{
         return $article;
     }
     
-    public function editArticle(Article $article) : void    /* Modifier Article */
+    public function updateArticle(Post $article) : void    /* Modifier Article */
     {
-        $query=$this->db->prepare("UPDATE posts SET title=:title, description=:description, content=:content, picture=:picture WHERE articles.id=:id");
+        $query=$this->db->prepare("UPDATE posts SET title=:title, description=:description, content=:content, picture=:picture WHERE posts.id=:id");
         $parameters= [
+            'id'=>$article->getId(),
             'title' =>$article->getTitle(),
             'description' => $article->getDescription(),
             'content' => $article->getContent(),
             'picture' => $article->getPicture(),
             ];
         $query->execute($parameters);
-        $allArticles=$query->fetch(PDO::FETCH_ASSOC);
     }
     
     public function deleteArticle(int $id) : void   /* Supprimer article */

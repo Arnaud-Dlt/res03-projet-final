@@ -218,14 +218,19 @@ class Router {
                             $this->adminController->adminConvoc(); // Qui affichera la page admin modif teams
                         }
                         
-                    else if($route[1]=== "admin-articles"){
+                    else if($route[1]=== "admin-posts"){
                         
                         if(!isset($route[2])){
-                            $this->adminController->adminArticles(); // Qui affichera la page admin article
+                            $this->adminController->adminArticles(); 
                             $this->articleController->addArticle($post);
                         }
                         
-                        else if($route[2]=== "admin-article-delete"){
+                        else if($route[2]=== "admin-post-edit"){
+                            if(isset($route[3])){
+                                $this->articleController->updateArticle($route[3], $post);
+                            }
+                        }
+                        else if($route[2]=== "admin-post-delete"){
                             if(isset($route[3])){
                                 $this->articleController->deleteArticle($route[3]);
                             }
