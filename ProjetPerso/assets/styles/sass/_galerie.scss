@@ -1,47 +1,3 @@
-@media (max-width: 425px) {
-    #galerie {
-        min-height: 100vh;
-        padding-left: 2vw;
-        
-        h2 {
-            font-size: 2rem;
-            color: #15608E;
-            margin: 2vh 0 0 0;
-        }
-        
-        ul {
-            li {
-                margin: 10vh 5vw 5vh 0;
-
-                article {
-                    padding: 2vw;
-                    box-shadow: 1px 1px 5px #15608E;
-                    display: grid;
-                    grid-template-rows: 1fr 0.2fr 0.1fr;
-
-                    header {
-                        grid-row: 1/2;
-                        figure {
-                            img {
-                                width: 100%;
-                            }
-                        }
-                    }
-                    section {
-                        grid-row: 2/3;
-                        text-align: center;
-                        h3 {
-                            font-size: 1.4rem;
-                        }
-                    }
-                    button {
-                        grid-row: 3/4;
-                    }
-                }
-            }
-        }
-    }
-}
 
 @media (min-width: 426px) and (max-width: 768px) {}
 
@@ -50,7 +6,7 @@
         grid-column: 2/3;
         grid-row: 1/2;
         min-height: 100vh;
-        padding: 2vw;
+        padding: 2vh 2vw 0 1vw;
         
 
         h2 {
@@ -81,6 +37,51 @@
                         }
                     }
                     main {
+                        grid-row: 2/3;
+                        text-align: center;
+                        h3 {
+                            font-size: 1.4rem;
+                        }
+                    }
+                    button {
+                        grid-row: 3/4;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 425px) {
+    #galerie {
+        min-height: 100vh;
+        padding-left: 2vw;
+        
+        h2 {
+            font-size: 2rem;
+            color: #15608E;
+            margin: 2vh 0 0 0;
+        }
+        
+        ul {
+            li {
+                margin: 10vh 5vw 5vh 0;
+
+                article {
+                    padding: 2vw;
+                    box-shadow: 1px 1px 5px #15608E;
+                    display: grid;
+                    grid-template-rows: 1fr 0.2fr 0.1fr;
+
+                    header {
+                        grid-row: 1/2;
+                        figure {
+                            img {
+                                width: 100%;
+                            }
+                        }
+                    }
+                    section {
                         grid-row: 2/3;
                         text-align: center;
                         h3 {

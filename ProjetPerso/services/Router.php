@@ -5,7 +5,6 @@ class Router {
     private ArticleController $articleController;
     private CategoryController $categoryController;
     private TeamController $teamController;
-    private MediaController $mediaController;
     private StaffController $staffController;
     private PageController $pageController;
     private AdminController $adminController;
@@ -15,7 +14,6 @@ class Router {
         $this->articleController = new ArticleController();
         $this->categoryController = new CategoryController();
         $this->teamController = new TeamController();
-        $this->mediaController = new MediaController();
         $this->staffController = new StaffController();
         $this->pageController = new PageController();
         $this->adminController = new AdminController();

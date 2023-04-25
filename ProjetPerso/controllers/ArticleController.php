@@ -2,12 +2,10 @@
 
 class ArticleController extends AbstractController{
     private ArticleManager $articleManager;
-    private MediaManager $mediaManager;
     
     public function __construct()
     {
         $this->articleManager = new ArticleManager();
-        $this->mediaManager = new MediaManager();
     }
     
     // ARTICLES

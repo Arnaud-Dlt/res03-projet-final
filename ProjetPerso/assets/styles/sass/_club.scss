@@ -1,7 +1,88 @@
+
+@media (min-width: 426px) and (max-width: 768px) {}
+
+@media (min-width: 1024px) {
+    #le-club {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        min-height: 100vh;
+        padding: 2vh 2vw 0 1vw;
+        display: grid;
+        grid-template-rows: 0.1fr 1fr 1fr 1fr;
+        
+        a {
+            display: flex;
+            justify-content: flex-end;
+            text-decoration: underline overline #15608E;
+            color: #15608E;
+            margin: 2vh 0 2vh 0;
+        }
+        
+        h2 {
+            grid-row: 1/2;
+            font-size: 2rem;
+            color: #15608E;
+        }
+
+        &>section:first-of-type {
+            grid-row: 2/3;
+            display: grid;
+            grid-template-columns: 1fr 0.5fr;
+
+            &>section:first-of-type {
+                grid-column: 1/2;
+                h3 {
+                    font-size: 1.5rem;
+                    color: #15608E;
+                    text-align: center;
+                }
+            }
+            figure {
+                grid-column: 2/3;
+            }
+        }
+        &>section:nth-of-type(2) {
+            grid-row: 3/4;
+            display: grid;
+            grid-template-columns: 1fr 0.5fr;
+
+            &>section:first-of-type {
+                grid-column: 2/3;
+                h3 {
+                    font-size: 1.5rem;
+                    color: #15608E;
+                    text-align: center;
+                }
+            }
+            figure {
+                grid-column: 1/2;
+            }
+        }
+        &>section:nth-of-type(3) {
+            grid-row: 4/5;
+            display: grid;
+            grid-template-columns: 1fr 0.5fr;
+
+            &>section:first-of-type {
+                grid-column: 1/2;
+                h3 {
+                    font-size: 1.5rem;
+                    color: #15608E;
+                    text-align: center;
+                }
+            }
+            figure {
+                grid-column: 2/3;
+            }
+        }
+    }
+}
+
 @media (max-width: 425px) {
     #le-club {
         display: grid;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: 0.1fr 1fr 1fr 1fr;
+        padding: 2vh 0 0 0;
 
         a {
             display: flex;
@@ -10,6 +91,12 @@
             color: #15608E;
             margin: 2vh 0 2vh 0;
         }
+        h2 {
+            grid-row: 1/2;
+            font-size: 2rem;
+            color: #15608E;
+        }
+        
         &>section:first-of-type {
             margin-top: 2vh;
             figure {
@@ -17,9 +104,9 @@
                     width: 100%;
                 }
             }
-            &>section:first-of-type {
+            &>section{
                 width: 100vw;
-                h2 {
+                h3 {
                     text-align: center;
                     font-size: 2rem;
                     color: #15608E;
@@ -34,7 +121,7 @@
         &>section:nth-of-type(2) {
             &>section:first-of-type {
                 width: 100vw;
-                h2 {
+                h3 {
                     text-align: center;
                     font-size: 2rem;
                     color: #15608E;
@@ -56,7 +143,7 @@
             width: 100vw;
 
             &>section:first-of-type {
-                h2 {
+                h3 {
                     text-align: center;
                     font-size: 2rem;
                     color: #15608E;
@@ -70,73 +157,6 @@
             figure {
                 img {
                     width: 100%;
-                }
-            }
-        }
-    }
-}
-
-@media (min-width: 426px) and (max-width: 768px) {}
-
-@media (min-width: 1024px) {
-    #le-club {
-        grid-column: 2/3;
-        grid-row: 1/2;
-        min-height: 100vh;
-        padding: 2vw;
-        display: grid;
-        grid-template-rows: 0.1fr 1fr 1fr 1fr;
-
-        h1 {
-            grid-row: 1/2;
-        }
-
-        &>section:first-of-type {
-            grid-row: 2/3;
-            display: grid;
-            grid-template-columns: 0.5fr 1fr;
-
-            figure {
-                grid-column: 1/2;
-            }
-            &>section:first-of-type {
-                grid-column: 2/3;
-
-                h2 {
-                    font-size: 2rem;
-                    color: #15608E;
-                }
-            }
-        }
-        &>section:nth-of-type(2) {
-            grid-row: 3/4;
-            display: grid;
-            grid-template-columns: 1fr 0.5fr;
-
-            &>section:first-of-type {
-                grid-column: 1/2;
-                h2 {
-                    font-size: 2rem;
-                    color: #15608E;
-                }
-            }
-            figure {
-                grid-column: 2/3;
-            }
-        }
-        &>section:nth-of-type(3) {
-            grid-row: 4/5;
-            display: grid;
-            grid-template-columns: 0.5fr 1fr;
-
-            figure {
-                grid-column: 1/2;
-            }
-            &>section:first-of-type {
-                grid-column: 2/3;
-                h2 {
-                    font-size: 2rem;
-                    color: #15608E;
                 }
             }
         }

@@ -16,7 +16,7 @@ class PageController extends AbstractController {
     // PUBLIC PAGE
     
     public function accueil(){
-        $this->publicRender("home", ['lastArticle'=>$this->articleManager->getLastFiveArticle()]);
+        $this->publicRender("home", ['lastArticle'=>$this->articleManager->getLastArticles()]);
     }
     
     public function club(){
@@ -33,10 +33,6 @@ class PageController extends AbstractController {
         public function infrastructure(){
             $this->publicRender("club-infrastructure", []);
         }
-    
-    public function articles(){
-        $this->publicRender("articles", []);
-    }
      
     public function galerie(){
         $this->publicRender("galerie", []);

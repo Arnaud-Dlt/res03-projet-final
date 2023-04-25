@@ -41,9 +41,9 @@ class ArticleManager extends AbstractManager{
         return $newArticle;
     }
     
-    public function getLastFiveArticle(): array /* Recuperer le dernier article posté */
+    public function getLastArticles(): array /* Recuperer le dernier article posté */
     {
-        $query=$this->db->prepare("SELECT * FROM posts ORDER BY ID ASC LIMIT 4");
+        $query=$this->db->prepare("SELECT * FROM posts ORDER BY ID DESC LIMIT 4");
         $query->execute();
         $getLastPost=$query->fetchAll(PDO::FETCH_ASSOC);
         
