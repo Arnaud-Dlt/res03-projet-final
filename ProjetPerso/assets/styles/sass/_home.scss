@@ -6,8 +6,7 @@
             img {
                 width: 100%;
             }
-        }
-        
+        } 
         // Prochains match
         &>section:first-of-type {
             margin: 5vh 0 10vh 0;
@@ -16,104 +15,90 @@
                     text-align: center;
                     color: #15608E;
                     font-size: 2rem;
-                }
-            }
-    
-        } // Partie Article
-        &>section:nth-of-type(2) {
-            display: grid;
-            grid-template-rows: 0.8fr 0.5fr;
-            text-align: center;
-            box-shadow: 1px 1px 10px #15608E; 
-            
-            // Dernier article
-            &>section:first-of-type {
-                
-                &>h2 {
-                    color: #15608E;
-                    font-size: 2rem;
-                }
-    
-                &>article {
-                    display: grid;
-                    grid-template-rows: 1fr 0.5fr;
-                    text-align: center;
-                    box-shadow: 1px 1px 10px red;
                     margin: 5vh 0 5vh 0;
                 }
-    
-            } // Autres articles 
-            &>section:nth-of-type(2) {
-                display: grid;
-                grid-template-rows: 0.2fr 1fr 1fr 1fr;
+            }
+
+        } 
+        // Partie Article
+        &>section:nth-of-type(2) {
+            text-align: center;
+
+            h2 {
+                color: #15608E;
+                font-size: 2rem;
+            } // 5 Derniers articles
+            &>section:first-of-type {
                 margin: 5vh 0 5vh 0;
-                
-                h2 {
-                    color: #15608E;
-                    font-size: 2rem;
-                }
-    
-                &>article {
-                    box-shadow: 1px 1px 10px #15608E;
-                    margin: 1vh 0 1vh 0;
+                ul {
                     display: grid;
-                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: repeat(4,1fr);
                     
-                    figure {
-                        grid-column: 1/2;
-                        img {
-                            width: 100%;
+                    li {
+                        margin: 1vh 0 5vh 0;
+                        align-self: center;
+                        justify-self: center;
+                        &>article {
+                            box-shadow: 1px 1px 10px #15608E;
+                            margin: 1vh 0 1vh 0;
+                            width: 75vw;
+                            border-radius: 10px;
+                            
+                            header {
+                                figure {
+                                    grid-column: 1/2;
+                                    img {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                            &>section {
+                                grid-column: 2/3;
+                                h3 {
+                                    text-align: center;
+                                }
+                            }
                         }
-                    }
-                    &>section {
-                        grid-column: 2/3;
-                        text-align: center;
                     }
                 }
             }
-    
+
             button {
                 min-width: 30vw;
                 justify-self: center;
                 align-self: center;
+                margin: 1vh 0 1vh 0;
                 a {
                     text-decoration: none;
                     color: #fff;
                 }
             }
-        } // Albums
+        } 
+        // Albums
         &>section:nth-of-type(3) {
             margin: 10vh 0 5vh 0;
             text-align: center;
-            box-shadow: 1px 1px 10px #15608E;
-        
+
             &>h2 {
                 color: #15608E;
                 font-size: 2rem;
             }
-                
+
             &>section {
                 text-align: center;
-                box-shadow: 1px 1px 10px #15608E;
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 column-gap: 2vw;
-    
+
                 article {
-                    border: 1px solid #000;
-                    bow-shadow: 1px 1px 10px #15608E;
+                    box-shadow: 1px 1px 10px #15608E;
                     margin: 5vh 0 5vh 0;
-                    display: grid;
-                    grid-template-rows: 1fr 0.5fr;
                     
-                    min-height: 40vh;
                     figure {
                         grid-row: 1/2;
-                        img{
-                            
-                        }
+                        img {}
                     }
-                    h2{
+                    h2 {
                         grid-row: 2/3;
                     }
                 }
@@ -142,8 +127,7 @@
             img {
                 width: 100%;
             }
-        } 
-        // Matchs à venir
+        } // Matchs à venir
         &>section:first-of-type {
             margin: 5vh 0 5vh 0;
             padding: 1vh;
@@ -155,18 +139,16 @@
                 }
             }
 
-        } 
-        // Partie Article
+        } // Partie Article
         &>section:nth-of-type(2) {
             margin: 5vh 1vw 5vh 1vw;
             padding: 1vh;
             text-align: center;
-            box-shadow: 1px 1px 10px #15608E; 
+            box-shadow: 1px 1px 10px #15608E;
             &>h2 {
-                    color: #15608E;
-                    font-size: 2rem;
-                }
-            // Dernier article
+                color: #15608E;
+                font-size: 2rem;
+            } // Dernier article
             &>section:first-of-type {
 
 
@@ -221,9 +203,6 @@
                     grid-column: 1/3;
                 }
             }
-
-
-
         }
     }
 }

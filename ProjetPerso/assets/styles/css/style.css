@@ -181,53 +181,50 @@ table {
     text-align: center;
     color: #15608E;
     font-size: 2rem;
+    margin: 5vh 0 5vh 0;
   }
   #home > section:nth-of-type(2) {
-    display: grid;
-    grid-template-rows: 0.8fr 0.5fr;
     text-align: center;
-    box-shadow: 1px 1px 10px #15608E;
   }
-  #home > section:nth-of-type(2) > section:first-of-type > h2 {
+  #home > section:nth-of-type(2) h2 {
     color: #15608E;
     font-size: 2rem;
   }
-  #home > section:nth-of-type(2) > section:first-of-type > article {
-    display: grid;
-    grid-template-rows: 1fr 0.5fr;
-    text-align: center;
-    box-shadow: 1px 1px 10px red;
+  #home > section:nth-of-type(2) > section:first-of-type {
     margin: 5vh 0 5vh 0;
   }
-  #home > section:nth-of-type(2) > section:nth-of-type(2) {
+  #home > section:nth-of-type(2) > section:first-of-type ul {
     display: grid;
-    grid-template-rows: 0.2fr 1fr 1fr 1fr;
-    margin: 5vh 0 5vh 0;
+    grid-template-rows: repeat(4, 1fr);
   }
-  #home > section:nth-of-type(2) > section:nth-of-type(2) h2 {
-    color: #15608E;
-    font-size: 2rem;
+  #home > section:nth-of-type(2) > section:first-of-type ul li {
+    margin: 1vh 0 5vh 0;
+    align-self: center;
+    justify-self: center;
   }
-  #home > section:nth-of-type(2) > section:nth-of-type(2) > article {
+  #home > section:nth-of-type(2) > section:first-of-type ul li > article {
     box-shadow: 1px 1px 10px #15608E;
     margin: 1vh 0 1vh 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    width: 75vw;
+    border-radius: 10px;
   }
-  #home > section:nth-of-type(2) > section:nth-of-type(2) > article figure {
+  #home > section:nth-of-type(2) > section:first-of-type ul li > article header figure {
     grid-column: 1/2;
   }
-  #home > section:nth-of-type(2) > section:nth-of-type(2) > article figure img {
+  #home > section:nth-of-type(2) > section:first-of-type ul li > article header figure img {
     width: 100%;
   }
-  #home > section:nth-of-type(2) > section:nth-of-type(2) > article > section {
+  #home > section:nth-of-type(2) > section:first-of-type ul li > article > section {
     grid-column: 2/3;
+  }
+  #home > section:nth-of-type(2) > section:first-of-type ul li > article > section h3 {
     text-align: center;
   }
   #home > section:nth-of-type(2) button {
     min-width: 30vw;
     justify-self: center;
     align-self: center;
+    margin: 1vh 0 1vh 0;
   }
   #home > section:nth-of-type(2) button a {
     text-decoration: none;
@@ -236,7 +233,6 @@ table {
   #home > section:nth-of-type(3) {
     margin: 10vh 0 5vh 0;
     text-align: center;
-    box-shadow: 1px 1px 10px #15608E;
   }
   #home > section:nth-of-type(3) > h2 {
     color: #15608E;
@@ -244,18 +240,13 @@ table {
   }
   #home > section:nth-of-type(3) > section {
     text-align: center;
-    box-shadow: 1px 1px 10px #15608E;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 2vw;
   }
   #home > section:nth-of-type(3) > section article {
-    border: 1px solid #000;
-    bow-shadow: 1px 1px 10px #15608E;
+    box-shadow: 1px 1px 10px #15608E;
     margin: 5vh 0 5vh 0;
-    display: grid;
-    grid-template-rows: 1fr 0.5fr;
-    min-height: 40vh;
   }
   #home > section:nth-of-type(3) > section article figure {
     grid-row: 1/2;
@@ -1112,13 +1103,12 @@ table {
 .seeBtn {
   background-color: #15608E;
   color: #fff;
-  height: 5vh;
-  width: 10vw;
   padding: 1vh;
   background-color: #15608E;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
+  box-shadow: 1px 1px 2px #000;
 }
 
 .seeBtn:hover {
