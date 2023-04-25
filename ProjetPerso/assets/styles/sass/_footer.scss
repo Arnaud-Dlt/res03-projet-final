@@ -79,6 +79,11 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);
+        
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
 
         &>section:first-of-type {
             grid-row: 1/2;

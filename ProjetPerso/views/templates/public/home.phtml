@@ -2,6 +2,7 @@
     <figure>
         <img src="/res03-projet-final/ProjetPerso/assets/img/backgrd_USSM.jpg" alt="photo-aléatoire">
     </figure>
+    
     <section>
         <h2 class="sr-only">Matchs à venir</h2>
         <section>
@@ -11,51 +12,68 @@
     </section>
 
     <section>
-        <h2>Dernières Actualités <span class="fa-regular fa-futbol fa-xs"></span></h2>
-        <section> 
-        <ul>
-        <?php 
-               
-        foreach($data['lastArticle'] as $article){?>
-            <li>
-            <article>
-                <h2 class="sr-only">Article</h2>
-                <header>
-                    <figure>
-                        <img src="https://picsum.photos/200/100" alt="photo article">
-                    </figure>
-                </header>
-                <section>
-                    <h3><?= $article->getTitle() ?></h3>
-                    <p><?= $article->getDescription() ?></p>
+        <h2 class="sr-only">Actualités </h2>
+        <section>
+            <h3>Derniers articles <span class="fa-regular fa-futbol fa-xs"></span></h3> 
+            <ul>
+            <?php foreach($data['lastArticle'] as $article){?>
+                <li>
+                <article>
+                    <h2 class="sr-only">Article</h2>
+                    <header>
+                        <figure>
+                            <img src="https://picsum.photos/200/100" alt="photo article">
+                        </figure>
+                    </header>
+                    <section>
+                        <h3><?= $article->getTitle() ?></h3>
+                        <p><?= $article->getDescription() ?></p>
+                    </section>
                     <button class="seeBtn">Voir cet article</button>
-                </section>
-            </article>
-            </li>
-            <?php } ?>
-            
-        </ul>
+                </article>
+                </li>
+                <?php } ?>
+            </ul>
+            <button class="seeBtn"><a href='/res03-projet-final/ProjetPerso/articles'>Voir tous les articles</a></button>
         </section>
-        <button class="seeBtn"><a href='/res03-projet-final/ProjetPerso/articles'>Voir tous les articles</a></button>
+        
+        <section>
+            <h3>Sur Facebook</h3>
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FUSSainteMarie&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        </section>
     </section>
     
     <section>
         <h2>Galerie <span class="fa-solid fa-camera"></span></h2>
         <section>
             <h2 class="sr-only">Albums Photos</h2>
-            <article>
-                <figure>
-                    <img src="https://picsum.photos/300" alt="photo article">
-                </figure>
-                <h3>Album 1</h3>
-            </article>
-            <article>
-                <figure>
-                    <img src="https://picsum.photos/300" alt="photo article">
-                </figure>
-                <h3>Album 2</h3>
-            </article>
+            <ul>
+                <li>
+                    <article>
+                        <figure>
+                            <img src="https://picsum.photos/300" alt="photo article">
+                        </figure>
+                        <h3>Album 1</h3>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <figure>
+                            <img src="https://picsum.photos/300" alt="photo article">
+                        </figure>
+                        <h3>Album 2</h3>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <figure>
+                            <img src="https://picsum.photos/300" alt="photo article">
+                        </figure>
+                        <h3>Album 3</h3>
+                    </article>
+                </li>
+            </ul>
         </section>
-        <button class="seeBtn"><a href='/res03-projet-final/ProjetPerso/galerie'>Voir Plus</a></button>
+        <button class="seeBtn"><a href='/res03-projet-final/ProjetPerso/galerie'>Voir tous les albums photos</a></button>
     </section>
 </main>
