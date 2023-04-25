@@ -1,14 +1,13 @@
 @media (max-width: 425px) {
     #allArticles {
-
+        min-height: 100vh;
+        padding-left: 2vw;
         h2 {
             font-size: 2rem;
             color: #15608E;
-            margin: 5vh 0 5vh 0;
-            
+            margin: 2vh 0 0 0;
         }
         ul {
-            
             li {
                 margin: 10vh 5vw 5vh 0;
 
@@ -16,7 +15,7 @@
                     padding: 2vw;
                     box-shadow: 1px 1px 5px #15608E;
                     display: grid;
-                    grid-template-rows: 1fr 0.1fr;
+                    grid-template-rows: 1fr 0.2fr 0.1fr;
 
                     header {
                         grid-row: 1/2;
@@ -26,7 +25,7 @@
                             }
                         }
                     }
-                    main {
+                    section {
                         grid-row: 2/3;
                         text-align: center;
                         h3 {

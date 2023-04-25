@@ -5,7 +5,11 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 1fr 0.5fr 0.5fr;
-
+        
+        a{
+            text-decoration: none;
+            color:#fff;
+        }
 
         &>section:first-of-type {
             grid-row: 1/2;

@@ -1,4 +1,27 @@
-@media (max-width: 425px) {}
+@media (max-width: 425px) {
+    #contact {
+        h2 {
+            text-align: center;
+            color: #15608E;
+            font-size: 2rem;
+            margin: 2vh 0 5vh 1vw;
+        }
+
+        form {
+            box-shadow: 1px 1px 5px #000;
+            padding: 2vh;
+            margin: 5vh 15vw 10vh 15vw;
+            text-align: center;
+            label {
+                margin: 2VH;
+            }
+            input {
+                margin: 2VH;
+            }
+            select {}
+        }
+    }
+}
 
 @media (min-width: 426px) and (max-width: 768px) {}
 

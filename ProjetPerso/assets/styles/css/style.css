@@ -191,7 +191,7 @@ table {
     font-size: 2rem;
   }
   #home > section:nth-of-type(2) > section:first-of-type {
-    margin: 5vh 0 5vh 0;
+    margin: 5vh 0 1vh 0;
   }
   #home > section:nth-of-type(2) > section:first-of-type ul {
     display: grid;
@@ -350,7 +350,7 @@ table {
     margin: 2vh 0 2vh 0;
   }
   #le-club > section:first-of-type {
-    margin-top: 10vh;
+    margin-top: 2vh;
   }
   #le-club > section:first-of-type figure img {
     width: 100%;
@@ -367,9 +367,6 @@ table {
   #le-club > section:first-of-type > section:first-of-type p {
     text-align: center;
     line-height: 1.5rem;
-  }
-  #le-club > section:nth-of-type(2) {
-    grid-template-columns: 1fr 0.5fr;
   }
   #le-club > section:nth-of-type(2) > section:first-of-type {
     width: 100vw;
@@ -570,10 +567,14 @@ table {
   }
 }
 @media (max-width: 425px) {
+  #allArticles {
+    min-height: 100vh;
+    padding-left: 2vw;
+  }
   #allArticles h2 {
     font-size: 2rem;
     color: #15608E;
-    margin: 5vh 0 5vh 0;
+    margin: 2vh 0 0 0;
   }
   #allArticles ul li {
     margin: 10vh 5vw 5vh 0;
@@ -582,7 +583,7 @@ table {
     padding: 2vw;
     box-shadow: 1px 1px 5px #15608E;
     display: grid;
-    grid-template-rows: 1fr 0.1fr;
+    grid-template-rows: 1fr 0.2fr 0.1fr;
   }
   #allArticles ul li article header {
     grid-row: 1/2;
@@ -590,11 +591,11 @@ table {
   #allArticles ul li article header figure img {
     width: 100%;
   }
-  #allArticles ul li article main {
+  #allArticles ul li article section {
     grid-row: 2/3;
     text-align: center;
   }
-  #allArticles ul li article main h3 {
+  #allArticles ul li article section h3 {
     font-size: 1.4rem;
   }
   #allArticles ul li article button {
@@ -650,14 +651,37 @@ table {
   #teams h1 {
     font-size: 2rem;
     color: #15608E;
+    margin-top: 2vh;
+    padding-left: 2vw;
   }
-  #teams section > h2 a {
-    text-decoration: none;
+  #teams section:first-of-type > h2 {
+    margin-top: 2vh;
+    padding-left: 2vw;
+  }
+  #teams section:first-of-type > h2 a {
+    text-decoration: underline #15608E;
     color: #000;
   }
-  #teams section ul li {
+  #teams section:first-of-type ul li {
     margin-top: 2vh;
-    border: 1px solid #000;
+  }
+  #teams section:first-of-type ul li article header h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #15608E;
+  }
+  #teams section:nth-of-type(2) h2 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 1vh 0 1vh 0;
+    padding-left: 2vw;
+  }
+  #teams section:nth-of-type(2) p {
+    padding-left: 2vw;
+  }
+  #teams section:nth-of-type(2) p a {
+    text-decoration: underline #15608E;
+    color: #000;
   }
 }
 @media (min-width: 1024px) {
@@ -680,6 +704,10 @@ table {
   }
 }
 @media (max-width: 425px) {
+  #effectif {
+    min-height: 100vh;
+    padding-left: 2vw;
+  }
   #effectif h1 {
     font-size: 2rem;
     color: #15608E;
@@ -707,6 +735,7 @@ table {
   #effectif section ul {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    column-gap: 2vw;
     margin: 2vh;
   }
   #effectif section ul li {
@@ -714,10 +743,16 @@ table {
     margin-bottom: 2vh;
   }
   #effectif section ul li article {
-    min-height: 30vh;
+    box-shadow: 1px 1px 5px #15608E;
+    border-radius: 10px;
   }
   #effectif section ul li article header figure img {
-    width: 90%;
+    width: 100%;
+    border-radius: 10px;
+  }
+  #effectif section ul li article section h3 {
+    font-size: 1.2rem;
+    color: #15608E;
   }
 }
 @media (min-width: 1024px) {
@@ -817,16 +852,12 @@ table {
 @media (max-width: 425px) {
   #galerie {
     min-height: 100vh;
-    padding: 2vw;
+    padding-left: 2vw;
   }
   #galerie h2 {
     font-size: 2rem;
     color: #15608E;
-    margin-bottom: 5vh;
-  }
-  #galerie ul {
-    display: flex;
-    flex-direction: row;
+    margin: 2vh 0 0 0;
   }
   #galerie ul li {
     margin: 10vh 5vw 5vh 0;
@@ -834,18 +865,20 @@ table {
   #galerie ul li article {
     padding: 2vw;
     box-shadow: 1px 1px 5px #15608E;
-    width: 25vw;
     display: grid;
-    grid-template-rows: 1fr 1fr 0.5fr;
+    grid-template-rows: 1fr 0.2fr 0.1fr;
   }
   #galerie ul li article header {
     grid-row: 1/2;
   }
-  #galerie ul li article main {
+  #galerie ul li article header figure img {
+    width: 100%;
+  }
+  #galerie ul li article section {
     grid-row: 2/3;
     text-align: center;
   }
-  #galerie ul li article main h3 {
+  #galerie ul li article section h3 {
     font-size: 1.4rem;
   }
   #galerie ul li article button {
@@ -896,7 +929,7 @@ table {
   #events h2 {
     color: #15608E;
     font-size: 2rem;
-    margin: 2vh 0 10vh 1vw;
+    margin: 2vh 0 5vh 1vw;
   }
   #events > section {
     margin: 1vh 1vw 0 1vw;
@@ -906,7 +939,7 @@ table {
     grid-template-rows: 0.2fr 1fr;
     text-align: center;
   }
-  #events > section > section h3 {
+  #events > section > section h4 {
     font-size: 1.2rem;
     color: #15608E;
     grid-row: 1/2;
@@ -951,6 +984,26 @@ table {
     width: 100%;
   }
 }
+@media (max-width: 425px) {
+  #contact h2 {
+    text-align: center;
+    color: #15608E;
+    font-size: 2rem;
+    margin: 2vh 0 5vh 1vw;
+  }
+  #contact form {
+    box-shadow: 1px 1px 5px #000;
+    padding: 2vh;
+    margin: 5vh 15vw 10vh 15vw;
+    text-align: center;
+  }
+  #contact form label {
+    margin: 2VH;
+  }
+  #contact form input {
+    margin: 2VH;
+  }
+}
 @media (min-width: 1024px) {
   #contact h1 {
     text-align: center;
@@ -983,6 +1036,10 @@ table {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 0.5fr 0.5fr;
+  }
+  #footer a {
+    text-decoration: none;
+    color: #fff;
   }
   #footer > section:first-of-type {
     grid-row: 1/2;

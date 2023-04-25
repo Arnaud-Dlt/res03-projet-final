@@ -2,16 +2,16 @@
     #le-club {
         display: grid;
         grid-template-rows: 1fr 1fr 1fr;
-        
+
         a {
             display: flex;
             justify-content: flex-end;
             text-decoration: underline overline #15608E;
-            color:#15608E;
+            color: #15608E;
             margin: 2vh 0 2vh 0;
         }
         &>section:first-of-type {
-            margin-top: 10vh;
+            margin-top: 2vh;
             figure {
                 img {
                     width: 100%;
@@ -25,15 +25,13 @@
                     color: #15608E;
                     margin: 2vh 0 2vh 0;
                 }
-                p{
+                p {
                     text-align: center;
-                    line-height:  1.5rem;
+                    line-height: 1.5rem;
                 }
             }
         }
         &>section:nth-of-type(2) {
-            grid-template-columns: 1fr 0.5fr;
-
             &>section:first-of-type {
                 width: 100vw;
                 h2 {
@@ -42,7 +40,7 @@
                     color: #15608E;
                     margin: 2vh 0 2vh 0;
                 }
-                p{
+                p {
                     text-align: center;
                     line-height: 1.5rem;
                 }
@@ -64,7 +62,7 @@
                     color: #15608E;
                     margin: 2vh 0 2vh 0;
                 }
-                p{
+                p {
                     text-align: center;
                     line-height: 1.5rem;
                 }
@@ -143,5 +141,4 @@
             }
         }
     }
-
 }

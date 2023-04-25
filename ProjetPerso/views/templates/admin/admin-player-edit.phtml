@@ -49,14 +49,8 @@
     </fieldset>
     <fieldset>
     <label>Catégorie</label>
-    <?php var_dump($data['category']); ?>
         <select name="editPlayerCategory">
             <option value="<?=$data['player']->getCategoryId(); ?>" >Catégorie Actuelle</option>
-            <?php 
-            var_dump($data['category']);
-            foreach($data['category'] as $category){ ?>
-                <option value="<?= $data["category"]->getId() ?>"><?= $data["category"]->getName() ?></option>
-            <?php } ?>
         </select>
     </fieldset>
     
