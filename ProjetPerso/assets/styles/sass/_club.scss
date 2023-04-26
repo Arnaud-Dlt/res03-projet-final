@@ -8,11 +8,11 @@
         min-height: 100vh;
         padding: 2vh 2vw 0 1vw;
         display: grid;
-        grid-template-rows: 0.1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.1fr 0.5fr 0.5fr 0.5fr;
         
         a {
             display: flex;
-            justify-content: flex-end;
+            justify-content: flex-start;
             text-decoration: underline overline #15608E;
             color: #15608E;
             margin: 2vh 0 2vh 0;
@@ -22,19 +22,24 @@
             grid-row: 1/2;
             font-size: 2rem;
             color: #15608E;
+            margin-bottom: 5vh;
         }
 
         &>section:first-of-type {
             grid-row: 2/3;
-            display: grid;
-            grid-template-columns: 1fr 0.5fr;
+            display: flex;
+            flex-direction: row;
 
             &>section:first-of-type {
                 grid-column: 1/2;
+                text-align: center;
+                line-height: 1.5rem;
+                padding: 2vh 2vw 0 2vw;
                 h3 {
                     font-size: 1.5rem;
                     color: #15608E;
                     text-align: center;
+                    margin-bottom: 2vh;
                 }
             }
             figure {
@@ -43,36 +48,46 @@
         }
         &>section:nth-of-type(2) {
             grid-row: 3/4;
-            display: grid;
-            grid-template-columns: 1fr 0.5fr;
-
+            display: flex;
+            flex-direction: row-reverse;
+            width: 80vw;
+    
             &>section:first-of-type {
-                grid-column: 2/3;
+                text-align: center;
+                line-height: 1.5rem;
+                padding: 2vh 0 0 2vw;
                 h3 {
                     font-size: 1.5rem;
                     color: #15608E;
                     text-align: center;
+                    margin-bottom: 2vh;
                 }
             }
-            figure {
-                grid-column: 1/2;
+            figure{
+                img{
+                    
+                }
             }
         }
         &>section:nth-of-type(3) {
             grid-row: 4/5;
-            display: grid;
-            grid-template-columns: 1fr 0.5fr;
+            display: flex;
+            flex-direction: row;
+            padding: 2vh 2vw 0 2vw;
 
             &>section:first-of-type {
-                grid-column: 1/2;
+                text-align: center;
+                line-height: 1.5rem;
                 h3 {
                     font-size: 1.5rem;
                     color: #15608E;
                     text-align: center;
+                    margin-bottom: 2vh;
                 }
             }
             figure {
-                grid-column: 2/3;
+                img{
+                }
             }
         }
     }

@@ -428,11 +428,11 @@ table {
     min-height: 100vh;
     padding: 2vh 2vw 0 1vw;
     display: grid;
-    grid-template-rows: 0.1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.1fr 0.5fr 0.5fr 0.5fr;
   }
   #le-club a {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     text-decoration: underline overline #15608E;
     color: #15608E;
     margin: 2vh 0 2vh 0;
@@ -441,54 +441,60 @@ table {
     grid-row: 1/2;
     font-size: 2rem;
     color: #15608E;
+    margin-bottom: 5vh;
   }
   #le-club > section:first-of-type {
     grid-row: 2/3;
-    display: grid;
-    grid-template-columns: 1fr 0.5fr;
+    display: flex;
+    flex-direction: row;
   }
   #le-club > section:first-of-type > section:first-of-type {
     grid-column: 1/2;
+    text-align: center;
+    line-height: 1.5rem;
+    padding: 2vh 2vw 0 2vw;
   }
   #le-club > section:first-of-type > section:first-of-type h3 {
     font-size: 1.5rem;
     color: #15608E;
     text-align: center;
+    margin-bottom: 2vh;
   }
   #le-club > section:first-of-type figure {
     grid-column: 2/3;
   }
   #le-club > section:nth-of-type(2) {
     grid-row: 3/4;
-    display: grid;
-    grid-template-columns: 1fr 0.5fr;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 80vw;
   }
   #le-club > section:nth-of-type(2) > section:first-of-type {
-    grid-column: 2/3;
+    text-align: center;
+    line-height: 1.5rem;
+    padding: 2vh 0 0 2vw;
   }
   #le-club > section:nth-of-type(2) > section:first-of-type h3 {
     font-size: 1.5rem;
     color: #15608E;
     text-align: center;
-  }
-  #le-club > section:nth-of-type(2) figure {
-    grid-column: 1/2;
+    margin-bottom: 2vh;
   }
   #le-club > section:nth-of-type(3) {
     grid-row: 4/5;
-    display: grid;
-    grid-template-columns: 1fr 0.5fr;
+    display: flex;
+    flex-direction: row;
+    padding: 2vh 2vw 0 2vw;
   }
   #le-club > section:nth-of-type(3) > section:first-of-type {
-    grid-column: 1/2;
+    text-align: center;
+    line-height: 1.5rem;
   }
   #le-club > section:nth-of-type(3) > section:first-of-type h3 {
     font-size: 1.5rem;
     color: #15608E;
     text-align: center;
-  }
-  #le-club > section:nth-of-type(3) figure {
-    grid-column: 2/3;
+    margin-bottom: 2vh;
   }
 }
 @media (max-width: 425px) {
@@ -568,8 +574,12 @@ table {
     min-height: 100vh;
     padding: 2vh 2vw 0 1vw;
   }
+  #le-club-infrastructure h1 {
+    font-size: 2rem;
+    color: #15608E;
+  }
   #le-club-infrastructure section h2 {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #15608E;
     text-decoration: underline #000;
     text-align: center;
@@ -577,6 +587,9 @@ table {
   }
   #le-club-infrastructure section figure {
     margin-bottom: 2vh;
+  }
+  #le-club-infrastructure section figure img {
+    width: 100%;
   }
 }
 @media (max-width: 425px) {
@@ -753,12 +766,40 @@ table {
   #teams figure img {
     width: 80%;
   }
-  #teams h1 {
+  #teams > h2 {
     font-size: 2rem;
     color: #15608E;
+    margin: 0 0 2vh 0;
   }
-  #teams section > h2 a {
-    text-decoration: none;
+  #teams section:first-of-type > h2 {
+    margin: 0 0 2vh 0;
+    font-size: 1.2rem;
+  }
+  #teams section:first-of-type > h2 a {
+    text-decoration: underline #15608E;
+    color: #000;
+  }
+  #teams section:first-of-type ul {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2vw;
+    margin-bottom: 5vh;
+  }
+  #teams section:first-of-type ul li article {
+    width: 20vw;
+    text-align: center;
+  }
+  #teams section:first-of-type ul li article header h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+  }
+  #teams section:nth-of-type(2) h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 0 0 2vh 0;
+  }
+  #teams section:nth-of-type(2) p a {
+    text-decoration: underline #15608E;
     color: #000;
   }
 }
@@ -772,7 +813,7 @@ table {
   #teams figure img {
     width: 50%;
   }
-  #teams h1 {
+  #teams > h2 {
     font-size: 2rem;
     color: #15608E;
     margin-top: 2vh;
@@ -789,12 +830,12 @@ table {
   #teams section:first-of-type ul li {
     margin-top: 2vh;
   }
-  #teams section:first-of-type ul li article header h2 {
+  #teams section:first-of-type ul li article header h3 {
     text-align: center;
     font-size: 1.5rem;
     color: #15608E;
   }
-  #teams section:nth-of-type(2) h2 {
+  #teams section:nth-of-type(2) h3 {
     font-size: 1.5rem;
     color: #15608E;
     margin: 1vh 0 1vh 0;
@@ -818,29 +859,48 @@ table {
   #effectif h1 {
     font-size: 2rem;
     color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #effectif a {
+    text-decoration: none;
+    color: #15608E;
+  }
+  #effectif a:hover {
+    text-decoration: underline;
   }
   #effectif nav ul {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin: 2vh 0 2vh 0;
   }
   #effectif section h2 {
     font-size: 2rem;
     color: #15608E;
+    margin: 2vh 0 2vh 0;
+    text-align: center;
   }
   #effectif section ul {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 2vw;
     margin: 2vh;
   }
   #effectif section ul li {
+    text-align: center;
     margin-bottom: 2vh;
   }
   #effectif section ul li article {
-    min-height: 30vh;
+    box-shadow: 1px 1px 5px #15608E;
+    border-radius: 10px;
   }
   #effectif section ul li article header figure img {
-    width: 90%;
+    width: 100%;
+    border-radius: 10px;
+  }
+  #effectif section ul li article section h3 {
+    font-size: 1.2rem;
+    color: #15608E;
   }
 }
 @media (max-width: 425px) {
@@ -1133,12 +1193,42 @@ table {
     margin: 2VH;
   }
 }
+@media (max-width: 425px) {
+  #login {
+    min-height: 100vh;
+    padding: 2vw;
+    display: grid;
+    grid-template-rows: 10vh 90vh;
+  }
+  #login h2 {
+    grid-row: 1/2;
+    text-align: center;
+    font-size: 2rem;
+    color: #15608E;
+  }
+  #login form {
+    grid-row: 2/3;
+    justify-self: center;
+  }
+}
 @media (min-width: 1024px) {
   #login {
     grid-column: 2/3;
     grid-row: 1/2;
     min-height: 100vh;
     padding: 2vw;
+    display: grid;
+    grid-template-rows: 10vh 90vh;
+  }
+  #login h2 {
+    grid-row: 1/2;
+    text-align: center;
+    font-size: 2rem;
+    color: #15608E;
+  }
+  #login form {
+    grid-row: 2/3;
+    justify-self: center;
   }
 }
 @media (max-width: 425px) {
@@ -1267,6 +1357,19 @@ table {
     text-align: center;
     grid-column: 1/4;
     grid-row: 3/4;
+  }
+}
+@media (min-width: 1024px) {
+  #error {
+    margin: auto;
+    padding: auto;
+    min-height: 100vh;
+  }
+  #error section {
+    text-align: center;
+  }
+  #error section h2 {
+    font-size: 2rem;
   }
 }
 .sr-only {

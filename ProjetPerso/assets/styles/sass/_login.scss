@@ -1,4 +1,21 @@
-@media (max-width: 425px) {}
+@media (max-width: 425px) {
+    #login {
+        min-height: 100vh;
+        padding: 2vw;
+        display: grid;
+        grid-template-rows: 10vh 90vh;
+        h2{
+            grid-row: 1/2;
+            text-align: center;
+            font-size: 2rem;
+            color:#15608E;
+        }
+        form{
+            grid-row: 2/3;
+            justify-self: center;
+        }
+    }
+}
 
 @media (min-width: 426px) and (max-width: 768px) {}
 
@@ -8,5 +25,17 @@
         grid-row: 1/2;
         min-height: 100vh;
         padding: 2vw;
+        display: grid;
+        grid-template-rows: 10vh 90vh;
+        h2{
+            grid-row: 1/2;
+            text-align: center;
+            font-size: 2rem;
+            color:#15608E;
+        }
+        form{
+            grid-row: 2/3;
+            justify-self: center;
+        }
     }
 }

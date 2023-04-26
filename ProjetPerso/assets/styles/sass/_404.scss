@@ -1,0 +1,21 @@
+@media (min-width: 1024px){
+    #error{
+        margin: auto;
+        padding: auto;
+        min-height: 100vh;
+        section{
+            text-align: center;
+            h2{
+                font-size: 2rem;
+            }
+            figure{
+                img{
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 425px){
+    
+}

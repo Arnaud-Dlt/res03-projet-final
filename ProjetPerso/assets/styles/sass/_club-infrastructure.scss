@@ -8,10 +8,13 @@
         grid-row: 1/2;
         min-height: 100vh;
         padding: 2vh 2vw 0 1vw;
-
+        h1{
+            font-size: 2rem;
+            color: #15608E;
+        }
         section {
             h2 {
-                font-size: 1rem;
+                font-size: 1.2rem;
                 color: #15608E;
                 text-decoration: underline #000;
                 text-align: center;
@@ -19,7 +22,10 @@
             }
             figure {
                 margin-bottom: 2vh;
-                img {}
+                img {
+                    width: 100%
+                    
+                }
             }
         }
     }
