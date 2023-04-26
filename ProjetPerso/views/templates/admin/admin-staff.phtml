@@ -18,18 +18,13 @@
                 <td><?= $staff->getLastname()?></td>
                 <td><?= $staff->getPhone()?></td>
                 <td><?= $staff->getRole()?></td>
-                <td><a href="/res03-projet-final/ProjetPerso/admin/admin-staff/admin-staff-delete/<?= $staff->getId();?>">Supprimer</a></td>
+                <td><a href="/res03-projet-final/ProjetPerso/admin/admin-staff/admin-staff-edit/<?= $staff->getId();?>">Modifier</a><a href="/res03-projet-final/ProjetPerso/admin/admin-staff/admin-staff-delete/<?= $staff->getId();?>">Supprimer</a></td>
             </tr>
             <?php } ?>
         </tbody>
     </table>
     <h2>Ajouter un membre du staff</h2>
     <form method="post" action="admin-staff" name="formStaffAdd">
-        
-        <fieldset>
-            <label>Image de profil</label>
-            <input type="text" name="staffProfilImg">
-        </fieldset>
         
         <fieldset>
             <label>Prénom</label>
@@ -49,6 +44,11 @@
         <fieldset>
             <label>Role</label>
             <input type="text" name="staffRole">
+        </fieldset>
+        
+        <fieldset>
+            <label>Image de profil</label>
+            <input type="text" name="staffProfilImg">
         </fieldset>
         
         

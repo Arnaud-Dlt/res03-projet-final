@@ -1,15 +1,31 @@
 <main>
     <h1>Modifier Staff</h1>
     <form method="post" action="/res03-projet-final/ProjetPerso/admin/admin-staff/admin-staff-edit/<?= $data['staff']->getId(); ?>">
-    
-        <label>Photo d'équipe (url)</label>
-        <input type="text" name="editTeamPicture" "<?= $data['team']->getPicture() ?>">
-    
-        <label>Name</label>
-        <input type="text"  name="editTeamName" value="<?= $data['team']->getName() ?>">
         
-        <label>Categorie</label>
-        <input type="text"  name="editTeamCategory" value="<?= $data['team']->getCategoryId() ?>" disabled>
+        <fieldset>
+            <label>Prenom</label>
+        <input type="text" name="editStaffFirstname" value="<?= $data['staff']->getFirstname() ?>">
+        </fieldset>
+        
+        <fieldset>
+            <label>Nom</label>
+            <input type="text"  name="editStaffLastname" value="<?= $data['staff']->getLastname() ?>">
+        </fieldset>
+        
+        <fieldset>
+            <label>Téléphone</label>
+            <input type="text"  name="editStaffPhone" value="<?= $data['staff']->getPhone() ?>">
+        </fieldset>
+        
+        <fieldset>
+            <label>Rôle</label>
+            <input type="text"  name="editStaffRole" value="<?= $data['staff']->getRole() ?>">
+        </fieldset>
+        
+        <fieldset>
+            <label>Rôle</label>
+            <input type="text"  name="editStaffProfilImg" value="<?= $data['staff']->getProfilImg() ?>">
+        </fieldset>
     
         <input type="submit" value="Modifier">
     </form>

@@ -26,6 +26,7 @@ class CategoryManager extends AbstractManager{
         $getCategoryById=$query->fetch(PDO::FETCH_ASSOC);
         $newCategory=new Category($getCategoryById['id'], $getCategoryById['name']);
         
+        $newCategory->setId($getCategoryById["id"]);
         return $newCategory;
     }
     

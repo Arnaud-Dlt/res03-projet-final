@@ -1,6 +1,6 @@
 <?php 
 class Staff {
-    private ? int $id;
+    private ?int $id;
     private string $firstname;
     private string $lastname;
     private string $phone;

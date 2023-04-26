@@ -69,7 +69,7 @@ class TeamController extends AbstractController{
         
         // recupération du l'id du joueur selectionné
         $displayPlayerToUpdate = $this->playerManager->getPlayerById($id);
-        
+
         // stockage des infos du joueur
         $tab = [];
         $tab["player"] = $displayPlayerToUpdate;
@@ -102,6 +102,8 @@ class TeamController extends AbstractController{
         header("Location: /res03-projet-final/ProjetPerso/admin/admin-players");
     }
     
+    
+    
     public function addTeam(array $post){
         
         if(isset($post["teamName"]) && !empty($post["teamName"])
@@ -116,11 +118,10 @@ class TeamController extends AbstractController{
     
     public function updateTeam(int $id, $post){
         
-        
-        // recupération du l'id de l'article selectionné
+        // recupération du l'id de l'équipe selectionné
         $displayTeamToUpdate = $this->teamManager->getTeamById($id);
         
-        // stockage des infos de l'article 
+        // stockage des infos de l'équipe 
         $tab = [];
         $tab["team"] = $displayTeamToUpdate;
         $this->privateRender("admin-team-edit", $tab);
@@ -131,9 +132,9 @@ class TeamController extends AbstractController{
             
             $teamToUpdate=new Team($post['editTeamName'],$post['editTeamPicture'],$post['editTeamCategory']);
             $teamToUpdate->setId($id);
-            var_dump($teamToUpdate);
             
             $this->teamManager->updateTeam($teamToUpdate);
+            header("Location: /res03-projet-final/ProjetPerso/admin/admin-teams");
         }
     } 
     

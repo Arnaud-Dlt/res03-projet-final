@@ -23,8 +23,9 @@ class StaffManager extends AbstractManager{
         $parameters= ['id' => $id];
         $query->execute($parameters);
         $getStaffById=$query->fetch(PDO::FETCH_ASSOC);
-        $newStaff=new Staff($getStaffById['id'], $getStaffById['firstname'],$getStaffById['lastname'],$getStaffById['phone'],$getStaffById['role']);
-    
+        $newStaff=new Staff($getStaffById['first_name'],$getStaffById['last_name'],$getStaffById['phone'],$getStaffById['role'],$getStaffById['profil_img']);
+        
+        $newStaff->setId($getStaffById["id"]);
         return $newStaff;
     }
     
@@ -34,21 +35,23 @@ class StaffManager extends AbstractManager{
         $parameters= ['role' => role];
         $query->execute($parameters);
         $getStaffByRole=$query->fetch(PDO::FETCH_ASSOC);
-        $newStaff=new Staff($getStaffByRole['id'], $getStaffByRole['firstname'],$getStaffByRole['lastname'],$getStaffByRole['phone'],$getStaffByRole['role']);
+        $newStaff=new Staff($getStaffByRole['id'], $getStaffByRole['first_name'],$getStaffByRole['last_name'],$getStaffByRole['phone'],$getStaffByRole['role']);
     
         return $newStaff;
     }
     
     public function getStaffByFullname(string $name) : Staff
     {
-        $query=$this->db->prepare("SELECT * FROM staff WHERE firstname= :firstname, lastname=:lastname");
-        $parameters= ['firstname' => $firstname,'lastname' => $lastname];
+        $query=$this->db->prepare("SELECT * FROM staff WHERE first_name= :first_name, last_name=:last_name");
+        $parameters= ['first_name' => $firstname,'last_name' => $lastname];
         $query->execute($parameters);
-        $getStaffById=$query->fetch(PDO::FETCH_ASSOC);
-        $newStaff=new Staff($getStaffByRole['id'], $getStaffByRole['firstname'],$getStaffByRole['lastname'],$getStaffByRole['phone'],$getStaffByRole['role']);
+        $getStaffByFullname=$query->fetch(PDO::FETCH_ASSOC);
+        $newStaff=new Staff($getStaffByFullname['id'], $getStaffByFullname['first_name'],$getStaffByFullname['last_name'],$getStaffByFullname['phone'],$getStaffByFullname['role']);
     
         return $newStaff;
     }
+    
+    
     
     public function insertStaff(Staff $staff) : Staff
     {
@@ -67,18 +70,18 @@ class StaffManager extends AbstractManager{
         return $staff;
     }
     
-    public function editStaff(Staff $staff) : void
+    public function updateStaff(Staff $staff) : void
     {
-        $query=$this->db->prepare("UPDATE staff SET first_name = :first_name, last_name=:last_name, phone=:phone, role=:role");
+        $query=$this->db->prepare("UPDATE staff SET first_name = :first_name, last_name=:last_name, phone=:phone, role=:role, profil_img=:profil_img WHERE id=:id");
         $parameters= [
             'id' => $staff->getId(),
             'first_name' =>$staff->getFirstname(),
             'last_name' => $staff->getLastname(),
             'phone' => $staff->getPhone(),
-            'role' => $staff->getRole()
+            'role' => $staff->getRole(),
+            'profil_img' => $staff-> getProfilImg()
             ];
         $query->execute($parameters);
-        $allStaff=$query->fetch(PDO::FETCH_ASSOC);
     }
     
     public function deleteStaff(int $id) : void

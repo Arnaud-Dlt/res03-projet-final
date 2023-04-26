@@ -1,18 +1,26 @@
 <main>
     <h1>Modifier articles</h1>
     <form method="post" action="/res03-projet-final/ProjetPerso/admin/admin-posts/admin-post-edit/<?= $data['article']->getId(); ?>">
-    
-        <label>Photo</label>
-        <input type="text" name="articleEditPicture" value="">
-    
-        <label>Titre</label>
-        <input type="text" name="articleEditTitle" value="<?= $data['article']->getTitle() ?>">
         
-        <label>Description</label>
-        <input type="text" name="articleEditDescription" value="<?= $data['article']->getDescription() ?>">
+        <fieldset>
+            <label>Photo</label>
+            <input type="text" name="articleEditPicture" value="">
+        </fieldset>
         
-        <label>Contenu</label>
-        <input type="text" name="articleEditContent" value="<?= $data['article']->getContent() ?>">
+        <fieldset>
+            <label>Titre</label>
+            <input type="text" name="articleEditTitle" value="<?= $data['article']->getTitle() ?>">
+        </fieldset>
+        
+        <fieldset>
+            <label>Description</label>
+            <input type="text" name="articleEditDescription" value="<?= $data['article']->getDescription() ?>">
+        </fieldset>
+        
+        <fieldset>
+            <label>Contenu</label>
+            <input type="text" name="articleEditContent" value="<?= $data['article']->getContent() ?>">
+        </fieldset>
     
         <input type="submit" value="Modifier">
     </form>
