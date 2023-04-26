@@ -1,0 +1,16 @@
+<main>
+    <h1>Modifier Staff</h1>
+    <form method="post" action="/res03-projet-final/ProjetPerso/admin/admin-staff/admin-staff-edit/<?= $data['staff']->getId(); ?>">
+    
+        <label>Photo d'équipe (url)</label>
+        <input type="text" name="editTeamPicture" "<?= $data['team']->getPicture() ?>">
+    
+        <label>Name</label>
+        <input type="text"  name="editTeamName" value="<?= $data['team']->getName() ?>">
+        
+        <label>Categorie</label>
+        <input type="text"  name="editTeamCategory" value="<?= $data['team']->getCategoryId() ?>" disabled>
+    
+        <input type="submit" value="Modifier">
+    </form>
+</main>

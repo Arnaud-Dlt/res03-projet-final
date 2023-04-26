@@ -32,13 +32,17 @@ class AdminController extends AbstractController{
     }
     
     public function adminPlayerEdit(){
-        $this->privateRender("admin-player-edit", ['category'=>$this->categoryManager->getAllCategories()]);
+        $this->privateRender("admin-player-edit", []);
     }
     
     public function adminTeams(){
         $this->privateRender("admin-teams", 
         ['teams'=>$this->teamManager->getAllTeams(),
         'category'=>$this->categoryManager->getAllCategories()]);
+    }
+    
+    public function adminTeamEdit(){
+        $this->privateRender("admin-team-edit", []);
     }
     
     public function adminCategories(){
@@ -98,6 +102,12 @@ class AdminController extends AbstractController{
     public function adminStaff(){
         $this->privateRender("admin-staff", ['staff'=>$this->staffManager->getAllStaff()]);
     }
+    
+    public function adminStaffEdit(){
+        $this->privateRender("admin-staff-edit", []);
+    }
+    
+    
     
     public function adminRegister(array $post): void
     {   

@@ -153,7 +153,10 @@ class Router {
                         }
                         
                         else if($route[2]=== "admin-team-edit"){
-                            $this->teamController->adminTeamsEdit(); // Qui affichera la page admin modif teams
+                            if(isset($route[3]))
+                            {
+                                $this->teamController->updateTeam($route[3], $post);
+                            } // Qui affichera la page admin modif teams
                         }
                         else if($route[2]=== "admin-team-delete"){
                             if(isset($route[3])){

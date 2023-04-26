@@ -76,14 +76,13 @@ class TeamManager extends AbstractManager{
         return $team;
     }
     
-    public function editTeam(Team $team) : void
+    public function updateTeam(Team $team) : void
     {
         $query=$this->db->prepare("UPDATE team SET name = :name, picture = :picture WHERE team.id=:id");
         $parameters= [
             'id' => $team->getId(),
             'name' =>$team->getName(),
-            'picture' => $team->getPicture(),
-            'category_id' => $team->getCategoryId()
+            'picture' => $team->getPicture()
             ];
         $query->execute($parameters);
     }

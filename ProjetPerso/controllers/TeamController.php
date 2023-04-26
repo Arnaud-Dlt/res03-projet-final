@@ -114,8 +114,27 @@ class TeamController extends AbstractController{
         }
     }
     
-    public function editTeam(int $id, $post){
-        $this->privateRender("admin-team-edit", []);
+    public function updateTeam(int $id, $post){
+        
+        
+        // recupération du l'id de l'article selectionné
+        $displayTeamToUpdate = $this->teamManager->getTeamById($id);
+        
+        // stockage des infos de l'article 
+        $tab = [];
+        $tab["team"] = $displayTeamToUpdate;
+        $this->privateRender("admin-team-edit", $tab);
+
+        if(isset($post["editTeamPicture"])
+            && isset($post["editTeamName"]) && !empty($post["editTeamName"])
+            && isset($post["editTeamCategory"]) && !empty($post["editTeamCategory"])){
+            
+            $teamToUpdate=new Team($post['editTeamName'],$post['editTeamPicture'],$post['editTeamCategory']);
+            $teamToUpdate->setId($id);
+            var_dump($teamToUpdate);
+            
+            $this->teamManager->updateTeam($teamToUpdate);
+        }
     } 
     
     public function deleteTeam(int $id){
