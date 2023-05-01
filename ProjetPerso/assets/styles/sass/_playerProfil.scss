@@ -1,0 +1,88 @@
+@media (max-width: 425px){
+    #playerProfil {
+        min-height: 80vh;
+        padding: 2vh 2vw 0 1vw;
+        a {
+            text-decoration: none;
+            color: #15608E;
+            
+
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        section:first-of-type {
+            h2 {
+                font-size: 3rem;
+                color: #15608E;
+                margin: 2vh 0 2vh 0;
+            }
+            h3 {
+                font-size: 1.5rem;
+                color: #15608E;
+                margin: 2vh 0 2vh 0;
+            }
+            figure {
+                text-align: center;
+                img {}
+            }
+        }
+        section:nth-of-type(2) {
+            h3 {
+                font-size: 1.5rem;
+                color: #15608E;
+                margin: 2vh 0 2vh 0;
+            }
+            p {
+                font-size: 1.2rem;
+                line-height: 2rem;
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    #playerProfil {
+        min-height: 80vh;
+        padding: 2vh 2vw 0 1vw;
+        a {
+            text-decoration: none;
+            color: #15608E;
+            
+
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        section:first-of-type {
+            h2 {
+                font-size: 3rem;
+                color: #15608E;
+                margin: 2vh 0 2vh 0;
+            }
+            h3 {
+                font-size: 1.5rem;
+                color: #15608E;
+                margin: 2vh 0 2vh 0;
+            }
+            figure {
+                text-align: center;
+                img {}
+            }
+        }
+        section:nth-of-type(2) {
+            h3 {
+                font-size: 1.5rem;
+                color: #15608E;
+                margin: 2vh 0 2vh 0;
+            }
+            p {
+                font-size: 1.2rem;
+                line-height: 2rem;
+            }
+        }
+    }
+
+}

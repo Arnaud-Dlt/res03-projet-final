@@ -1,14 +1,17 @@
 <main id="playerProfil">
-    <h2><?php $data['players']->getFirstname(); $data['players']->getLastname(); ?></h2>
-    <h3><?php $data['players']->getPosition()?></h3>
+    <a href="/res03-projet-final/ProjetPerso/equipes/effectif"><| Effectif</a>
+    
     <section>
-        <?php var_dump($data) ?>
-        <figure>
-            <img src="<?php $data['players']->getProfilImg()?>" alt="photo du joueur">
-        </figure>
+    <h2><?= $data['player']->getFirstname()?> <?= $data['player']->getLastname(); ?></h2>
+    <h3><?= $data['player']->getPosition()?></h3>
+    
+    <figure>
+        <img src="./../assets/img/joueurs/<?= $data['player']->getProfilImg() ?>" alt="Photo <?= $data['player']->getFirstname() ?> <?= $data['player']->getLastname() ?>">
+    </figure>
     </section>
+    
     <section>
         <h3>Parcours</h3>
-        <p><?php $data['players']->getBio()?></p>
+        <p><?= $data['player']->getBio()?></p>
     </section>
 </main>

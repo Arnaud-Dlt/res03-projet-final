@@ -1,18 +1,19 @@
 <main>
     <h1>Equipes</h1>
 
-    <table>
+    <table class="table table-sm">
         <thead>
             <th>Id</th>
             <th>Name</th>
+            <th scope="col">Actions</th>
         </thead>
         <tbody>
             <?php 
             foreach($data['teams'] as $team){ ?>
             <tr>
-                <td><?= $team->getId() ?></td>
-                <td><?= $team->getName() ?></td>
-                <td><a href="/res03-projet-final/ProjetPerso/admin/admin-teams/admin-team-edit/<?= $team->getId();?>">Modifier </a> <a href="/res03-projet-final/ProjetPerso/admin/admin-teams/admin-team-delete/<?= $team->getId();?>">Supprimer</a></td>
+                <td scope="col"><?= $team->getId() ?></td>
+                <td scope="col"><?= $team->getName() ?></td>
+                <td scope="col"><a href="/res03-projet-final/ProjetPerso/admin/admin-teams/admin-team-edit/<?= $team->getId();?>">Modifier </a> <a href="/res03-projet-final/ProjetPerso/admin/admin-teams/admin-team-delete/<?= $team->getId();?>">Supprimer</a></td>
             </tr>
             <?php } ?>
         </tbody>

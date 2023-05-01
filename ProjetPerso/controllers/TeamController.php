@@ -28,7 +28,15 @@ class TeamController extends AbstractController{
     }
     
     public function playerProfil(int $id){
-        $this->publicRender("player-profil", []);
+        // recupération du l'id du joueur selectionné
+        $displayPlayerToUpdate = $this->playerManager->getPlayerById($id);
+
+        // stockage des infos du joueur
+        $tab = [];
+        $tab["player"] = $displayPlayerToUpdate;
+        
+        // affichage de la page avec les infos du joueurs
+        $this->publicRender("player-profil", $tab);
     }
     
     public function teamResumeA(){

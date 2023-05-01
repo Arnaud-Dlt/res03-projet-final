@@ -31,40 +31,42 @@ class Router {
         else {
 
             $route = explode("/", $_GET['path']); 
+            
             // PAGES PUBLIQUES
 
             if ($route[0] === "le-club") {
                 
                 if(!isset($route[1])){
-                    $this->pageController->club(); // Qui affichera la page club
+                    $this->pageController->club(); 
                 }
                 else if($route[1]=== "histoire"){
-                    $this->pageController->history(); // Qui affichera la page histoire du club
+                    $this->pageController->history(); 
                 }
                 else if($route[1]=== "organigramme"){
-                    $this->pageController->organigramme(); // Qui affichera la page organigramme du club
+                    $this->pageController->organigramme(); 
                 }
                 else if($route[1]=== "infrastructure"){
-                    $this->pageController->infrastructure(); // Qui affichera la page infrastructure du club
+                    $this->pageController->infrastructure(); 
                 }
             }
-
-            else if($route[0]=== "equipes"){
+            
+            else if($route[0] === "equipes"){
                 
                 if(!isset($route[1])){
-                    $this->teamController->teams(); // Qui affichera la page des équipes du club
+                    // si pas de route après équipe, afficher page equipe
+                    $this->teamController->teams(); 
                 }
                 
-                else if($route[1]=== "effectif"){
-                    
+                else if($route[1] === "effectif"){
                     if(!isset($route[2])){
-                        $this->teamController->effectif(); // Qui affichera la page effectif du club
+                        // si pas de route après effectif, afficher page effectif
+                        $this->teamController->effectif(); 
                     }
-                    else if($route[2]=== "joueur"){
-                        
-                        if(!isset($route[3])){
-                                $this->teamController->playerProfil($route[3]);
-                            }
+                    else if($route[2] === "player-profil"){
+                        if(isset($route[3]))
+                        {
+                            $this->teamController->playerProfil($route[3]);
+                        }
                     }
                 }
 
@@ -101,22 +103,12 @@ class Router {
                     $this->pageController->galerie(); // Qui affichera la page galerie du club
                 }
                 
-                else if($route[1]=== "albumId"){
-                    
-                }
             }
             
             else if($route[0]=== "events"){
                 
                 if(!isset($route[1])){
-                    $this->pageController->events(); // Qui affichera la page des événements du club
-                }
-                
-                else if($route[1]=== "repas"){
-                    $this->pageController->events();
-                }
-                else if($route[1]=== "fete-du-pont"){
-                    $this->pageController->events();
+                    $this->pageController->events(); 
                 }
             }
             
@@ -128,7 +120,7 @@ class Router {
             }
             
             else if($route[0]==="logout"){
-                        $this->adminController->adminLogout();
+                $this->adminController->adminLogout();
             }
             
             // PAGE ADMIN
@@ -258,7 +250,7 @@ class Router {
             //  404
 
             else {
-                $this->pageController->error(); // J'affiche une page 404
+                $this->pageController->error(); 
             }
         }
     }

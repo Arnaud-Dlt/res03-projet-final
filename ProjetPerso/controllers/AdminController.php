@@ -148,16 +148,15 @@ class AdminController extends AbstractController{
         if(isset($post['loginEmail'])&& !empty($post["loginEmail"]) 
         && isset($post['loginPassword']) && !empty($post["loginPassword"])){
             
+            
             $logEmail=$post["loginEmail"];
             
             $pwd=$post["loginPassword"];
             
             $adminToConnect=$this->adminManager->getAdminByEmail($logEmail);
-            var_dump($adminToConnect);
             $hashpwd=$adminToConnect->getPassword();
             
             if($adminToConnect !== null){
-                var_dump("adminToConnect existe");
                 if(password_verify($pwd, $hashpwd)){
                     $_SESSION["isConnected"] = true;
                     
@@ -165,8 +164,8 @@ class AdminController extends AbstractController{
                 }
             
                 else{
+                    echo "Mot de passe incorrect";
                     $this->publicRender("login", []);
-                    echo "Identifiants inconnus";
                 }
                 
             }

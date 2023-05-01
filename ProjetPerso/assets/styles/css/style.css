@@ -905,8 +905,8 @@ table {
 }
 @media (max-width: 425px) {
   #effectif {
-    min-height: 100vh;
-    padding-left: 2vw;
+    min-height: 80vh;
+    padding: 2vh 2vw 0 1vw;
   }
   #effectif h1 {
     font-size: 2rem;
@@ -953,6 +953,76 @@ table {
   #effectif section ul li article section h3 {
     font-size: 1.2rem;
     color: #15608E;
+  }
+}
+@media (max-width: 425px) {
+  #playerProfil {
+    min-height: 80vh;
+    padding: 2vh 2vw 0 1vw;
+  }
+  #playerProfil a {
+    text-decoration: none;
+    color: #15608E;
+  }
+  #playerProfil a:hover {
+    text-decoration: underline;
+  }
+  #playerProfil section:first-of-type h2 {
+    font-size: 3rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #playerProfil section:first-of-type h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #playerProfil section:first-of-type figure {
+    text-align: center;
+  }
+  #playerProfil section:nth-of-type(2) h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #playerProfil section:nth-of-type(2) p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  #playerProfil {
+    min-height: 80vh;
+    padding: 2vh 2vw 0 1vw;
+  }
+  #playerProfil a {
+    text-decoration: none;
+    color: #15608E;
+  }
+  #playerProfil a:hover {
+    text-decoration: underline;
+  }
+  #playerProfil section:first-of-type h2 {
+    font-size: 3rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #playerProfil section:first-of-type h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #playerProfil section:first-of-type figure {
+    text-align: center;
+  }
+  #playerProfil section:nth-of-type(2) h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #playerProfil section:nth-of-type(2) p {
+    font-size: 1.2rem;
+    line-height: 2rem;
   }
 }
 @media (max-width: 425px) {
@@ -1303,7 +1373,7 @@ table {
     grid-row: 2/3;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: 1fr 0.5fr 0.5fr;
   }
   #footer a {
     text-decoration: none;

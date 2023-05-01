@@ -21,16 +21,15 @@
                     <h3 class="sr-only">Gardien</h3>
                     <header>
                         <figure>
-                            <img src="./../assets/img/joueurs/<?= $goalkeeper->getProfilImg() ?>" alt="photo du joueur">
+                            <img src="./../assets/img/joueurs/<?= $goalkeeper->getProfilImg() ?>" alt="Photo <?= $goalkeeper->getFirstname() ?> <?= $goalkeeper->getLastname() ?>">
                         </figure>
                     </header>
                     <section>
                         <h3><?= $goalkeeper->getFirstname() ?> <?= $goalkeeper->getLastname() ?></h3>
-                        <p></p>
                     </section>
-                    <!--<a href="/res03-projet-final/ProjetPerso/equipes/joueur">-->
-                    <!--    <button>Voir joueur</button>-->
-                    <!--    </a>-->
+                    <a href="/res03-projet-final/ProjetPerso/equipes/effectif/player-profil/<?= $goalkeeper->getId();?>">
+                        <button>Voir joueur</button>
+                    </a>
                 </article>
             </li>
             <?php } ?>
@@ -49,9 +48,10 @@
                     </header>
                     <section>
                         <h3><?= $defender->getFirstname() ?> <?= $defender->getLastname() ?></h3>
-                        <p></p>
                     </section>
-                    <!--<button>Voir joueur</button>-->
+                    <a href="/res03-projet-final/ProjetPerso/equipes/effectif/player-profil/<?= $defender->getId();?>">
+                        <button>Voir joueur</button>
+                    </a>
                 </article>
             </li>
             <?php } ?>
@@ -70,9 +70,10 @@
                     </header>
                     <section>
                         <h3><?= $midfielder->getFirstname() ?> <?= $midfielder->getLastname() ?></h3>
-                        <p></p>
                     </section>
-                    <!--<button>Voir joueur</button>-->
+                    <a href="/res03-projet-final/ProjetPerso/equipes/effectif/player-profil/<?= $midfielder->getId();?>">
+                        <button>Voir joueur</button>
+                    </a>
                 </article>
             </li>
             <?php } ?>
@@ -91,9 +92,10 @@
                     </header>
                     <section>
                         <h3><?= $strikers->getFirstname() ?> <?= $strikers->getLastname() ?></h3>
-                        <p></p>
                     </section>
-                    <!--<button>Voir joueur</button>-->
+                    <a href="/res03-projet-final/ProjetPerso/equipes/effectif/player-profil/<?= $strikers->getId();?>">
+                        <button>Voir joueur</button>
+                    </a>
                 </article>
             </li>
             <?php } ?>

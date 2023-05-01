@@ -1,16 +1,16 @@
 <main id="admin-players">
     <h1>Joueurs</h1>
 
-    <table>
+    <table class="table table-sm">
         <thead>
-            <th>Prénom</th>
-            <th>Nom</th>
-            <th>Tel</th>
-            <th>Date de naissance</th>
-            <th>Poste</th>
-            <th>Pied fort</th>
-            <th>Bio</th>
-            <th>Actions</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Tel</th>
+            <th scope="col">Date de naissance</th>
+            <th scope="col">Poste</th>
+            <th scope="col">Pied fort</th>
+            <th scope="col">Bio</th>
+            <th scope="col">Actions</th>
         </thead>
         <tbody>
             <?php 
@@ -86,7 +86,6 @@
             <select name="playerCategory">
                 <option>--Catégorie--</option>
                 <?php 
-                var_dump($data);
                 foreach($data['category'] as $category){ ?>
                 <option value="<?= $category->getId() ?>"><?= $category->getName() ?></option>
                 <?php } ?>
