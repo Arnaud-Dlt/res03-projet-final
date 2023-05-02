@@ -21,22 +21,27 @@
                 margin: 10vh 5vw 5vh 0;
 
                 article {
-                    padding: 2vw;
                     box-shadow: 1px 1px 5px #15608E;
                     display: grid;
-                    grid-template-rows: 1fr 1fr 0.5fr;
+                    grid-template-rows: 1fr 0.2fr 0.2fr;
+                    text-align: center;
+                    border-radius: 10px;
 
                     header {
                         grid-row: 1/2;
                         figure {
-                            img {}
+                            img {
+                                width: 100%;
+                                border-radius: 10px;
+                            }
                         }
                     }
-                    main {
+                    section {
                         grid-row: 2/3;
                         text-align: center;
-                        h3 {
-                            font-size: 1.4rem;
+                        h4 {
+                            font-size: 1.5rem;
+                            color: #15608E;
                         }
                     }
                     button {

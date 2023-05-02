@@ -10,11 +10,27 @@ class ArticleController extends AbstractController{
     
     // ARTICLES
     
+    
+    // Page tout les articles
     public function articles(){
         $this->publicRender("articles", ['articles'=>$this->articleManager->getAllArticles()]);
     }
     
+    // Page article unique
+    public function singleArticle(int $id){
+        // recupération du l'id du joueur selectionné
+        $displayArticleToShow = $this->articleManager->getArticleById($id);
+
+        // stockage des infos du joueur
+        $tab = [];
+        $tab["article"] = $displayArticleToShow;
+        
+        // affichage de la page avec les infos du joueurs
+        $this->publicRender("single-article", $tab);
+    }
     
+    
+    // CRUD
     public function addArticle(array $post){
         
         if(isset($post["articleTitle"]) && !empty($post["articleTitle"])

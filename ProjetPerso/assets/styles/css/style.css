@@ -701,20 +701,26 @@ table {
     margin: 10vh 5vw 5vh 0;
   }
   #allArticles ul li article {
-    padding: 2vw;
     box-shadow: 1px 1px 5px #15608E;
     display: grid;
-    grid-template-rows: 1fr 1fr 0.5fr;
+    grid-template-rows: 1fr 0.2fr 0.2fr;
+    text-align: center;
+    border-radius: 10px;
   }
   #allArticles ul li article header {
     grid-row: 1/2;
   }
-  #allArticles ul li article main {
+  #allArticles ul li article header figure img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  #allArticles ul li article section {
     grid-row: 2/3;
     text-align: center;
   }
-  #allArticles ul li article main h3 {
-    font-size: 1.4rem;
+  #allArticles ul li article section h4 {
+    font-size: 1.5rem;
+    color: #15608E;
   }
   #allArticles ul li article button {
     grid-row: 3/4;
@@ -754,6 +760,78 @@ table {
   }
   #allArticles ul li article button {
     grid-row: 3/4;
+  }
+}
+@media (max-width: 425px) {
+  #singleArticle {
+    min-height: 80vh;
+    padding: 2vh 2vw 0 1vw;
+  }
+  #singleArticle a {
+    text-decoration: none;
+    color: #15608E;
+  }
+  #singleArticle a:hover {
+    text-decoration: underline;
+  }
+  #singleArticle section:first-of-type h2 {
+    font-size: 3rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #singleArticle section:first-of-type h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #singleArticle section:first-of-type figure {
+    text-align: center;
+  }
+  #singleArticle section:nth-of-type(2) h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #singleArticle section:nth-of-type(2) p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    margin-bottom: 1vh;
+  }
+}
+@media (min-width: 1024px) {
+  #singleArticle {
+    min-height: 80vh;
+    padding: 2vh 2vw 0 1vw;
+  }
+  #singleArticle a {
+    text-decoration: none;
+    color: #15608E;
+  }
+  #singleArticle a:hover {
+    text-decoration: underline;
+  }
+  #singleArticle section:first-of-type h2 {
+    font-size: 3rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #singleArticle section:first-of-type h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #singleArticle section:first-of-type figure {
+    text-align: center;
+  }
+  #singleArticle section:nth-of-type(2) h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #singleArticle section:nth-of-type(2) p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    margin-bottom: 1vh;
   }
 }
 @media (min-width: 1024px) {

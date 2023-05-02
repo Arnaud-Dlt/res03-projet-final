@@ -29,7 +29,9 @@
                         <h3><?= $article->getTitle() ?></h3>
                         <p><?= $article->getDescription() ?></p>
                     </section>
-                    <button class="seeBtn">Voir cet article</button>
+                    <a href="/res03-projet-final/ProjetPerso/articles/single-article/<?= $article->getId();?>">
+                        <button class="seeBtn">Voir cet article</button>
+                    </a>
                 </article>
                 </li>
                 <?php } ?>

@@ -89,12 +89,16 @@ class Router {
             else if($route[0]=== "articles"){
                 
                 if(!isset($route[1])){
-                    $this->articleController->articles(); // Qui affichera la page des articles du club
+                        // si pas de route après articles, afficher page tous les articles
+                        $this->articleController->articles(); 
+                    }
+                else if($route[1] === "single-article"){
+                    if(isset($route[2]))
+                    {
+                        $this->articleController->singleArticle($route[2]);
+                    }
                 }
                 
-                else if($route[1]=== "articleId"){
-                    
-                }
             }
             
             else if($route[0]=== "galerie"){

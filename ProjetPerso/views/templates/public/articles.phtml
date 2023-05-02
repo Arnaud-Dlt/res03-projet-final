@@ -11,16 +11,19 @@
         <?php foreach($data['articles'] as $article){?>
             <li>
                 <article class="hoverZoom">
+                    <h3 class="sr-only">Article</h3>
                     <header>
                         <figure>
-                            <img src="<?= $article->getPicture() ?>"  alt="photo de l'article">
+                            <img src="<?= $article->getPicture(); ?>"  alt="photo de l'article">
                         </figure>
                     </header>
                     <section>
                         <h4><?= $article->getTitle() ?></h4>
                         <p><?= $article->getDescription() ?></p>
                     </section>
-                    <button class="seeBtn">Lire l'article</button>
+                    <a href="/res03-projet-final/ProjetPerso/articles/single-article/<?= $article->getId();?>">
+                        <button class="seeBtn">Lire l'article</button>
+                    </a>
                 </article>
             </li>
             <?php } ?>

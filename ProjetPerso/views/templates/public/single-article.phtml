@@ -1,0 +1,19 @@
+<main id="singleArticle">
+    <a href="/res03-projet-final/ProjetPerso/articles"><| Tous les articles</a>
+    
+    <section>
+        
+    <figure>
+        <img src="<?= $data['article']->getPicture() ?>" alt="Photo de l'article">
+    </figure>
+    
+    <h2><?= $data['article']->getTitle()?></h2>
+    <h3><?= $data['article']->getDescription()?></h3>
+    
+    </section>
+    
+    <section>
+        <h3>Résumé du match</h3>
+        <p><?= $data['article']->getContent()?></p>
+    </section>
+</main>

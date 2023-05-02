@@ -29,11 +29,11 @@ class TeamController extends AbstractController{
     
     public function playerProfil(int $id){
         // recupération du l'id du joueur selectionné
-        $displayPlayerToUpdate = $this->playerManager->getPlayerById($id);
+        $displayPlayerToShow = $this->playerManager->getPlayerById($id);
 
         // stockage des infos du joueur
         $tab = [];
-        $tab["player"] = $displayPlayerToUpdate;
+        $tab["player"] = $displayPlayerToShow;
         
         // affichage de la page avec les infos du joueurs
         $this->publicRender("player-profil", $tab);
