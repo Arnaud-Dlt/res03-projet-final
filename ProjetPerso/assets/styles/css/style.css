@@ -2010,8 +2010,11 @@ table {
     min-height: 100vh;
     padding: 2vh 2vw 0 1vw;
   }
-  #contact h1 {
+  #contact h2 {
     text-align: center;
+    color: #15608E;
+    font-size: 2rem;
+    margin: 2vh 0 5vh 1vw;
   }
   #contact form {
     box-shadow: 1px 1px 5px #000;
@@ -2033,8 +2036,11 @@ table {
     min-height: 100vh;
     padding: 2vh 2vw 0 1vw;
   }
-  #contact h1 {
+  #contact h2 {
     text-align: center;
+    color: #15608E;
+    font-size: 2rem;
+    margin: 2vh 0 5vh 1vw;
   }
   #contact form {
     box-shadow: 1px 1px 5px #000;
