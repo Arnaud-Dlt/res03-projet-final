@@ -40,7 +40,25 @@
 
 
 
-@media (min-width: 426px) and (max-width: 768px) {}
+@media (min-width: 426px) and (max-width: 768px) {
+    // LAYOUT PUBLIC
+    #public {
+        display: grid;
+        grid-template-columns: 13vw 87vw;
+        font-family:'Josefin Sans', sans-serif;
+        font-size: 1rem;
+        overflow-x: hidden;
+    }
+    
+    // LAYOUT ADMIN
+    
+    #admin {
+        display: grid;
+        grid-template-columns: 13vw 87vw;
+        grid-template-rows: 1fr 1fr;
+        font-family:'Josefin Sans', sans-serif;
+    }
+}
 
 @media (min-width: 1024px) {
 

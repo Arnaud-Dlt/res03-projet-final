@@ -1,6 +1,77 @@
 
 
-@media (min-width: 426px) and (max-width: 768px) {}
+@media (min-width: 426px) and (max-width: 1023px) {
+     #teams {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        min-height: 100vh;
+        padding: 2vh 2vw 0 1vw;
+        figure {
+            img {
+                width: 80%;
+            }
+        }
+
+        &>h2 {
+            font-size: 2rem;
+            color: #15608E;
+            margin: 0 0 2vh 0;
+        }
+    
+
+        section:first-of-type {
+            &>h2 {
+                margin: 0 0 2vh 0;
+                font-size: 1.2rem;
+                a {
+                    text-decoration: underline #15608E;
+                    color: #000;
+                    
+                }
+            }
+            ul {
+                display: flex;
+                flex-direction: row;
+                column-gap: 2vw;
+                margin-bottom: 5vh;
+                
+                li{
+                    article{
+                        width: 20vw;
+                        text-align: center;
+                        
+                        header{
+                            h3{
+                                font-size: 1.5rem;
+                                color: #15608E;
+                            }
+                        }
+                        section{
+                            figure{
+                                img{
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        section:nth-of-type(2){
+            h3{
+                font-size: 1.5rem;
+                color: #15608E;
+                margin: 0 0 2vh 0;
+            }
+            p{
+                a{
+                    text-decoration: underline #15608E;
+                    color: #000;
+                }
+            }
+        }
+
+    }
+}
 
 @media (min-width: 1024px) {
     #teams {

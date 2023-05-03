@@ -1,5 +1,54 @@
 
-@media (min-width: 426px) and (max-width: 768px) {}
+@media (min-width: 426px) and (max-width: 1023px) {
+    #galerie {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        min-height: 100vh;
+        padding: 2vh 2vw 0 1vw;
+        
+
+        h2 {
+            font-size: 2rem;
+            color: #15608E;
+            margin-bottom: 5vh;
+        }
+        
+        ul {
+            display: flex;
+            flex-direction: row;
+
+            li {
+                margin: 10vh 5vw 5vh 0;
+
+                article {
+                    padding: 2vw;
+                    box-shadow: 1px 1px 5px #15608E;
+                    width: 25vw;
+                    display: grid;
+                    grid-template-rows: 1fr 1fr 0.5fr;
+                    
+
+                    header {
+                        grid-row: 1/2;
+                        figure {
+                            img {}
+                        }
+                    }
+                    main {
+                        grid-row: 2/3;
+                        text-align: center;
+                        h3 {
+                            font-size: 1.4rem;
+                        }
+                    }
+                    button {
+                        grid-row: 3/4;
+                    }
+                }
+            }
+        }
+    }
+}
 
 @media (min-width: 1024px) {
     #galerie {

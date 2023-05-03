@@ -5,12 +5,14 @@ class PageController extends AbstractController {
     private PlayerManager $playerManager;
     private TeamManager $teamManager;
     private ArticleManager $articleManager;
+    private StaffManager $staffManager;
     
     
     public function __construct(){
         $this->playerManager = new PlayerManager();
         $this->teamManager = new TeamManager();
         $this->articleManager = new ArticleManager();
+        $this->staffManager = new StaffManager();
     }
     
     // PUBLIC PAGE
@@ -28,7 +30,7 @@ class PageController extends AbstractController {
         }
         
         public function organigramme(){
-            $this->publicRender("club-organigramme", []);
+            $this->publicRender("club-organigramme", ['staff'=>$this->staffManager->getAllStaff()]);
         }
         public function infrastructure(){
             $this->publicRender("club-infrastructure", []);

@@ -1,6 +1,28 @@
 <main id="le-club-organigramme">
     <h1>Organigramme</h1>
     <figure>
-        <img src="" alt="organigramme">
+        <img src="/res03-projet-final/ProjetPerso/assets/img/club/organigramme.jpg" alt="organigramme">
     </figure>
+    <section>
+        <h2>Liste du staff</h2>
+        <ul>
+            <?php 
+            foreach($data['staff'] as $staff){?>
+            <li>
+                <article>
+                    <h3 class="sr-only">Les membre du staff</h3>
+                    <header>
+                        <figure>
+                            <img src="<?= $staff->getProfilImg() ?>" alt="Photo <?= $staff->getFirstname() ?> <?= $staff->getLastname() ?>">
+                        </figure>
+                    </header>
+                    <section>
+                        <h3><?= $staff->getFirstname() ?> <?= $staff->getLastname() ?></h3>
+                        <p><?= $staff->getRole() ?></p>
+                    </section>
+                </article>
+            </li>
+            <?php } ?>
+        </ul>
+    </section>
 </main>

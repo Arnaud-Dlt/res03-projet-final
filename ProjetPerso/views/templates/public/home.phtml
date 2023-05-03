@@ -6,7 +6,7 @@
     <section>
         <h2 class="sr-only">Matchs à venir</h2>
         <section>
-            <h2>Prochains matchs <span class="fa-solid fa-stopwatch-20 fa-xs"></span></h2>
+            <h2 class="appear">Prochains matchs <span class="fa-solid fa-stopwatch-20 fa-xs"></span></h2>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.5/iframeResizer.min.js"></script><script>if(!window._rsz){window._rsz=function(){var i=iFrameResize({checkOrigin:false,interval:100});};if(document.readyState!="loading"){_rsz()}else{document.addEventListener("DOMContentLoaded",_rsz)}}</script><iframe id="64070604bd0ad9680e6ade48" src="https://scorenco.com/widget/64070604bd0ad9680e6ade48/?auto_height=true" style="display: block; width: 100%; overflow: auto; margin: auto; border-width: 0px;" scrolling="no"></iframe>
         </section>
     </section>
@@ -14,7 +14,7 @@
     <section>
         <h2 class="sr-only">Actualités </h2>
         <section>
-            <h3>Derniers articles <span class="fa-regular fa-futbol fa-xs"></span></h3> 
+            <h3 class="appear">Derniers articles <span class="fa-regular fa-futbol fa-xs"></span></h3> 
             <ul>
             <?php foreach($data['lastArticle'] as $article){?>
                 <li>
@@ -22,7 +22,7 @@
                     <h2 class="sr-only">Article</h2>
                     <header>
                         <figure>
-                            <img src="https://picsum.photos/200/100" alt="photo article">
+                            <img src="<?= $article->getPicture();?>" alt="photo article">
                         </figure>
                     </header>
                     <section>
@@ -40,13 +40,13 @@
         </section>
         
         <section>
-            <h3>Sur Facebook</h3>
+            <h3 class="appear">Sur Facebook</h3>
             <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FUSSainteMarie&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
         </section>
     </section>
     
     <section>
-        <h2>Galerie <span class="fa-solid fa-camera"></span></h2>
+        <h2 class="appear">Galerie <span class="fa-solid fa-camera"></span></h2>
         <section>
             <h2 class="sr-only">Albums Photos</h2>
             <ul>

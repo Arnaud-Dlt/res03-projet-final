@@ -1,17 +1,9 @@
+import {HoverZoom} from './anim.js';
+import {FadeInDown} from './anim.js';
+
 window.addEventListener("DOMContentLoaded",function(){
     HoverZoom();
+    FadeInDown();
 });
 
 
-function HoverZoom(){
-    let hoverZoom = document.getElementsByClassName("hoverZoom");
-    
-    for(let i=0; i< hoverZoom.length;i++){
-        hoverZoom[i].addEventListener("mouseenter", function(){
-        hoverZoom[i].style.transform = "scale(1.03)";
-    });
-    hoverZoom[i].addEventListener("mouseleave", function(){
-        hoverZoom[i].style.transform = "scale(1)";
-    });
-    }
-}

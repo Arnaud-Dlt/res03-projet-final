@@ -111,16 +111,20 @@ class AdminController extends AbstractController{
     
     public function adminRegister(array $post): void
     {   
+        // Render la page du form
         $this->privateRender("admin-register", []);
         
         if(isset($post["registerEmail"]) && !empty($post["registerEmail"])
             && isset($post["registerPassword"]) && !empty($post["registerPassword"])
             && isset($post["confirmPassword"]) && !empty($post["confirmPassword"])){
+                // Si champ rempli
                 
             if($post["registerPassword"] === $post["confirmPassword"]){
+                // si password identique on crypte le password
                 
                 $hashPwd=password_hash($post["registerPassword"], PASSWORD_DEFAULT);
                 
+                // enregristrement du nouvel admin
                 $newAdmin=new Admin($post['registerEmail'], $hashPwd);
                 
                 $this->adminManager->insertAdmin($newAdmin);
@@ -128,6 +132,7 @@ class AdminController extends AbstractController{
                 header("Location: /res03-projet-final/ProjetPerso/admin");
             }
             else{
+                // sinon, message d'erreur
                 echo "Les mots de passe sont différents !";
             }
         }
@@ -175,7 +180,6 @@ class AdminController extends AbstractController{
         }
         else{
             $this->publicRender("login", []);
-            echo "Merci de compléter tous les champs";
         }
     }
     

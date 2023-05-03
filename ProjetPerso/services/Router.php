@@ -53,13 +53,17 @@ class Router {
             else if($route[0] === "equipes"){
                 
                 if(!isset($route[1])){
+                    
                     // si pas de route après équipe, afficher page equipe
+                    
                     $this->teamController->teams(); 
                 }
                 
                 else if($route[1] === "effectif"){
                     if(!isset($route[2])){
+                        
                         // si pas de route après effectif, afficher page effectif
+                        
                         $this->teamController->effectif(); 
                     }
                     else if($route[2] === "player-profil"){
@@ -89,10 +93,13 @@ class Router {
             else if($route[0]=== "articles"){
                 
                 if(!isset($route[1])){
-                        // si pas de route après articles, afficher page tous les articles
+                    
+                    // si pas de route après articles, afficher page tous les articles
+                        
                         $this->articleController->articles(); 
                     }
                 else if($route[1] === "single-article"){
+                    
                     if(isset($route[2]))
                     {
                         $this->articleController->singleArticle($route[2]);

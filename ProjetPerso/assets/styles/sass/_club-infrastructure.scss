@@ -1,6 +1,33 @@
 
 
-@media (min-width: 426px) and (max-width: 768px) {}
+@media (min-width: 426px) and (max-width: 1023px) {
+    #le-club-infrastructure {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        min-height: 100vh;
+        padding: 2vh 2vw 0 1vw;
+        h1{
+            font-size: 2rem;
+            color: #15608E;
+        }
+        section {
+            h2 {
+                font-size: 1.2rem;
+                color: #15608E;
+                text-decoration: underline #000;
+                text-align: center;
+                margin-bottom: 2vh;
+            }
+            figure {
+                margin-bottom: 2vh;
+                img {
+                    width: 100%
+                    
+                }
+            }
+        }
+    }
+}
 
 @media (min-width: 1024px) {
     #le-club-infrastructure {

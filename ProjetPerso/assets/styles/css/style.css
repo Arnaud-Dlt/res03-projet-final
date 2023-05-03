@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -84,7 +85,7 @@ table {
     display: none;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 426px) and (max-width: 1023px) {
   #publicNav {
     grid-column: 1/2;
   }
@@ -133,10 +134,10 @@ table {
   }
 }
 @media (min-width: 1024px) {
-  #adminNav {
+  #publicNav {
     grid-column: 1/2;
   }
-  #adminNav nav {
+  #publicNav nav {
     background-color: #15608E;
     height: 100vh;
     width: 13vw;
@@ -146,34 +147,67 @@ table {
     justify-content: flex-start;
     padding: 6vh 0 2vh 0;
   }
-  #adminNav nav figure {
+  #publicNav nav figure {
     text-align: center;
   }
-  #adminNav nav figure img {
+  #publicNav nav figure img {
     width: 60%;
   }
-  #adminNav nav ul {
+  #publicNav nav #burgerBtn {
+    display: none;
+  }
+  #publicNav nav #reseauxSociaux {
+    display: none;
+  }
+  #publicNav nav ul {
     text-align: center;
     padding: 2vh;
   }
-  #adminNav nav ul li {
-    margin: 2vh;
+  #publicNav nav ul li {
+    margin: 2vh 0 3vh 0;
+    display: block;
+    font-size: 1.2rem;
   }
-  #adminNav nav ul li > ul {
+  #publicNav nav ul li > ul {
     display: none;
   }
-  #adminNav nav ul li a {
+  #publicNav nav ul li a {
     text-decoration: none;
     color: #fff;
     font-weight: 800;
+  }
+  #publicNav nav ul li:hover {
+    border-left: 5px solid #fff;
+    border-right: 5px solid #fff;
   }
 }
 @media (max-width: 425px) {
   #home {
     margin: 1vw;
+    /* Définition de l'animation fade in down */
+    /* Définition de l'animation avec @keyframes */
+    /* Application de l'animation */
   }
   #home figure img {
     width: 100%;
+  }
+  #home .animate__fadeInDown {
+    --animate-duration: 1s;
+    animation-duration: var(--animate-duration);
+    animation-fill-mode: both;
+  }
+  @keyframes animate__fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, -100%, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  #home .animate__fadeInDown {
+    animation-name: animate__fadeInDown;
   }
   #home > section:first-of-type {
     margin: 5vh 0 10vh 0;
@@ -299,14 +333,35 @@ table {
     color: #fff;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 426px) and (max-width: 1023px) {
   #home {
     grid-column: 2/3;
     grid-row: 1/2;
     min-height: 100vh;
+    /* Définition de l'animation fade in down */
+    /* Définition de l'animation avec @keyframes */
+    /* Application de l'animation */
   }
   #home figure img {
     width: 100%;
+  }
+  #home .animate__fadeInDown {
+    --animate-duration: 1s;
+    animation-duration: var(--animate-duration);
+    animation-fill-mode: both;
+  }
+  @keyframes animate__fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, -100%, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  #home .animate__fadeInDown {
+    animation-name: animate__fadeInDown;
   }
   #home > section:first-of-type {
     margin: 5vh 0 5vh 0;
@@ -348,6 +403,7 @@ table {
     display: grid;
     grid-template-rows: 1fr 0.5fr 0.1fr;
     width: 20vw;
+    min-height: 35vh;
     box-shadow: 1px 1px 10px #000;
     margin: 1vh;
     border-radius: 10px;
@@ -419,6 +475,226 @@ table {
   #home > section:nth-of-type(3) button a {
     text-decoration: none;
     color: #fff;
+  }
+}
+@media (min-width: 1024px) {
+  #home {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    /* Définition de l'animation fade in down */
+    /* Définition de l'animation avec @keyframes */
+    /* Application de l'animation */
+  }
+  #home figure img {
+    width: 100%;
+  }
+  #home .animate__fadeInDown {
+    --animate-duration: 1s;
+    animation-duration: var(--animate-duration);
+    animation-fill-mode: both;
+  }
+  @keyframes animate__fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, -100%, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  #home .animate__fadeInDown {
+    animation-name: animate__fadeInDown;
+  }
+  #home > section:first-of-type {
+    margin: 5vh 0 5vh 0;
+    padding: 1vh;
+  }
+  #home > section:first-of-type > section h2 {
+    text-align: center;
+    color: #15608E;
+    font-size: 2rem;
+    border-bottom: 3px solid #15608E;
+    margin-bottom: 2vh;
+  }
+  #home > section:nth-of-type(2) {
+    margin: 5vh 1vw 5vh 1vw;
+    padding: 1vh;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    column-gap: 2vw;
+  }
+  #home > section:nth-of-type(2) > section:first-of-type {
+    grid-column: 1/2;
+    width: 50vw;
+  }
+  #home > section:nth-of-type(2) > section:first-of-type > h3 {
+    color: #15608E;
+    font-size: 2rem;
+    border-bottom: 3px solid #15608E;
+    margin-bottom: 2vh;
+    grid-column: 1/3;
+  }
+  #home > section:nth-of-type(2) > section:first-of-type ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  #home > section:nth-of-type(2) > section:first-of-type ul li > article {
+    display: grid;
+    grid-template-rows: 1fr 0.5fr 0.1fr;
+    width: 20vw;
+    min-height: 35vh;
+    box-shadow: 1px 1px 10px #000;
+    margin: 1vh;
+    border-radius: 10px;
+  }
+  #home > section:nth-of-type(2) > section:first-of-type ul li > article figure {
+    grid-row: 1/2;
+  }
+  #home > section:nth-of-type(2) > section:first-of-type ul li > article figure img {
+    border-radius: 10px;
+  }
+  #home > section:nth-of-type(2) > section:first-of-type ul li > article section {
+    grid-row: 2/3;
+  }
+  #home > section:nth-of-type(2) > section:first-of-type ul li > article section h3 {
+    margin-bottom: 1vh;
+    text-align: center;
+  }
+  #home > section:nth-of-type(2) > section:first-of-type ul li > article button {
+    grid-row: 3/4;
+    margin-bottom: 1vh;
+  }
+  #home > section:nth-of-type(2) > section:first-of-type button {
+    justify-self: center;
+    align-self: center;
+  }
+  #home > section:nth-of-type(2) > section:first-of-type button a {
+    text-decoration: none;
+    color: #fff;
+  }
+  #home > section:nth-of-type(2) section:nth-of-type(2) > h3 {
+    color: #15608E;
+    font-size: 2rem;
+    border-bottom: 3px solid #15608E;
+    margin-bottom: 2vh;
+    grid-column: 1/3;
+  }
+  #home > section:nth-of-type(3) {
+    margin: 5vh 1vw 5vh 1vw;
+    padding: 1vh;
+    text-align: center;
+  }
+  #home > section:nth-of-type(3) > h2 {
+    color: #15608E;
+    font-size: 2rem;
+    border-bottom: 3px solid #15608E;
+    margin-bottom: 2vh;
+  }
+  #home > section:nth-of-type(3) > section {
+    text-align: center;
+    column-gap: 2vw;
+  }
+  #home > section:nth-of-type(3) > section ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  #home > section:nth-of-type(3) > section ul li article {
+    display: grid;
+    grid-template-rows: 1fr 0.1fr;
+    text-align: center;
+    box-shadow: 1px 1px 10px #000;
+    margin: 1vh;
+    border-radius: 10px;
+  }
+  #home > section:nth-of-type(3) button {
+    justify-self: center;
+    align-self: center;
+  }
+  #home > section:nth-of-type(3) button a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+@media (min-width: 426px) and (max-width: 1023px) {
+  #le-club {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vh 2vw 0 1vw;
+    display: grid;
+    grid-template-rows: 0.1fr 0.5fr 0.5fr 0.5fr;
+  }
+  #le-club a {
+    display: flex;
+    justify-content: flex-start;
+    text-decoration: underline overline #15608E;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #le-club h2 {
+    grid-row: 1/2;
+    font-size: 2rem;
+    color: #15608E;
+    margin-bottom: 5vh;
+  }
+  #le-club > section:first-of-type {
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: row;
+  }
+  #le-club > section:first-of-type > section:first-of-type {
+    grid-column: 1/2;
+    text-align: center;
+    line-height: 1.5rem;
+    padding: 2vh 2vw 0 2vw;
+  }
+  #le-club > section:first-of-type > section:first-of-type h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+    text-align: center;
+    margin-bottom: 2vh;
+  }
+  #le-club > section:first-of-type figure {
+    grid-column: 2/3;
+  }
+  #le-club > section:nth-of-type(2) {
+    grid-row: 3/4;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 80vw;
+  }
+  #le-club > section:nth-of-type(2) > section:first-of-type {
+    text-align: center;
+    line-height: 1.5rem;
+    padding: 2vh 0 0 2vw;
+  }
+  #le-club > section:nth-of-type(2) > section:first-of-type h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+    text-align: center;
+    margin-bottom: 2vh;
+  }
+  #le-club > section:nth-of-type(3) {
+    grid-row: 4/5;
+    display: flex;
+    flex-direction: row;
+    padding: 2vh 2vw 0 2vw;
+  }
+  #le-club > section:nth-of-type(3) > section:first-of-type {
+    text-align: center;
+    line-height: 1.5rem;
+  }
+  #le-club > section:nth-of-type(3) > section:first-of-type h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+    text-align: center;
+    margin-bottom: 2vh;
   }
 }
 @media (min-width: 1024px) {
@@ -567,6 +843,31 @@ table {
     width: 100%;
   }
 }
+@media (min-width: 426px) and (max-width: 1023px) {
+  #le-club-infrastructure {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vh 2vw 0 1vw;
+  }
+  #le-club-infrastructure h1 {
+    font-size: 2rem;
+    color: #15608E;
+  }
+  #le-club-infrastructure section h2 {
+    font-size: 1.2rem;
+    color: #15608E;
+    text-decoration: underline #000;
+    text-align: center;
+    margin-bottom: 2vh;
+  }
+  #le-club-infrastructure section figure {
+    margin-bottom: 2vh;
+  }
+  #le-club-infrastructure section figure img {
+    width: 100%;
+  }
+}
 @media (min-width: 1024px) {
   #le-club-infrastructure {
     grid-column: 2/3;
@@ -624,54 +925,79 @@ table {
     color: #15608E;
     margin-bottom: 10vh;
   }
-  #le-club-organigramme > section:nth-of-type(2) {
+  #le-club-organigramme section h2 {
+    font-size: 2rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #le-club-organigramme section ul {
     display: grid;
-    grid-template-rows: repeat(5, 1fr);
-    grid-template-columns: repeat(9, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2vw;
+    margin: 2vh;
   }
-  #le-club-organigramme > section:nth-of-type(2) section {
-    border: 1px solid #000;
+  #le-club-organigramme section ul li {
     text-align: center;
-    min-height: 10vh;
+    margin-bottom: 2vh;
   }
-  #le-club-organigramme > section:nth-of-type(2) #president {
-    grid-column: 4/5;
+  #le-club-organigramme section ul li article {
+    box-shadow: 1px 1px 5px #15608E;
+    border-radius: 10px;
+  }
+  #le-club-organigramme section ul li article header figure img {
+    border-radius: 10px;
+  }
+  #le-club-organigramme section ul li article section h3 {
+    font-size: 1.2rem;
+    color: #15608E;
+  }
+}
+@media (min-width: 426px) and (max-width: 1023px) {
+  #le-club-organigramme {
+    grid-column: 2/3;
     grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vh 2vw 0 1vw;
   }
-  #le-club-organigramme > section:nth-of-type(2) #vice-president {
-    grid-column: 5/6;
-    grid-row: 2/3;
+  #le-club-organigramme h1 {
+    font-size: 2rem;
+    color: #15608E;
+    margin-bottom: 10vh;
   }
-  #le-club-organigramme > section:nth-of-type(2) #tresorier {
-    grid-column: 3/4;
-    grid-row: 3/4;
+  #le-club-organigramme section h2 {
+    font-size: 2rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
   }
-  #le-club-organigramme > section:nth-of-type(2) #secretaire {
-    grid-column: 1/2;
-    grid-row: 3/4;
+  #le-club-organigramme section ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2vw;
+    margin: 2vh;
   }
-  #le-club-organigramme > section:nth-of-type(2) #responsable-senior {
-    grid-column: 5/6;
-    grid-row: 4/5;
+  #le-club-organigramme section ul li {
+    text-align: center;
+    margin-bottom: 2vh;
   }
-  #le-club-organigramme > section:nth-of-type(2) #responsable-seniorA {
-    grid-column: 4/5;
-    grid-row: 6/7;
+  #le-club-organigramme section ul li article {
+    box-shadow: 1px 1px 5px #15608E;
+    border-radius: 10px;
   }
-  #le-club-organigramme > section:nth-of-type(2) #responsable-seniorB {
-    grid-column: 6/7;
-    grid-row: 6/7;
+  #le-club-organigramme section ul li article header figure img {
+    border-radius: 10px;
   }
-  #le-club-organigramme > section:nth-of-type(2) #responsable-veterans {
-    grid-column: 7/8;
-    grid-row: 4/5;
-  }
-  #le-club-organigramme > section:nth-of-type(2) #responsable-jeunes {
-    grid-column: 9/10;
-    grid-row: 4/5;
+  #le-club-organigramme section ul li article section h3 {
+    font-size: 1.2rem;
+    color: #15608E;
   }
 }
 @media (max-width: 425px) {
+  #le-club-organigramme {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vh 2vw 0 1vw;
+  }
   #le-club-organigramme h1 {
     font-size: 2rem;
     color: #15608E;
@@ -679,6 +1005,77 @@ table {
   }
   #le-club-organigramme figure img {
     width: 100%;
+  }
+  #le-club-organigramme section h2 {
+    font-size: 2rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #le-club-organigramme section ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1vw;
+    margin: 2vh;
+  }
+  #le-club-organigramme section ul li {
+    text-align: center;
+    margin-bottom: 2vh;
+  }
+  #le-club-organigramme section ul li article {
+    box-shadow: 1px 1px 5px #15608E;
+    border-radius: 10px;
+  }
+  #le-club-organigramme section ul li article header figure img {
+    border-radius: 10px;
+  }
+  #le-club-organigramme section ul li article section h3 {
+    font-size: 1.2rem;
+    color: #15608E;
+  }
+}
+@media (min-width: 426px) and (max-width: 1023px) {
+  #allArticles {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vh 2vw 0 1vw;
+  }
+  #allArticles h2 {
+    font-size: 2rem;
+    color: #15608E;
+    margin-bottom: 5vh;
+  }
+  #allArticles ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  #allArticles ul li {
+    margin: 10vh 5vw 5vh 0;
+  }
+  #allArticles ul li article {
+    box-shadow: 1px 1px 5px #15608E;
+    display: grid;
+    grid-template-rows: 1fr 0.2fr 0.2fr;
+    text-align: center;
+    border-radius: 10px;
+  }
+  #allArticles ul li article header {
+    grid-row: 1/2;
+  }
+  #allArticles ul li article header figure img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  #allArticles ul li article section {
+    grid-row: 2/3;
+    text-align: center;
+  }
+  #allArticles ul li article section h4 {
+    font-size: 1.5rem;
+    color: #15608E;
+  }
+  #allArticles ul li article button {
+    grid-row: 3/4;
   }
 }
 @media (min-width: 1024px) {
@@ -787,6 +1184,48 @@ table {
   #singleArticle section:first-of-type figure {
     text-align: center;
   }
+  #singleArticle section:first-of-type figure img {
+    width: 70%;
+  }
+  #singleArticle section:nth-of-type(2) h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #singleArticle section:nth-of-type(2) p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    margin-bottom: 1vh;
+  }
+}
+@media (min-width: 426px) and (max-width: 1023px) {
+  #singleArticle {
+    min-height: 80vh;
+    padding: 2vh 2vw 0 1vw;
+  }
+  #singleArticle a {
+    text-decoration: none;
+    color: #15608E;
+  }
+  #singleArticle a:hover {
+    text-decoration: underline;
+  }
+  #singleArticle section:first-of-type h2 {
+    font-size: 3rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #singleArticle section:first-of-type h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #singleArticle section:first-of-type figure {
+    text-align: center;
+  }
+  #singleArticle section:first-of-type figure img {
+    width: 50%;
+  }
   #singleArticle section:nth-of-type(2) h3 {
     font-size: 1.5rem;
     color: #15608E;
@@ -823,6 +1262,9 @@ table {
   #singleArticle section:first-of-type figure {
     text-align: center;
   }
+  #singleArticle section:first-of-type figure img {
+    width: 50%;
+  }
   #singleArticle section:nth-of-type(2) h3 {
     font-size: 1.5rem;
     color: #15608E;
@@ -832,6 +1274,53 @@ table {
     font-size: 1.2rem;
     line-height: 2rem;
     margin-bottom: 1vh;
+  }
+}
+@media (min-width: 426px) and (max-width: 1023px) {
+  #teams {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vh 2vw 0 1vw;
+  }
+  #teams figure img {
+    width: 80%;
+  }
+  #teams > h2 {
+    font-size: 2rem;
+    color: #15608E;
+    margin: 0 0 2vh 0;
+  }
+  #teams section:first-of-type > h2 {
+    margin: 0 0 2vh 0;
+    font-size: 1.2rem;
+  }
+  #teams section:first-of-type > h2 a {
+    text-decoration: underline #15608E;
+    color: #000;
+  }
+  #teams section:first-of-type ul {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2vw;
+    margin-bottom: 5vh;
+  }
+  #teams section:first-of-type ul li article {
+    width: 20vw;
+    text-align: center;
+  }
+  #teams section:first-of-type ul li article header h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+  }
+  #teams section:nth-of-type(2) h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 0 0 2vh 0;
+  }
+  #teams section:nth-of-type(2) p a {
+    text-decoration: underline #15608E;
+    color: #000;
   }
 }
 @media (min-width: 1024px) {
@@ -981,6 +1470,60 @@ table {
     color: #15608E;
   }
 }
+@media (min-width: 426px) and (max-width: 1023px) {
+  #effectif {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vh 2vw 0 1vw;
+  }
+  #effectif h1 {
+    font-size: 2rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #effectif a {
+    text-decoration: none;
+    color: #15608E;
+  }
+  #effectif a:hover {
+    text-decoration: underline;
+  }
+  #effectif nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 2vh 0 2vh 0;
+  }
+  #effectif section h2 {
+    font-size: 2rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+    text-align: center;
+  }
+  #effectif section ul {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 2vw;
+    margin: 2vh;
+  }
+  #effectif section ul li {
+    text-align: center;
+    margin-bottom: 2vh;
+  }
+  #effectif section ul li article {
+    box-shadow: 1px 1px 5px #15608E;
+    border-radius: 10px;
+  }
+  #effectif section ul li article header figure img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  #effectif section ul li article section h3 {
+    font-size: 1.2rem;
+    color: #15608E;
+  }
+}
 @media (max-width: 425px) {
   #effectif {
     min-height: 80vh;
@@ -1068,6 +1611,41 @@ table {
     line-height: 2rem;
   }
 }
+@media (min-width: 426px) and (max-width: 1023px) {
+  #playerProfil {
+    min-height: 80vh;
+    padding: 2vh 2vw 0 1vw;
+  }
+  #playerProfil a {
+    text-decoration: none;
+    color: #15608E;
+  }
+  #playerProfil a:hover {
+    text-decoration: underline;
+  }
+  #playerProfil section:first-of-type h2 {
+    font-size: 3rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #playerProfil section:first-of-type h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #playerProfil section:first-of-type figure {
+    text-align: center;
+  }
+  #playerProfil section:nth-of-type(2) h3 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #playerProfil section:nth-of-type(2) p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+}
 @media (min-width: 1024px) {
   #playerProfil {
     min-height: 80vh;
@@ -1117,6 +1695,51 @@ table {
     margin: 2vh 0 2vh 0;
   }
 }
+@media (min-width: 426px) and (max-width: 1023px) {
+  #team-resume {
+    min-height: 100vh;
+    padding: 2vh 2vw 0 1vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.1fr 1fr;
+  }
+  #team-resume h1 {
+    grid-column: 1/4;
+    grid-row: 1/2;
+    font-size: 2rem;
+    color: #15608E;
+  }
+  #team-resume section:first-of-type {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    margin: 5vh 2vw 5vh 0;
+  }
+  #team-resume section:first-of-type h2 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #team-resume section:nth-of-type(2) {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    margin: 5vh 2vw 5vh 0;
+  }
+  #team-resume section:nth-of-type(2) h2 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+  #team-resume section:last-of-type {
+    grid-row: 2/3;
+    grid-column: 3/4;
+    margin: 5vh 0 5vh 0;
+  }
+  #team-resume section:last-of-type h2 {
+    font-size: 1.5rem;
+    color: #15608E;
+    margin: 2vh 0 2vh 0;
+  }
+}
 @media (min-width: 1024px) {
   #team-resume {
     min-height: 100vh;
@@ -1160,6 +1783,46 @@ table {
     font-size: 1.5rem;
     color: #15608E;
     margin: 2vh 0 2vh 0;
+  }
+}
+@media (min-width: 426px) and (max-width: 1023px) {
+  #galerie {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vh 2vw 0 1vw;
+  }
+  #galerie h2 {
+    font-size: 2rem;
+    color: #15608E;
+    margin-bottom: 5vh;
+  }
+  #galerie ul {
+    display: flex;
+    flex-direction: row;
+  }
+  #galerie ul li {
+    margin: 10vh 5vw 5vh 0;
+  }
+  #galerie ul li article {
+    padding: 2vw;
+    box-shadow: 1px 1px 5px #15608E;
+    width: 25vw;
+    display: grid;
+    grid-template-rows: 1fr 1fr 0.5fr;
+  }
+  #galerie ul li article header {
+    grid-row: 1/2;
+  }
+  #galerie ul li article main {
+    grid-row: 2/3;
+    text-align: center;
+  }
+  #galerie ul li article main h3 {
+    font-size: 1.4rem;
+  }
+  #galerie ul li article button {
+    grid-row: 3/4;
   }
 }
 @media (min-width: 1024px) {
@@ -1238,6 +1901,39 @@ table {
     grid-row: 3/4;
   }
 }
+@media (min-width: 426px) and (max-width: 1023px) {
+  #events {
+    min-height: 100vh;
+    padding: 2vh 2vw 0 1vw;
+  }
+  #events h2 {
+    color: #15608E;
+    font-size: 2rem;
+    margin: 2vh 0 10vh 1vw;
+  }
+  #events > section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 1vh 1vw 0 1vw;
+  }
+  #events > section > section {
+    display: grid;
+    grid-template-rows: 0.2fr 1fr;
+    text-align: center;
+  }
+  #events > section > section h4 {
+    font-size: 1.2rem;
+    color: #15608E;
+    grid-row: 1/2;
+  }
+  #events > section > section figure {
+    grid-row: 2/3;
+    width: 25vw;
+  }
+  #events > section > section figure img {
+    width: 100%;
+  }
+}
 @media (min-width: 1024px) {
   #events {
     min-height: 100vh;
@@ -1258,7 +1954,7 @@ table {
     grid-template-rows: 0.2fr 1fr;
     text-align: center;
   }
-  #events > section > section h3 {
+  #events > section > section h4 {
     font-size: 1.2rem;
     color: #15608E;
     grid-row: 1/2;
@@ -1296,6 +1992,29 @@ table {
   }
   #events > section > section figure img {
     width: 100%;
+  }
+}
+@media (min-width: 426px) and (max-width: 1023px) {
+  #contact {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    min-height: 100vh;
+    padding: 2vh 2vw 0 1vw;
+  }
+  #contact h1 {
+    text-align: center;
+  }
+  #contact form {
+    box-shadow: 1px 1px 5px #000;
+    padding: 2vh;
+    margin: 10vh 15vw 10vh 15vw;
+    text-align: center;
+  }
+  #contact form label {
+    margin: 2VH;
+  }
+  #contact form input {
+    margin: 2VH;
   }
 }
 @media (min-width: 1024px) {
@@ -1343,6 +2062,26 @@ table {
 }
 @media (max-width: 425px) {
   #login {
+    min-height: 100vh;
+    padding: 2vw;
+    display: grid;
+    grid-template-rows: 10vh 90vh;
+  }
+  #login h2 {
+    grid-row: 1/2;
+    text-align: center;
+    font-size: 2rem;
+    color: #15608E;
+  }
+  #login form {
+    grid-row: 2/3;
+    justify-self: center;
+  }
+}
+@media (min-width: 426px) and (max-width: 1023px) {
+  #login {
+    grid-column: 2/3;
+    grid-row: 1/2;
     min-height: 100vh;
     padding: 2vw;
     display: grid;
@@ -1436,6 +2175,70 @@ table {
   }
   #footer > section:nth-of-type(2) span {
     color: #fff;
+  }
+  #footer > section:last-of-type {
+    text-align: center;
+    grid-column: 1/4;
+    grid-row: 3/4;
+  }
+}
+@media (min-width: 426px) and (max-width: 1023px) {
+  #footer {
+    background-color: #000;
+    color: #fff;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 0.5fr 0.5fr;
+  }
+  #footer a {
+    text-decoration: none;
+    color: #fff;
+  }
+  #footer > section:first-of-type {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 2vh 0 2vh 0;
+  }
+  #footer > section:first-of-type > section:first-of-type {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  #footer > section:first-of-type > section:first-of-type h3 {
+    text-decoration: underline #fff;
+    margin-bottom: 1vh;
+  }
+  #footer > section:first-of-type > section:nth-of-type(2) {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  #footer > section:first-of-type > section:nth-of-type(2) h3 {
+    text-decoration: underline #fff;
+    margin-bottom: 1vh;
+  }
+  #footer > section:first-of-type > section:last-of-type {
+    grid-column: 3/4;
+    grid-row: 1/2;
+  }
+  #footer > section:first-of-type > section:last-of-type h3 {
+    text-decoration: underline #fff;
+    margin-bottom: 1vh;
+  }
+  #footer > section:nth-of-type(2) {
+    text-align: center;
+    grid-column: 1/4;
+    grid-row: 2/3;
+  }
+  #footer > section:nth-of-type(2) h3 {
+    text-decoration: underline #fff;
+    margin-bottom: 2vh;
+  }
+  #footer > section:nth-of-type(2) span {
+    color: #fff;
+    font-size: 1.5rem;
   }
   #footer > section:last-of-type {
     text-align: center;
@@ -1541,6 +2344,21 @@ table {
   cursor: pointer;
 }
 
+@media (min-width: 426px) and (max-width: 768px) {
+  #public {
+    display: grid;
+    grid-template-columns: 13vw 87vw;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1rem;
+    overflow-x: hidden;
+  }
+  #admin {
+    display: grid;
+    grid-template-columns: 13vw 87vw;
+    grid-template-rows: 1fr 1fr;
+    font-family: "Josefin Sans", sans-serif;
+  }
+}
 @media (min-width: 1024px) {
   #public {
     display: grid;

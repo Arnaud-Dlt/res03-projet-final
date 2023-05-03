@@ -3,46 +3,5 @@
 @media (min-width: 426px) and (max-width: 768px) {}
 
 @media (min-width: 1024px) {
-    #adminNav {
-        grid-column: 1/2;
-
-        nav {
-            background-color: #15608E;
-            height: 100vh;
-            width: 13vw;
-            position: fixed;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            padding: 6vh 0 2vh 0;
-
-            figure {
-                text-align: center;
-
-                img {
-                    width: 60%;
-                }
-            }
-
-            ul {
-                text-align: center;
-                padding: 2vh;
-
-                li {
-                    margin: 2vh;
-
-                    &>ul {
-                        display: none;
-                    }
-
-                    a {
-                        text-decoration: none;
-                        color: #fff;
-                        font-weight: 800;
-                    }
-                }
-            }
-        }
-    }
-
+    
 }
