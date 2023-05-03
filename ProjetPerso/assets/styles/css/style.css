@@ -545,9 +545,8 @@ table {
   }
   #home > section:nth-of-type(2) > section:first-of-type ul li > article {
     display: grid;
-    grid-template-rows: 1fr 0.5fr 0.1fr;
+    grid-template-rows: 1fr 0.2fr 0.1fr;
     width: 20vw;
-    min-height: 35vh;
     box-shadow: 1px 1px 10px #000;
     margin: 1vh;
     border-radius: 10px;
