@@ -1601,6 +1601,9 @@ table {
   #playerProfil section:first-of-type figure {
     text-align: center;
   }
+  #playerProfil section:first-of-type figure img {
+    width: 30%;
+  }
   #playerProfil section:nth-of-type(2) h3 {
     font-size: 1.5rem;
     color: #15608E;
@@ -1636,6 +1639,9 @@ table {
   #playerProfil section:first-of-type figure {
     text-align: center;
   }
+  #playerProfil section:first-of-type figure img {
+    width: 30%;
+  }
   #playerProfil section:nth-of-type(2) h3 {
     font-size: 1.5rem;
     color: #15608E;
@@ -1670,6 +1676,9 @@ table {
   }
   #playerProfil section:first-of-type figure {
     text-align: center;
+  }
+  #playerProfil section:first-of-type figure img {
+    width: 30%;
   }
   #playerProfil section:nth-of-type(2) h3 {
     font-size: 1.5rem;
