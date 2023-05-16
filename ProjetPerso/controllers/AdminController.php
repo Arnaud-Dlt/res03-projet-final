@@ -149,7 +149,6 @@ class AdminController extends AbstractController{
 
     public function login(array $post): void
     {
-        
         if(isset($post['loginEmail'])&& !empty($post["loginEmail"]) 
         && isset($post['loginPassword']) && !empty($post["loginPassword"])){
             
@@ -158,9 +157,9 @@ class AdminController extends AbstractController{
             
             $pwd=$this->clear($post["loginPassword"]);
             
-            $adminToConnect=$this->adminManager->getAdminByEmail($logEmail);
+            $adminToConnect = $this->adminManager->getAdminByEmail($logEmail);
             
-            if($adminToConnect){
+            if($adminToConnect !== null){
                 $hashedPass = $adminToConnect->getPassword();
 
                 if (password_verify($pwd, $hashedPass)) 
@@ -171,19 +170,19 @@ class AdminController extends AbstractController{
 
                 else 
                 {
-                    $this->publicRender("login", ['error' => 'Identifiants de connexion incorrects ']);
+                    echo 'Mot de passe incorrect ';
                 }
-                
             }
             
             else 
             {
-                $this->publicRender("login", ['error' => 'Identifiants de connexion incorrects ']);
+                echo 'Identifiant incorrect ';
             }
         }
+        
         else 
         {
-            $this->publicRender("login", ['error' => 'Merci de remplir tous les champs de connexion']);
+            $this->publicRender("login", []);
         }
     }
     

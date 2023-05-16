@@ -26,16 +26,21 @@ class AdminManager extends AbstractManager{
         return $newAdmin;
     }
     
-    public function getAdminByEmail(string $email) : Admin
+    public function getAdminByEmail(string $email) : ?Admin
     {
         $query=$this->db->prepare("SELECT * FROM admin WHERE email= :email");
         $parameters= ['email' => $email];
         $query->execute($parameters);
         $getAdminByEmail=$query->fetch(PDO::FETCH_ASSOC);
-        $newAdmin=new Admin($getAdminByEmail['email'],$getAdminByEmail['password']);
+        if($getAdminByEmail !== false)
+        {
+            $newAdmin=new Admin($getAdminByEmail['email'],$getAdminByEmail['password']);
         
-        $newAdmin->setId($getAdminByEmail["id"]);
-        return $newAdmin;
+            $newAdmin->setId($getAdminByEmail["id"]);
+            return $newAdmin;
+        }
+        
+        return null;
     }
     
     public function insertAdmin(Admin $admin) : Admin
