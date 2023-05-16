@@ -15,6 +15,10 @@ abstract class AbstractController{
         require 'views/admin_layout.phtml';
     }
     
+    public function secureInput()
+    {
+        
+    }
 }
 
 

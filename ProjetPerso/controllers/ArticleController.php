@@ -73,7 +73,6 @@ class ArticleController extends AbstractController{
             
             $postToUpdate=new Post($post['articleEditTitle'],$post['articleEditDescription'],$post['articleEditContent'],$post['articleEditPicture']);
             $postToUpdate->setId($id);
-            var_dump($postToUpdate);
             
             $this->articleManager->updateArticle($postToUpdate);
         }

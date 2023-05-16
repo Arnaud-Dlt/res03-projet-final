@@ -175,7 +175,8 @@ class AdminController extends AbstractController{
                 
             }
             else{
-                $this->publicRender("login", []);
+                echo "Identifiants inconnus";
+                header('Location: /res03-projet-final/ProjetPerso/login');
             }
         }
         else{
