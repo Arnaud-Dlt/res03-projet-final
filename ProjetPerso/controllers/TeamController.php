@@ -66,7 +66,7 @@ class TeamController extends AbstractController{
             // si les champs sont rempli 
             
             // nouvelle instance
-            $newPlayer=new Player($post['playerFirstname'],$post['playerLastname'],$post['playerPhone'],$post['playerBirthdate'],$post['playerPosition'],$post['playerFoot'],$post['playerBio'],$post['playerPics'],$post['playerCategory']);
+            $newPlayer=new Player($this->clear($post['playerFirstname']),$this->clear($post['playerLastname']),$this->clear($post['playerPhone']),$this->clear($post['playerBirthdate']),$this->clear($post['playerPosition']),$this->clear($post['playerFoot']),$this->clear($post['playerBio']),$this->clear($post['playerPics']),$this->clear($post['playerCategory']));
             
             // créer joueur 
             $this->playerManager->createPlayer($newPlayer);
@@ -97,7 +97,7 @@ class TeamController extends AbstractController{
             {
                 $playerToUpdate = $this->playerManager->getPlayerById($id);
                 
-                $playerToUpdate= new Player($post['editFirstname'],$post['editLastname'],$post['editPhone'],$post['editBirthdate'],$post['editPosition'],$post['editFoot'],$post['editBio'],$post["editProfilImg"],$post["editPlayerCategory"]);
+                $playerToUpdate= new Player($this->clear($post['editFirstname']),$this->clear($post['editLastname']),$this->clear($post['editPhone']),$this->clear($post['editBirthdate']),$this->clear($post['editPosition']),$this->clear($post['editFoot']),$this->clear($post['editBio']),$this->clear($post["editProfilImg"]),$this->clear($post["editPlayerCategory"]));
                 
                 $playerToUpdate->setId($id);
                 
@@ -118,7 +118,7 @@ class TeamController extends AbstractController{
         && isset($post["teamPicture"]) && !empty($post["teamPicture"])
         && isset($post["teamCategory"]) && !empty($post["teamCategory"])){
                 
-            $newTeam= new Team($post['teamName'], $post['teamPicture'], $post["teamCategory"]);
+            $newTeam= new Team($this->clear($post['teamName']), $this->clear($post['teamPicture']), $this->clear($post["teamCategory"]));
             
             $this->teamManager->insertTeam($newTeam);
         }
@@ -138,7 +138,7 @@ class TeamController extends AbstractController{
             && isset($post["editTeamName"]) && !empty($post["editTeamName"])
             && isset($post["editTeamCategory"]) && !empty($post["editTeamCategory"])){
             
-            $teamToUpdate=new Team($post['editTeamName'],$post['editTeamPicture'],$post['editTeamCategory']);
+            $teamToUpdate=new Team($this->clear($post['editTeamName']),$this->clear($post['editTeamPicture']),$this->clear($post['editTeamCategory']));
             $teamToUpdate->setId($id);
             
             $this->teamManager->updateTeam($teamToUpdate);

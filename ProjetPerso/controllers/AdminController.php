@@ -122,10 +122,10 @@ class AdminController extends AbstractController{
             if($post["registerPassword"] === $post["confirmPassword"]){
                 // si password identique on crypte le password
                 
-                $hashPwd=password_hash($post["registerPassword"], PASSWORD_DEFAULT);
+                $hashPwd=password_hash($this->clear($post["registerPassword"]), PASSWORD_DEFAULT);
                 
                 // enregristrement du nouvel admin
-                $newAdmin=new Admin($post['registerEmail'], $hashPwd);
+                $newAdmin=new Admin($this->clear($post['registerEmail']), $hashPwd);
                 
                 $this->adminManager->insertAdmin($newAdmin);
                 
@@ -154,33 +154,36 @@ class AdminController extends AbstractController{
         && isset($post['loginPassword']) && !empty($post["loginPassword"])){
             
             
-            $logEmail=$post["loginEmail"];
+            $logEmail=$this->clear($post["loginEmail"]);
             
-            $pwd=$post["loginPassword"];
+            $pwd=$this->clear($post["loginPassword"]);
             
             $adminToConnect=$this->adminManager->getAdminByEmail($logEmail);
-            $hashpwd=$adminToConnect->getPassword();
             
-            if($adminToConnect !== null){
-                if(password_verify($pwd, $hashpwd)){
-                    $_SESSION["isConnected"] = true;
-                    
+            if($adminToConnect){
+                $hashedPass = $adminToConnect->getPassword();
+
+                if (password_verify($pwd, $hashedPass)) 
+                {
+                    $_SESSION['isConnected'] = true;
                     header('Location: /res03-projet-final/ProjetPerso/admin');
                 }
-            
-                else{
-                    echo "Mot de passe incorrect";
-                    $this->publicRender("login", []);
+
+                else 
+                {
+                    $this->publicRender("login", ['error' => 'Identifiants de connexion incorrects ']);
                 }
                 
             }
-            else{
-                echo "Identifiants inconnus";
-                header('Location: /res03-projet-final/ProjetPerso/login');
+            
+            else 
+            {
+                $this->publicRender("login", ['error' => 'Identifiants de connexion incorrects ']);
             }
         }
-        else{
-            $this->publicRender("login", []);
+        else 
+        {
+            $this->publicRender("login", ['error' => 'Merci de remplir tous les champs de connexion']);
         }
     }
     

@@ -16,7 +16,7 @@ class StaffController extends AbstractController{
             && isset($post["staffRole"]) && !empty($post["staffRole"])
             && isset($post["staffProfilImg"]) && !empty($post["staffProfilImg"])){
                 
-            $newStaff=new Staff($post['staffFirstname'],$post['staffLastname'],$post['staffPhone'],$post['staffRole'], $post["staffProfilImg"]);
+            $newStaff=new Staff($this->clear($post['staffFirstname']),$this->clear($post['staffLastname']),$this->clear($post['staffPhone']),$this->clear($post['staffRole']), $this->clear($post["staffProfilImg"]));
             
             $this->staffManager->insertStaff($newStaff);
         }
@@ -40,7 +40,7 @@ class StaffController extends AbstractController{
             
             $staffToUpdate = $this->staffManager->getStaffById($id);
             
-            $staffToUpdate=new Staff($post['editStaffFirstname'],$post['editStaffLastname'],$post['editStaffPhone'],$post['editStaffRole'], $post['editStaffProfilImg']);
+            $staffToUpdate=new Staff($this->clear($post['editStaffFirstname']),$this->clear($post['editStaffLastname']),$this->clear($post['editStaffPhone']),$this->clear($post['editStaffRole']), $this->clear($post['editStaffProfilImg']));
             
             $staffToUpdate->setId($id);
             

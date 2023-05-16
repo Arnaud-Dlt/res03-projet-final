@@ -17,7 +17,7 @@ class CategoryController extends AbstractController{
         
         if(isset($post["categoryName"]) && !empty($post["categoryName"])){
                 
-            $newCategory=new Category($post['categoryName']);
+            $newCategory=new Category($this->clear($post['categoryName']));
             
             $this->categoryManager->insertCategory($newCategory);
         }

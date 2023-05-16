@@ -15,9 +15,11 @@ abstract class AbstractController{
         require 'views/admin_layout.phtml';
     }
     
-    public function secureInput()
+    protected function clear(string $unsafe): string
     {
+        $safe=htmlspecialchars($unsafe);
         
+        return $safe;
     }
 }
 

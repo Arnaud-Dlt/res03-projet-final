@@ -36,7 +36,6 @@ function checkContactForm() {
         alert('Votre message a bien été envoyé !');
         contactForm.submit();
     });
-
 }
 
 export {checkContactForm};

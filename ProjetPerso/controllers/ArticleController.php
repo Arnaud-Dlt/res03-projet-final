@@ -38,7 +38,7 @@ class ArticleController extends AbstractController{
             && isset($post["articleContent"]) && !empty($post["articleContent"])
             && isset($post["articlePicture"]) && !empty($post["articlePicture"])){
                 
-            $newArticle=new Post($post['articleTitle'],$post['articleDescription'],$post['articleContent'],$post['articlePicture']);
+            $newArticle=new Post($this->clear($post['articleTitle']),$this->clear($post['articleDescription']),$this->clear($post['articleContent']),$this->clear($post['articlePicture']));
             
             var_dump($newArticle);
             
@@ -71,7 +71,7 @@ class ArticleController extends AbstractController{
             && isset($post["articleEditContent"]) && !empty($post["articleEditContent"])
             && isset($post["articleEditPicture"]) && !empty($post["articleEditPicture"])){
             
-            $postToUpdate=new Post($post['articleEditTitle'],$post['articleEditDescription'],$post['articleEditContent'],$post['articleEditPicture']);
+            $postToUpdate=new Post($this->clear($post['articleEditTitle']),$this->clear($post['articleEditDescription']),$this->clear($post['articleEditContent']),$this->clear($post['articleEditPicture']));
             $postToUpdate->setId($id);
             
             $this->articleManager->updateArticle($postToUpdate);
