@@ -176,7 +176,7 @@ class AdminController extends AbstractController{
             
             else 
             {
-                echo 'Identifiant incorrect ';
+                $this->publicRender("login", ['identifiant incorrect']);
             }
         }
         
