@@ -157,7 +157,7 @@ class AdminController extends AbstractController{
             
             $pwd=$this->clear($post["loginPassword"]);
             
-            $adminToConnect = $this->adminManager->getAdminByEmail($logEmail);
+            $adminToConnect=$this->adminManager->getAdminByEmail($logEmail);
             
             if($adminToConnect !== null){
                 $hashedPass = $adminToConnect->getPassword();
@@ -176,7 +176,7 @@ class AdminController extends AbstractController{
             
             else 
             {
-                $this->publicRender("login", ['identifiant incorrect']);
+                echo 'Identifiant incorrect ';
             }
         }
         
